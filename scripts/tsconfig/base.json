@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "module": "ES2020",
+    "target": "ES2019",
+    "moduleResolution": "Node",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "noUnusedLocals": true,
+    "declaration": true,
+    "verbatimModuleSyntax": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": false,
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "resolveJsonModule": true
+  },
+  "exclude": [
+    "**/node_modules",
+    "**/examples",
+    "**/compiled",
+    "**/dist",
+    "**/fixtures",
+    "**/*.test.ts",
+    "**/*.e2e.ts",
+    "**/templates"
+  ],
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Base"
+}

@@ -1,0 +1,84 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`output > normal 1`] = `
+"{
+  mode: 'production',
+  stats: 'none',
+  experiments: {
+    topLevelAwait: true,
+    outputModule: false
+  },
+  infrastructureLogging: {
+    level: 'warn'
+  },
+  resolve: {
+    symlinks: true,
+    extensions: [
+      '.ts',
+      '.tsx',
+      '.js',
+      '.jsx',
+      '.mjs',
+      '.cjs',
+      '.json',
+      '.wasm'
+    ],
+    modules: [
+      'node_modules'
+    ]
+  },
+  module: {
+    parser: {
+      javascript: {
+        exportsPresence: 'error'
+      }
+    }
+  },
+  performance: {
+    hints: false
+  }
+}"
+`;
+
+exports[`output > 自定义 extensions 1`] = `
+"{
+  mode: 'production',
+  stats: 'none',
+  experiments: {
+    topLevelAwait: true,
+    outputModule: false
+  },
+  infrastructureLogging: {
+    level: 'warn'
+  },
+  resolve: {
+    symlinks: true,
+    extensions: [
+      '.web.tsx',
+      '.web.ts',
+      '.web.js',
+      '.ts',
+      '.tsx',
+      '.js',
+      '.jsx',
+      '.mjs',
+      '.cjs',
+      '.json',
+      '.wasm'
+    ],
+    modules: [
+      'node_modules'
+    ]
+  },
+  module: {
+    parser: {
+      javascript: {
+        exportsPresence: 'error'
+      }
+    }
+  },
+  performance: {
+    hints: false
+  }
+}"
+`;

@@ -1,0 +1,65 @@
+{
+  "name": "@kmijs/bundler-shared-config",
+  "version": "0.0.1",
+  "description": "@kmijs/bundler-shared-config",
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kmijs/kmi/-/tree/main/packages/bundler-shared-config"
+  },
+  "license": "ISC",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "compiled",
+    "dist",
+    "client"
+  ],
+  "scripts": {
+    "build": "father build",
+    "build:deps": "kmi-scripts bundleDeps",
+    "dev": "father dev --no-clean",
+    "prepublishOnly": "pnpm build"
+  },
+  "dependencies": {
+    "@kmijs/bundler-compiled": "workspace:*",
+    "@kmijs/bundler-shared": "workspace:*",
+    "@kmijs/shared": "workspace:*",
+    "node-stdlib-browser": "1.3.0"
+  },
+  "devDependencies": {
+    "enhanced-resolve": "5.12.0",
+    "node-polyfill-webpack-plugin": "4.1.0"
+  },
+  "engines": {
+    "node": ">=16.10.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "authors": [
+    "xierenyuan@qq.com"
+  ],
+  "compiledConfig": {
+    "deps": [
+      "node-polyfill-webpack-plugin",
+      "enhanced-resolve"
+    ],
+    "externals": {
+      "node-stdlib-browser": "node-stdlib-browser"
+    },
+    "noMinify": [],
+    "excludeDtsDeps": [
+      "node-polyfill-webpack-plugin",
+      "enhanced-resolve"
+    ]
+  }
+}

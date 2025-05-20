@@ -1,0 +1,169 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`output > normal 1`] = `
+"{
+  output: {
+    path: '<ROOT>/packages/bundler-shared-config/src/config/dist',
+    filename: '[name].js',
+    chunkFilename: '[name].async.js',
+    publicPath: 'auto',
+    pathinfo: false,
+    assetModuleFilename: 'static/[name][ext]',
+    hashFunction: 'xxhash64'
+  },
+  plugins: [
+    /* config.plugin('mini-css-extract-plugin') */
+    new CssExtractPlugin(
+      {
+        filename: '[name].css',
+        chunkFilename: '[name].async.css',
+        ignoreOrder: true
+      }
+    )
+  ]
+}"
+`;
+
+exports[`output > normal dev 1`] = `
+"{
+  output: {
+    path: '<ROOT>/packages/bundler-shared-config/src/config/dist',
+    filename: '[name].js',
+    chunkFilename: '[name].async.js',
+    publicPath: 'auto',
+    pathinfo: true,
+    assetModuleFilename: 'static/[name][ext]',
+    hashFunction: 'xxhash64'
+  },
+  plugins: [
+    /* config.plugin('mini-css-extract-plugin') */
+    new CssExtractPlugin(
+      {
+        filename: '[name].css',
+        chunkFilename: '[name].async.css',
+        ignoreOrder: true
+      }
+    )
+  ]
+}"
+`;
+
+exports[`output > should allow to set outputPath.js and outputPath.css to empty string 1`] = `
+"{
+  output: {
+    path: '<ROOT>/packages/bundler-shared-config/src/config/dist',
+    filename: '[name].js',
+    chunkFilename: '[name].async.js',
+    publicPath: 'auto',
+    pathinfo: false,
+    assetModuleFilename: 'static/[name][ext]',
+    hashFunction: 'xxhash64'
+  },
+  plugins: [
+    /* config.plugin('mini-css-extract-plugin') */
+    new CssExtractPlugin(
+      {
+        filename: '[name].css',
+        chunkFilename: '[name].async.css',
+        ignoreOrder: true
+      }
+    )
+  ]
+}"
+`;
+
+exports[`output > 允许 自定义 filename 1`] = `
+"{
+  output: {
+    path: '<ROOT>/packages/bundler-shared-config/src/config/dist',
+    filename: '[name].[contenthash:10].js',
+    chunkFilename: 'async/[name].[contenthash:8].js',
+    publicPath: 'auto',
+    pathinfo: false,
+    assetModuleFilename: 'static/[name][ext]',
+    hashFunction: 'xxhash64'
+  },
+  plugins: [
+    /* config.plugin('mini-css-extract-plugin') */
+    new CssExtractPlugin(
+      {
+        filename: '[name].[contenthash:10].css',
+        chunkFilename: 'async/[name].[contenthash:8].css',
+        ignoreOrder: true
+      }
+    )
+  ]
+}"
+`;
+
+exports[`output > 应该允许使用 outputPath 自定义目录 1`] = `
+"{
+  output: {
+    path: '<ROOT>/packages/bundler-shared-config/src/config/dist/server',
+    filename: '[name].js',
+    chunkFilename: '[name].async.js',
+    publicPath: 'auto',
+    pathinfo: false,
+    assetModuleFilename: 'static/[name][ext]',
+    hashFunction: 'xxhash64'
+  },
+  plugins: [
+    /* config.plugin('mini-css-extract-plugin') */
+    new CssExtractPlugin(
+      {
+        filename: '[name].css',
+        chunkFilename: '[name].async.css',
+        ignoreOrder: true
+      }
+    )
+  ]
+}"
+`;
+
+exports[`output > 应该允许使用 outputPath.root 自定义目录 1`] = `
+"{
+  output: {
+    path: '<ROOT>/packages/bundler-shared-config/src/config/dist/server',
+    filename: 'js/[name].js',
+    chunkFilename: 'js/[name].async.js',
+    publicPath: 'auto',
+    pathinfo: false,
+    assetModuleFilename: 'static/[name][ext]',
+    hashFunction: 'xxhash64'
+  },
+  plugins: [
+    /* config.plugin('mini-css-extract-plugin') */
+    new CssExtractPlugin(
+      {
+        filename: 'css/[name].css',
+        chunkFilename: 'css/[name].async.css',
+        ignoreOrder: true
+      }
+    )
+  ]
+}"
+`;
+
+exports[`output > 应该允许通过 outputPath.js 自定义 js 路径 1`] = `
+"{
+  output: {
+    path: '<ROOT>/packages/bundler-shared-config/src/config/dist',
+    filename: 'static/js/[name].js',
+    chunkFilename: 'static/js/[name].async.js',
+    publicPath: 'auto',
+    pathinfo: false,
+    assetModuleFilename: 'static/[name][ext]',
+    hashFunction: 'xxhash64'
+  },
+  plugins: [
+    /* config.plugin('mini-css-extract-plugin') */
+    new CssExtractPlugin(
+      {
+        filename: 'css/[name].css',
+        chunkFilename: 'css/[name].async.css',
+        ignoreOrder: true
+      }
+    )
+  ]
+}"
+`;

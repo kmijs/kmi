@@ -1,0 +1,97 @@
+{
+  "$schema": "https://biomejs.dev/schemas/1.9.3/schema.json",
+  "vcs": {
+    "enabled": true,
+    "defaultBranch": "master",
+    "clientKind": "git",
+    "useIgnoreFile": true
+  },
+  "files": {
+    "ignoreUnknown": true,
+    "ignore": [
+      "*.vue",
+      "tsconfig.json",
+      "tsconfig.*.json",
+      "compiled/**/*",
+      "./packages/shared/bundles/**/*",
+      "dist",
+      "lib",
+      "packages/**/*/fixtures",
+      "packages/bundler-rspack/src/fixtures",
+      "./*.js",
+      "examples/**/*",
+      "yarn/yarn.js",
+      "packages/create/src/generator/core/fixtures",
+      "e2e/test-cases/rspack-js-esbuild",
+      "packages/bundler-webpack/src/fixtures",
+      "presets/preset-react/libs/*",
+      "e2e/with-react-max",
+      "e2e/with-react-console",
+      "templates/template-react-console",
+      "packages/shared/src/BaseGenerator/fixtures"
+    ]
+  },
+  "formatter": {
+    "enabled": false
+  },
+  "organizeImports": {
+    "enabled": true,
+    "include": ["./**/*.ts", "./**/*.tsx"]
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "style": {
+        "noNonNullAssertion": "off",
+        "useFilenamingConvention": {
+          "level": "error",
+          "options": {
+            "filenameCases": ["camelCase", "PascalCase", "export"],
+            "strictCase": false
+          }
+        },
+        "noParameterAssign": "off"
+      },
+      "complexity": {
+        "noForEach": "off"
+      },
+      "suspicious": {
+        "noExplicitAny": "off",
+        "noConfusingVoidType": "off"
+      },
+      "performance": {
+        "noDelete": "off"
+      }
+    }
+  },
+  "overrides": [
+    {
+      "include": ["**/*/plugin-utils.*"],
+      "linter": {
+        "rules": {
+          "style": {
+            "useFilenamingConvention": "off"
+          }
+        }
+      }
+    },
+    {
+      "include": [
+        "./plugins/plugin-doctor/src/rules/*.ts",
+        "./packages/create/src/generator/core/fixtures/*.ts",
+        "**/*/babel-plugin-releace.spec.ts",
+        "**/*/babel-plugin-releace.ts",
+        "e2e/**/*",
+        "packages/bundler-compiled/**/*"
+      ],
+      "linter": {
+        "rules": {
+          "style": {
+            "useFilenamingConvention": "off"
+          }
+        }
+      }
+    }
+  ]
+}

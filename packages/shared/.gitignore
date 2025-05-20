@@ -1,0 +1,16 @@
+compiled/@ks/weblogger/**/*.d.ts
+compiled/@ks/weblogger/es
+compiled/@ks/weblogger/lib/types
+compiled/@ks/weblogger/lib/log.bridge.js
+compiled/@ks/weblogger/lib/log.browser.js
+compiled/@ks/weblogger/lib/log.hybrid.js
+compiled/@ks/weblogger/lib/log.kdsnative.js
+compiled/@ks/weblogger/lib/log.krn.js
+compiled/@ks/weblogger/lib/log.krnbridge.js
+compiled/@ks/weblogger/lib/log.lite.js
+compiled/@ks/weblogger/lib/log.mina.js
+compiled/@ks/weblogger/lib/log.pure.js
+compiled/@ks/weblogger/lib/plugins
+compiled/@ks/weblogger/CHANGELOG.md
+compiled/@ks/weblogger/README.md
+docs

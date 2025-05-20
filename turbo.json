@@ -1,0 +1,43 @@
+{
+  "$schema": "https://turborepo.org/schema.json",
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**"]
+    },
+    "build:extra": {
+      "cache": false
+    },
+    "dev": {
+      "dependsOn": ["^dev"],
+      "cache": false,
+      "persistent": true
+    },
+    "test:e2e": {
+      "cache": false
+    }
+  },
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**"]
+    },
+    "build:extra": {
+      "cache": false
+    },
+    "dev": {
+      "dependsOn": ["^dev"],
+      "cache": false,
+      "persistent": true
+    },
+    "test:e2e": {
+      "cache": false
+    }
+  },
+  "globalDependencies": [
+    "./scripts/tsconfig/base.json",
+    "tsconfig.json",
+    "vitest.workspace.ts",
+    ".father.base.ts"
+  ]
+}

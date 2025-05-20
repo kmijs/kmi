@@ -1,0 +1,1 @@
+{"name":"@pmmmwh/react-refresh-webpack-plugin","main":"lib/index.js","types":"types/lib/index.d.ts","author":"Michael Mok","license":"MIT","dependencies":{"ansi-html":"^0.0.9","core-js-pure":"^3.23.3","error-stack-parser":"^2.0.6","html-entities":"^2.1.0","loader-utils":"^2.0.4","schema-utils":"^4.2.0","source-map":"^0.7.3"}}

@@ -1,0 +1,9 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPoints": ["./src/index.ts"],
+  "exclude": [
+    "**/fixtures/**/*.ts",
+    "**/fixtures/**/*.tsx",
+    "src/BaseGenerator/fixtures/tpl/a.tsx"
+  ]
+}

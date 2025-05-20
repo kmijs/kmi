@@ -1,0 +1,120 @@
+{
+  "name": "kmi-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "keywords": [],
+  "license": "ISC",
+  "workspaces": [
+    "packages/*",
+    "plugins/*",
+    "codemods/*",
+    "presets/*",
+    "solutions/*",
+    "templates/*",
+    "devtools/*",
+    "runtimes/*"
+  ],
+  "scripts": {
+    "bootstrap": "kmi-scripts bootstrap",
+    "build": "kmi-scripts turbo build",
+    "build:codemod": "kmi-scripts turbo build --filter='./codemods/*'",
+    "change": "pnpm changeset",
+    "check-dependency-version": "check-dependency-version-consistency . --ignore-package kmi-monorepo",
+    "checkPackageFiles": "kmi-scripts checkPackageFiles",
+    "dev": "kmi-scripts turbo dev --parallel",
+    "dev:packages": "kmi-scripts turbo dev --parallel --filter='./packages/*'",
+    "dev:presets": "kmi-scripts turbo dev --parallel --filter='./presets/*'",
+    "dev:plugins": "kmi-scripts turbo dev --parallel --filter='./plugins/*'",
+    "dev:solutions": "kmi-scripts turbo dev --parallel --filter='./solutions/*'",
+    "dev:codemod": "kmi-scripts turbo dev --parallel --filter='./codemods/*'",
+    "format": "prettier --write .",
+    "preinstall": "npx only-allow pnpm",
+    "postinstall": "simple-git-hooks && kmi-scripts postinstall",
+    "lint": "biome check . --diagnostic-level=warn",
+    "new": "kmi-scripts create",
+    "checkNpmRelease": "kmi-scripts checkNpmRelease",
+    "release": "pnpm checkPackageFiles && pnpm run ci && kmi-scripts release",
+    "release:beta": "pnpm release --tag next --preid beta",
+    "release:nextv2": "pnpm release --tag nextv2 --preid beta",
+    "release:rc": "pnpm release --tag rc --preid rc",
+    "release:canary": "kmi-scripts releaseCanary",
+    "test": "vitest",
+    "test:ci": "NODE_OPTIONS=--max_old_space_size=16384 vitest run",
+    "test:ci:e2e": "NODE_OPTIONS=--max_old_space_size=16384 E2E=1 vitest run --no-file-parallelism",
+    "test:e2e": "NODE_OPTIONS=--max_old_space_size=16384 pnpm --filter=./e2e/* run test:e2e",
+    "test:e2e:turbo": "NODE_OPTIONS=--max_old_space_size=16384 turbo --filter=./e2e/* run test:e2e",
+    "typecheck": "tsc --noEmit",
+    "ci": "run-p typecheck test:ci test:e2e:turbo",
+    "ci:node16": "run-p test:ci test:e2e",
+    "changelog": "conventional-changelog -i ./docs/src/CHANGELOG.md -s -u false -r 0 --config ./.changelogrc.js",
+    "changelog:generate": "conventional-changelog --config ./.changelogrc.js -u",
+    "test:ignoreWorkspaceE2e": "node ./scripts/ignoreWorkspaceE2e.mjs",
+    "docs:dev": "cd docs && pnpm dev"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm exec lint-staged --concurrent false",
+    "commit-msg": "pnpm kmi-scripts verifyCommit $1"
+  },
+  "lint-staged": {
+    "*": [
+      "prettier --write --cache --ignore-unknown"
+    ],
+    "*.{ts,tsx}": [
+      "biome check --write --formatter-enabled=false --no-errors-on-unmatched",
+      "prettier --write --ignore-unknown"
+    ],
+    "package.json": "pnpm run check-dependency-version"
+  },
+  "resolutions": {
+    "esbuild": "0.17.19"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@changesets/cli": "^2.27.9",
+    "@kmijs/babel-preset-react": "workspace:*",
+    "@playwright/test": "1.32.3",
+    "@pnpm/find-workspace-packages": "6.0.9",
+    "@scripts/kmi-scripts": "workspace:*",
+    "@scripts/prettier-plugin-sort-keys": "workspace:*",
+    "@scripts/test-utils": "workspace:*",
+    "@scripts/tsconfig": "workspace:*",
+    "@trivago/prettier-plugin-sort-imports": "4.3.0",
+    "@types/node": "20.8.9",
+    "check-dependency-version-consistency": "4.1.0",
+    "conventional-changelog-cli": "5.0.0",
+    "father": "4.3.6",
+    "globby": "13.2.2",
+    "lint-staged": "15.0.2",
+    "npm-run-all": "4.1.5",
+    "prebundle": "1.2.5",
+    "prettier": "3.0.3",
+    "prettier-plugin-packagejson": "2.3.0",
+    "simple-git-hooks": "2.9.0",
+    "start-server-and-test": "^1.15.2",
+    "tsx": "3.14.0",
+    "turbo": "1.10.16",
+    "typescript": "5.2.2",
+    "unbuild": "2.0.0",
+    "vitest": "2.1.3"
+  },
+  "packageManager": "pnpm@8.15.8",
+  "engines": {
+    "node": ">=20.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "react",
+        "react-dom",
+        "postcss",
+        "webpack",
+        "eslint",
+        "stylelint",
+        "styled-components"
+      ]
+    }
+  },
+  "_local": "This flag is used to check if the development in local, Please do not delete."
+}

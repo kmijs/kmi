@@ -1,0 +1,86 @@
+{
+  "name": "@kmijs/bundler-rspack",
+  "version": "0.0.1",
+  "description": "Kmi supports rspack bundling",
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kmijs/kmi/-/tree/main/packages/bundler-rspack"
+  },
+  "license": "ISC",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "kmi-rspack": "./bin/kmi-rspack.js"
+  },
+  "files": [
+    "compiled",
+    "dist",
+    "bin"
+  ],
+  "scripts": {
+    "build": "father build",
+    "build:bundles": "kmi-scripts bundles",
+    "build:deps": "kmi-scripts bundleDeps",
+    "dev": "father dev --no-clean",
+    "prepublishOnly": "pnpm build"
+  },
+  "dependencies": {
+    "@babel/runtime": "7.23.6",
+    "@kmijs/bundler-compiled": "workspace:*",
+    "@kmijs/bundler-shared": "workspace:*",
+    "@kmijs/bundler-shared-config": "workspace:*",
+    "@kmijs/shared": "workspace:*",
+    "@ksuni/swc-plugin-auto-css-modules": "0.1.0",
+    "@swc/helpers": "0.5.15",
+    "postcss": "8.4.21",
+    "react-error-overlay": "6.0.9"
+  },
+  "devDependencies": {
+    "rspack-manifest-plugin": "5.0.0",
+    "ts-checker-rspack-plugin": "1.1.1",
+    "upath": "2.0.1"
+  },
+  "engines": {
+    "node": "^14.18.0 || >=16.10.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "authors": [
+    "xierenyuan@qq.com"
+  ],
+  "compiledConfig": {
+    "deps": [
+      "rspack-manifest-plugin",
+      "upath"
+    ],
+    "externals": {
+      "@babel/core": "@kmijs/bundler-compiled/compiled/babel/core",
+      "@rspack/core": "@kmijs/bundler-shared/rspack",
+      "webpack": "webpack",
+      "esbuild": "@kmijs/bundler-shared/esbuild",
+      "picocolors": "@kmijs/shared/compiled/picocolors",
+      "@rspack/lite-tapable": "@kmijs/bundler-shared/rspack-lite-tapable",
+      "minimatch": "@kmijs/shared/compiled/minimatch",
+      "postcss": "postcss",
+      "schema-utils": "@kmijs/bundler-compiled/compiled/schema-utils",
+      "upath": "../upath",
+      "less": "@kmijs/bundler-shared/compiled/less",
+      "loader-utils": "loader-utils",
+      "jiti": "jiti"
+    },
+    "extraDtsDeps": [],
+    "extraDtsExternals": [
+      "webpack-dev-server",
+      "@rspack/core",
+      "@rspack/lite-tapable",
+      "webpack",
+      "postcss"
+    ],
+    "excludeDtsDeps": [
+      "rspack-manifest-plugin"
+    ],
+    "noMinify": []
+  }
+}

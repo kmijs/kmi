@@ -1,0 +1,22 @@
+{
+  "name": "zx",
+  "version": "4.3.0",
+  "repository": "google/zx",
+  "license": "Apache-2.0",
+  "author": "Anton Medvedev <anton@medv.io>",
+  "main": "./index.mjs",
+  "types": "index.d.ts",
+  "dependencies": {
+    "@types/fs-extra": "^9.0.12",
+    "@types/minimist": "^1.2.2",
+    "@types/node": "^16.6",
+    "@types/node-fetch": "^2.5.12",
+    "chalk": "^4.1.2",
+    "fs-extra": "^10.0.0",
+    "globby": "^12.0.1",
+    "minimist": "^1.2.5",
+    "node-fetch": "^2.6.1",
+    "ps-tree": "^1.2.0",
+    "which": "^2.0.2"
+  }
+}

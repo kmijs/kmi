@@ -1,0 +1,13 @@
+{
+  "name": "@scripts/test-utils",
+  "version": "1.0.0",
+  "private": true,
+  "description": "",
+  "keywords": [],
+  "license": "ISC",
+  "author": "",
+  "main": "./src/index.ts",
+  "dependencies": {
+    "@kmijs/shared": "workspace:*"
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "name": "@kmijs/bundler-webpack",
+  "version": "0.0.1",
+  "description": "@kmijs/bundler-webpack",
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kmijs/kmi/-/tree/main/packages/bundler-webpack"
+  },
+  "license": "ISC",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "kmi-webpack": "./bin/kmi-webpack.js"
+  },
+  "files": [
+    "bin",
+    "compiled",
+    "dist"
+  ],
+  "scripts": {
+    "build": "father build",
+    "build:bundles": "kmi-scripts bundles",
+    "build:deps": "kmi-scripts bundleDeps",
+    "dev": "father dev --no-clean",
+    "generate:webpackPackages": "pnpm node ./scripts/generateWebpackPackages.js",
+    "prepublishOnly": "pnpm build"
+  },
+  "dependencies": {
+    "@kmijs/bundler-compiled": "workspace:*",
+    "@kmijs/bundler-rspack": "workspace:*",
+    "@kmijs/bundler-shared": "workspace:*",
+    "@kmijs/bundler-shared-config": "workspace:*",
+    "@kmijs/shared": "workspace:*",
+    "core-js-pure": "3.23.3",
+    "loader-utils": "2.0.4",
+    "postcss": "8.4.21",
+    "react-error-overlay": "6.0.9",
+    "react-refresh": "0.14.0"
+  },
+  "devDependencies": {
+    "@pmmmwh/react-refresh-webpack-plugin": "0.5.15",
+    "@types/webpack-sources": "3.2.3",
+    "copy-webpack-plugin": "10.2.4",
+    "cosmiconfig": "7.0.1",
+    "fork-ts-checker-webpack-plugin": "8.0.0",
+    "jest-worker": "29.4.3",
+    "mini-css-extract-plugin": "2.7.2",
+    "node-abort-controller": "3.0.1",
+    "webpack": "5.97.1",
+    "webpack-manifest-plugin": "5.0.0",
+    "webpack-sources": "3.2.3",
+    "webpackbar": "5.0.2"
+  },
+  "engines": {
+    "node": ">=16.10.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "authors": [
+    "xierenyuan@qq.com"
+  ],
+  "compiledConfig": {
+    "deps": [
+      "copy-webpack-plugin",
+      "webpack-sources",
+      "mini-css-extract-plugin",
+      "webpack-manifest-plugin",
+      "webpackbar",
+      "webpack-sources",
+      "./bundles/webpack/bundle",
+      "cosmiconfig",
+      "node-abort-controller"
+    ],
+    "externals": {
+      "@swc/core": "@swc/core",
+      "@babel/core": "@kmijs/bundler-compiled/compiled/babel/core",
+      "es-module-lexer": "@kmijs/bundler-compiled/compiled/es-module-lexer",
+      "esbuild": "@kmijs/bundler-shared/esbuild",
+      "express": "@kmijs/bundler-shared/compiled/express",
+      "webpack": "../webpack",
+      "webpack/lib/NormalModule": "../webpack/NormalModule",
+      "webpack-sources": "../webpack-sources",
+      "terser-webpack-plugin": "@kmijs/bundler-compiled/compiled/terser-webpack-plugin",
+      "terser": "@kmijs/bundler-compiled/compiled/terser",
+      "tapable": "@kmijs/bundler-shared/tapable",
+      "uglify-js": "uglify-js",
+      "typescript": "typescript",
+      "jest-worker": "jest-worker",
+      "schema-utils": "@kmijs/bundler-compiled/compiled/schema-utils",
+      "postcss": "postcss",
+      "acorn": "@kmijs/bundler-compiled/compiled/acorn",
+      "browserslist": "@kmijs/bundler-compiled/compiled/browserslist"
+    },
+    "noMinify": [
+      "mini-css-extract-plugin"
+    ],
+    "extraDtsDeps": [
+      "webpack"
+    ],
+    "extraDtsExternals": [
+      "@swc/core",
+      "esbuild",
+      "uglify-js",
+      "webpack"
+    ],
+    "excludeDtsDeps": [
+      "copy-webpack-plugin",
+      "mini-css-extract-plugin",
+      "webpack-manifest-plugin",
+      "cosmiconfig",
+      "node-abort-controller"
+    ]
+  }
+}

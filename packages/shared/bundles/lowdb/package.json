@@ -1,0 +1,8 @@
+{
+  "name": "lowdb",
+  "version": "7.0.1",
+  "type": "module",
+  "module": "./bundle.mjs",
+  "source": "./bundle.mjs",
+  "types": "./index.d.ts"
+}
