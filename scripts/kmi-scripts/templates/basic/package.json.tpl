@@ -4,7 +4,7 @@
   "description": "{{{ description }}}",
   "repository": {
     "type": "git",
-    "url": "https://git.corp.kuaishou.com/kmijs/core/-/tree/master/packages/{{{ name }}}"
+    "url": "https://github.com/kmijs/kmi/-/tree/main/packages/{{{ name }}}"
   },
   "files": [
     "compiled",
@@ -32,7 +32,7 @@
   ],
   "license": "ISC",
   "publishConfig": {
-    "registry": "https://npm.corp.kuaishou.com"
+    "access": "public"
   },
   "dependencies": {
   },

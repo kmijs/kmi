@@ -8,6 +8,7 @@
   "author": "",
   "main": "./src/index.ts",
   "dependencies": {
-    "@kmijs/shared": "workspace:*"
+    "@kmijs/shared": "workspace:*",
+    "upath": "2.0.1"
   }
 }

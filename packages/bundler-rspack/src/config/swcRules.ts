@@ -29,7 +29,7 @@ function getDefaultSwcConfig(opts: {
         // @ts-expect-error
         plugins: [
           ...(opts.userConfig.autoCSSModules
-            ? [[require.resolve('@ksuni/swc-plugin-auto-css-modules'), {}]]
+            ? [[require.resolve('@kmijs/swc-plugin-auto-css-modules'), {}]]
             : []),
           ...opts.extraSwcPlugins,
           ...(opts.userConfig.extraSwcPlugins || []).filter(Boolean),

@@ -34,18 +34,18 @@ interface Manifest extends ProjectManifest {
   logger.event('check publishConfig registry')
   const filterProject = await getPackage()
 
+  // check npm registry
+  logger.event('check npm registry')
+  const registry = (await $`npm config get registry`).stdout.trim()
+  assert(
+    registry === 'https://registry.npmjs.org/',
+    'npm registry is not https://registry.npmjs.org/',
+  )
+
   const pkgsMap = new Map<string, Manifest>()
   filterProject.forEach((project) => {
     const { dir, manifest } = project
     pkgsMap.set(manifest.name!, { ...manifest, dir })
-
-    // 如果未设置 publishConfig registry 则报错
-    assert(
-      manifest.publishConfig?.registry === 'https://npm.corp.kuaishou.com',
-      `pkg ${chalk.red(
-        manifest.name,
-      )} publishConfig.registry is not https://npm.corp.kuaishou.com`,
-    )
   })
 
   const pkgs = Array.from(pkgsMap.keys())
