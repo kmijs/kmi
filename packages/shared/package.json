@@ -65,7 +65,7 @@
     "gzip-size": "7.0.0",
     "import-lazy": "4.0.0",
     "javascript-stringify": "2.1.0",
-    "json5": "2.2.1",
+    "json5": "2.2.2",
     "lodash": "4.17.21",
     "lowdb": "7.0.1",
     "magic-string": "0.30.5",

@@ -916,8 +916,8 @@ importers:
         specifier: 2.1.0
         version: 2.1.0
       json5:
-        specifier: 2.2.1
-        version: 2.2.1
+        specifier: 2.2.2
+        version: 2.2.2
       lodash:
         specifier: 4.17.21
         version: 4.17.21
@@ -17104,6 +17104,12 @@ packages:
     engines: {node: '>=6'}
     hasBin: true
 
+  /json5@2.2.2:
+    resolution: {integrity: sha512-46Tk9JiOL2z7ytNQWFLpj99RZkVgeHf87yGQKsIkaPz1qSH9UczKH1rO7K3wgRselo0tYMUNfecYpm/p1vC7tQ==}
+    engines: {node: '>=6'}
+    hasBin: true
+    dev: true
+
   /json5@2.2.3:
     resolution: {integrity: sha512-XmOWe7eyHYH14cLdVPoyg+GOH3rYX++KpzrylJwSW98t3Nk+U8XOl8FWKOgwtzdb8lXGf6zYwDUzeHMWfxasyg==}
     engines: {node: '>=6'}
@@ -25894,7 +25900,7 @@ packages:
   /tsconfig-paths@4.0.0:
     resolution: {integrity: sha512-SLBg2GBKlR6bVtMgJJlud/o3waplKtL7skmLkExomIiaAtLGtVsoXIqP3SYdjbcH9lq/KVv7pMZeCBpLYOit6Q==}
     dependencies:
-      json5: 2.2.1
+      json5: 2.2.2
       minimist: 1.2.8
       strip-bom: 3.0.0
     dev: true
@@ -25903,7 +25909,7 @@ packages:
     resolution: {integrity: sha512-NoZ4roiN7LnbKn9QqE1amc9DJfzvZXxF4xDavcOWt1BPkdx+m+0gJuPM+S0vCe7zTJMYUP0R8pO2XMr+Y8oLIg==}
     engines: {node: '>=6'}
     dependencies:
-      json5: 2.2.3
+      json5: 2.2.2
       minimist: 1.2.8
       strip-bom: 3.0.0
     dev: true
