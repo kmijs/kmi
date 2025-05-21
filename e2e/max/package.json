@@ -3,11 +3,11 @@
   "private": true,
   "scripts": {
     "build": "max build",
-    "dev": "PORT=1025 max dev",
+    "dev": "cross-env PORT=1025 max dev",
     "e2e": "playwright test",
     "preview": "max preview",
     "setup": "max setup",
-    "test:e2e": "cross-env start-test dev http://127.0.0.1:1025/__umi/api/status e2e",
+    "test:e2e": "start-test dev http://127.0.0.1:1025/__umi/api/status e2e",
     "test:open": "playwright codegen localhost:1025"
   },
   "dependencies": {
