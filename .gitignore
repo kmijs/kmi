@@ -66,4 +66,5 @@ examples/*/.vscode
 /packages/bundler-shared-config/client/**/*
 /.idea
 
-.adstar
+.umi
+.umi-*

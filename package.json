@@ -20,7 +20,7 @@
     "build": "kmi-scripts turbo build",
     "build:codemod": "kmi-scripts turbo build --filter='./codemods/*'",
     "change": "pnpm changeset",
-    "check-dependency-version": "check-dependency-version-consistency . --ignore-package kmi-monorepo",
+    "check-dependency-version": "check-dependency-version-consistency . --ignore-package kmi-monorepo --ignore-dep cosmiconfig",
     "checkPackageFiles": "kmi-scripts checkPackageFiles",
     "dev": "kmi-scripts turbo dev --parallel",
     "dev:packages": "kmi-scripts turbo dev --parallel --filter='./packages/*'",

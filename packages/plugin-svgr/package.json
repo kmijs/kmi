@@ -1,0 +1,59 @@
+{
+  "name": "@kmijs/plugin-svgr",
+  "version": "0.0.1",
+  "description": "",
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kmijs/kmi/-/tree/main/plugins/plugin-svgr"
+  },
+  "license": "ISC",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "compiled",
+    "dist"
+  ],
+  "scripts": {
+    "build": "father build",
+    "build:deps": "kmi-scripts bundleDeps",
+    "dev": "father dev",
+    "prebundle": "prebundle",
+    "prepublishOnly": "pnpm build"
+  },
+  "dependencies": {
+    "@kmijs/bundler-compiled": "workspace:*",
+    "@kmijs/bundler-shared": "workspace:*",
+    "@kmijs/shared": "workspace:*",
+    "loader-utils": "2.0.4"
+  },
+  "devDependencies": {
+    "@kmijs/types": "workspace:*",
+    "@svgr/babel-preset": "8.1.0",
+    "@svgr/core": "8.1.0",
+    "@svgr/plugin-jsx": "8.1.0",
+    "@svgr/plugin-svgo": "8.1.0",
+    "cosmiconfig": "8.1.3",
+    "file-loader": "6.2.0",
+    "svgo-loader": "3.0.0",
+    "umi": "^4.4.11",
+    "url-loader": "4.1.1"
+  },
+  "engines": {
+    "node": ">=16.10.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "authors": [
+    "renhong.xrh@gmail.com"
+  ]
+}

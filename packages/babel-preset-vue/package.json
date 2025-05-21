@@ -5,7 +5,7 @@
   "keywords": [],
   "repository": {
     "type": "git",
-    "url": "https://github.com/kmijs/kmi/-/tree/main/packages/babel-preset-vue"
+    "url": "https://github.com/kmijs/kmi/tree/main/packages/babel-preset-vue"
   },
   "license": "ISC",
   "exports": {
@@ -42,6 +42,6 @@
     "access": "public"
   },
   "authors": [
-    "xierenyuan@qq.com"
+    "renhong.xrh@gmail.com"
   ]
 }

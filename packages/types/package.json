@@ -1,0 +1,49 @@
+{
+  "name": "@kmijs/types",
+  "version": "0.0.1",
+  "description": "",
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kmijs/kmi/-/tree/main/packages/types"
+  },
+  "license": "ISC",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "compiled",
+    "dist"
+  ],
+  "scripts": {
+    "build": "father build",
+    "build:deps": "kmi-scripts bundleDeps",
+    "dev": "father dev --no-clean",
+    "prepublishOnly": "pnpm build"
+  },
+  "dependencies": {
+    "@kmijs/bundler-rspack": "workspace:*",
+    "@kmijs/bundler-shared": "workspace:*",
+    "@kmijs/shared": "workspace:*"
+  },
+  "devDependencies": {
+    "@umijs/core": "^4.4.11",
+    "umi": "^4.4.11"
+  },
+  "engines": {
+    "node": ">=16.10.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "authors": [
+    "renhong.xrh@gmail.com"
+  ]
+}

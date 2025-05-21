@@ -5,7 +5,7 @@
   "keywords": [],
   "repository": {
     "type": "git",
-    "url": "https://github.com/kmijs/kmi/-/tree/main/packages/babel-preset-react"
+    "url": "https://github.com/kmijs/kmi/tree/main/packages/babel-preset-react"
   },
   "license": "ISC",
   "main": "./dist/index.js",
@@ -34,6 +34,6 @@
     "access": "public"
   },
   "authors": [
-    "xierenyuan@qq.com"
+    "renhong.xrh@gmail.com"
   ]
 }

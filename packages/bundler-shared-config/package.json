@@ -5,7 +5,7 @@
   "keywords": [],
   "repository": {
     "type": "git",
-    "url": "https://github.com/kmijs/kmi/-/tree/main/packages/bundler-shared-config"
+    "url": "https://github.com/kmijs/kmi/tree/main/packages/bundler-shared-config"
   },
   "license": "ISC",
   "exports": {
@@ -46,7 +46,7 @@
     "access": "public"
   },
   "authors": [
-    "xierenyuan@qq.com"
+    "renhong.xrh@gmail.com"
   ],
   "compiledConfig": {
     "deps": [

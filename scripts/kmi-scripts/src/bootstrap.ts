@@ -13,7 +13,7 @@ import { getPackage } from './utils/package'
         version,
         repository: {
           type: 'git',
-          url: `https://github.com/kmijs/kmi/-/tree/main/${pkgFile}`,
+          url: `https://github.com/kmijs/kmi/tree/main/${pkgFile}`,
         },
         publishConfig: {
           access: 'public',

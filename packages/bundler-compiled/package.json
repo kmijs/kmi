@@ -5,7 +5,7 @@
   "keywords": [],
   "repository": {
     "type": "git",
-    "url": "https://github.com/kmijs/kmi/-/tree/main/packages/bundler-compiled"
+    "url": "https://github.com/kmijs/kmi/tree/main/packages/bundler-compiled"
   },
   "license": "ISC",
   "main": "./dist/index.js",
@@ -103,7 +103,7 @@
     "access": "public"
   },
   "authors": [
-    "xierenyuan@qq.com"
+    "renhong.xrh@gmail.com"
   ],
   "compiledConfig": {
     "deps": [

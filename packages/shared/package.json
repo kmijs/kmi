@@ -5,7 +5,7 @@
   "keywords": [],
   "repository": {
     "type": "git",
-    "url": "https://github.com/kmijs/kmi/-/tree/main/packages/shared"
+    "url": "https://github.com/kmijs/kmi/tree/main/packages/shared"
   },
   "license": "ISC",
   "type": "commonjs",
@@ -103,7 +103,7 @@
     "access": "public"
   },
   "authors": [
-    "xierenyuan@qq.com"
+    "renhong.xrh@gmail.com"
   ],
   "compiledConfig": {
     "deps": [

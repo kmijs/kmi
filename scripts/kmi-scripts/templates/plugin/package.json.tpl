@@ -32,11 +32,11 @@
   ],
   "license": "ISC",
   "publishConfig": {
-     "access": "public"
+    "access": "public"
   },
   "devDependencies": {
-    "@kmijs/kmijs": "workspace:*",
-    "@kmijs/test-utils": "workspace:*"
+    "@kmijs/types": "workspace:*",
+    "umi": "^4.4.11"
   },
   "engines": {
     "node": ">=16.10.0"

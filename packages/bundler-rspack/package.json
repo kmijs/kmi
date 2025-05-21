@@ -5,7 +5,7 @@
   "keywords": [],
   "repository": {
     "type": "git",
-    "url": "https://github.com/kmijs/kmi/-/tree/main/packages/bundler-rspack"
+    "url": "https://github.com/kmijs/kmi/tree/main/packages/bundler-rspack"
   },
   "license": "ISC",
   "main": "./dist/index.js",
@@ -48,7 +48,7 @@
     "access": "public"
   },
   "authors": [
-    "xierenyuan@qq.com"
+    "renhong.xrh@gmail.com"
   ],
   "compiledConfig": {
     "deps": [

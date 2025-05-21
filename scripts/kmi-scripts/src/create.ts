@@ -9,11 +9,8 @@ import { version } from '../../../packages/bundler-rspack/package.json'
 const BASE_DIR_MAP: Record<string, string> = {
   basic: 'packages',
   plugin: 'plugins',
-  preset: 'presets',
-  solution: 'solutions',
   example: 'examples',
   e2e: 'e2e',
-  codemod: 'codemods',
 }
 
 const e2eportsPath = join(
@@ -41,24 +38,12 @@ async function main() {
             value: 'plugin',
           },
           {
-            title: 'kmi 预设',
-            value: 'preset',
-          },
-          {
-            title: 'kmi 集成包',
-            value: 'solution',
-          },
-          {
             title: 'kmi 示例',
             value: 'example',
           },
           {
             title: 'kmi e2e',
             value: 'e2e',
-          },
-          {
-            title: 'kmi codemod',
-            value: 'codemod',
           },
         ],
       },

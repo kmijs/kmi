@@ -1,0 +1,57 @@
+{
+  "name": "@kmijs/preset-bundler",
+  "version": "0.0.1",
+  "description": "umi preset supports rspack and webpack",
+  "keywords": [
+    "umi",
+    "bundler"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kmijs/kmi/tree/main/packages/preset-bundler"
+  },
+  "license": "ISC",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "compiled",
+    "dist"
+  ],
+  "scripts": {
+    "build": "father build",
+    "build:deps": "kmi-scripts bundleDeps",
+    "dev": "father dev",
+    "prepublishOnly": "pnpm build"
+  },
+  "dependencies": {
+    "@kmijs/babel-preset-react": "workspace:*",
+    "@kmijs/bundler-rspack": "workspace:*",
+    "@kmijs/bundler-shared": "workspace:*",
+    "@kmijs/bundler-webpack": "workspace:*",
+    "@kmijs/plugin-svgr": "workspace:*",
+    "@kmijs/shared": "workspace:*",
+    "@kmijs/types": "workspace:*",
+    "@rspack/plugin-react-refresh": "^1.0.1",
+    "react-refresh": "0.14.0"
+  },
+  "devDependencies": {
+    "umi": "^4.4.11"
+  },
+  "engines": {
+    "node": ">=16.10.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "authors": [
+    "renhong.xrh@gmail.com"
+  ]
+}
