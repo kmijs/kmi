@@ -3,8 +3,6 @@ import type { IApi } from '@kmijs/types'
 
 // Configuration items that are not supported and will directly report an error
 const unsupportedKeys = [
-  // not support mfsu
-  'mfsu',
   // not support deadCode
   'deadCode',
   // not support checkDepCssModules
