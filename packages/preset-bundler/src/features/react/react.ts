@@ -96,7 +96,6 @@ export default (api: IApi) => {
       },
     })
 
-    console.log('2333===>')
     return [require.resolve('@kmijs/babel-preset-react'), babelPresetOpts]
   })
 }

@@ -38,6 +38,9 @@ export default (api: IApi) => {
   })
 
   api.onCheckConfig(({ config }) => {
+    // 禁用 mako 提示
+    process.env.MAKO_AD = 'none'
+
     assert(!config.vite, 'rspack cannot be used together with vite.')
     assert(!config.mako, 'rspack cannot be used together with mako.')
   })

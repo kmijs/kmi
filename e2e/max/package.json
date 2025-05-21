@@ -1,0 +1,33 @@
+{
+  "name": "@e2e/max",
+  "private": true,
+  "scripts": {
+    "build": "max build",
+    "dev": "PORT=1025 max dev",
+    "e2e": "playwright test",
+    "preview": "max preview",
+    "setup": "max setup",
+    "test:e2e": "start-test dev :1025/__umi/api/status e2e",
+    "test:open": "playwright codegen localhost:1025"
+  },
+  "dependencies": {
+    "@ant-design/icons": "^4.7.0",
+    "@umijs/max": "^4.4.11",
+    "antd": "^4.23.2",
+    "dayjs": "^1.11.7",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@iconify-json/ant-design": "1.2.5",
+    "@iconify-json/ic": "1.1.17",
+    "@iconify-json/solar": "1.1.9",
+    "@kmijs/preset-bundler": "workspace:*",
+    "@types/react": "18.3.11",
+    "@types/react-dom": "18.3.0",
+    "cross-env": "^7.0.3",
+    "cypress": "^12.0.0",
+    "start-server-and-test": "^1.15.2",
+    "tailwindcss": "^3.2.4"
+  }
+}

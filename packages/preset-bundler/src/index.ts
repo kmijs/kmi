@@ -6,6 +6,7 @@ export default (api: IApi) => {
       // register methods
       require.resolve('./registerMethods'),
       // features
+      require.resolve('./features/configPlugins/configPlugins'),
       require.resolve('./features/bundler'),
       require.resolve('./features/rspack/rspack'),
       require.resolve('./features/rspack/rspackProfile'),
