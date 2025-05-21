@@ -99,7 +99,7 @@ jobs:
         run: pnpm test:ci
 
       - name: E2E tests
-        run: pnpm test:ci:e2e
+        run: pnpm test:e2e
 
   dependency-review:
     runs-on: ubuntu-latest
