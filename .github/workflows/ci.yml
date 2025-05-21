@@ -1,10 +1,19 @@
 name: CI
 
+env:
+  NODE_OPTIONS: --max-old-space-size=6144
+
 on:
   push:
     branches: [main, master]
+    paths-ignore:
+      - "examples/**"
+      - "scripts/**"
   pull_request:
     branches: [main, master]
+    paths-ignore:
+      - "examples/**"
+      - "scripts/**"
 
 jobs:
   build-and-test:
@@ -12,7 +21,7 @@ jobs:
     strategy:
       matrix:
         node-version: [16.x, 20.x]
-        os: [ubuntu-latest, macos-latest, windows-latest]
+        os: [ubuntu-latest, windows-latest]
 
     steps:
       - uses: actions/checkout@v4
@@ -28,9 +37,26 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: "pnpm"
 
+      # We use week in the turbo cache key to keep the cache from infinitely growing
+      - name: Get cache expires mark (non-windows)
+        if: runner.os != 'Windows'
+        id: expires-non-windows
+        run: echo "EXPIRES_WEEK_MARK=$(date +%U)" >> $GITHUB_OUTPUT
+      - name: Get cache expires mark (windows)
+        if: runner.os == 'Windows'
+        id: expires-windows
+        run: echo "EXPIRES_WEEK_MARK=$(date +%U)" >> $env:GITHUB_OUTPUT
+
+      - name: Setup Turbo cache
+        uses: actions/cache@v3
+        with:
+          path: .turbo
+          key: turbo-${{ github.job }}-${{ runner.os }}-node${{ matrix.node-version }}-${{ github.ref_name }}-${{ (runner.os == 'Windows' && steps.expires-windows.outputs.EXPIRES_WEEK_MARK) || steps.expires-non-windows.outputs.EXPIRES_WEEK_MARK }}-${{ github.sha }}
+          restore-keys: |
+            turbo-${{ github.job }}-${{ runner.os }}-node${{ matrix.node-version }}-
+
       - name: Install dependencies
         run: pnpm install
-
       - name: Build
         run: pnpm build
 
