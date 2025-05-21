@@ -9,19 +9,54 @@ on:
     paths-ignore:
       - "examples/**"
       - "scripts/**"
+      - "**.md"
+      - "docs/**"
   pull_request:
     branches: [main, master]
     paths-ignore:
       - "examples/**"
       - "scripts/**"
+      - "**.md"
+      - "docs/**"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 8.15.8
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Lint
+        run: pnpm lint || true
+
+      - name: Type check
+        run: pnpm typecheck
+
   build-and-test:
+    needs: lint
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        node-version: [16.x, 20.x]
+        node-version: [18.x, 20.x]
         os: [ubuntu-latest, windows-latest]
+      fail-fast: false
 
     steps:
       - uses: actions/checkout@v4
@@ -37,34 +72,37 @@ jobs:
           node-version: ${{ matrix.node-version }}
           cache: "pnpm"
 
-      # We use week in the turbo cache key to keep the cache from infinitely growing
-      - name: Get cache expires mark (non-windows)
-        if: runner.os != 'Windows'
-        id: expires-non-windows
-        run: echo "EXPIRES_WEEK_MARK=$(date +%U)" >> $GITHUB_OUTPUT
-      - name: Get cache expires mark (windows)
-        if: runner.os == 'Windows'
-        id: expires-windows
-        run: echo "EXPIRES_WEEK_MARK=$(date +%U)" >> $env:GITHUB_OUTPUT
+      - name: Get month for cache key
+        id: date
+        run: echo "date=$(date +'%Y-%m')" >> $GITHUB_OUTPUT
+        shell: bash
 
       - name: Setup Turbo cache
         uses: actions/cache@v3
         with:
           path: .turbo
-          key: turbo-${{ github.job }}-${{ runner.os }}-node${{ matrix.node-version }}-${{ github.ref_name }}-${{ (runner.os == 'Windows' && steps.expires-windows.outputs.EXPIRES_WEEK_MARK) || steps.expires-non-windows.outputs.EXPIRES_WEEK_MARK }}-${{ github.sha }}
+          key: turbo-${{ matrix.os }}-${{ matrix.node-version }}-${{ steps.date.outputs.date }}-${{ github.sha }}
           restore-keys: |
-            turbo-${{ github.job }}-${{ runner.os }}-node${{ matrix.node-version }}-
+            turbo-${{ matrix.os }}-${{ matrix.node-version }}-${{ steps.date.outputs.date }}-
+            turbo-${{ matrix.os }}-${{ matrix.node-version }}-
 
       - name: Install dependencies
         run: pnpm install
+
       - name: Build
         run: pnpm build
-
-      - name: Type check
-        run: pnpm typecheck
 
       - name: Unit tests
         run: pnpm test:ci
 
       - name: E2E tests
         run: pnpm test:ci:e2e
+
+  dependency-review:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'pull_request'
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Dependency Review
+        uses: actions/dependency-review-action@v3
