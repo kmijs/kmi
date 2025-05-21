@@ -1,3 +1,3 @@
 # Kmi
 
-> 用 Kmi 构建你的下一个应用带给你简单而愉悦的 Web 开发体验
+> Based on Umi to provide Rspack support and other best practices
