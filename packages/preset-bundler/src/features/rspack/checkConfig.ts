@@ -57,13 +57,6 @@ export function applyCheckConfig(api: IApi) {
     }
 
     if (
-      api.userConfig.cssMinifier &&
-      ['parcelCSS'].includes(api.userConfig.cssMinifier)
-    ) {
-      warningKeys.push(`cssMinifier 配置项不支持 ${api.userConfig.cssMinifier}`)
-    }
-
-    if (
       api.userConfig.srcTranspiler &&
       ['babel', 'esbuild'].includes(api.userConfig.srcTranspiler)
     ) {

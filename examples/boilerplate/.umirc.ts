@@ -113,5 +113,8 @@ export default defineConfig({
   classPropertiesLoose: {},
   rspack: {},
   presets: ['@kmijs/preset-bundler'],
+  codeSplitting: {
+    jsStrategy: 'granularChunks'
+  },
   ...extraConfig,
 });

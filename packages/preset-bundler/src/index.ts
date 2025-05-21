@@ -14,6 +14,7 @@ export default (api: IApi) => {
       require.resolve('./features/bundlerConfig/bundlerChain'),
       require.resolve('./features/transformConfig'),
       require.resolve('./features/define/define'),
+      require.resolve('./features/codeSplitting/codeSplitting'),
       // plugins
       require.resolve('@kmijs/plugin-svgr'),
 
