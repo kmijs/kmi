@@ -1000,11 +1000,11 @@ importers:
         specifier: 0.1.2
         version: 0.1.2
       zod:
-        specifier: 3.20.6
-        version: 3.20.6
+        specifier: 3.22.3
+        version: 3.22.3
       zod-validation-error:
         specifier: 2.1.0
-        version: 2.1.0(zod@3.20.6)
+        version: 2.1.0(zod@3.22.3)
 
   packages/types:
     dependencies:
@@ -11014,8 +11014,8 @@ packages:
       chalk: 4.1.2
       invariant: 2.2.4
       pretty-format: 24.9.0
-      zod: 3.25.7
-      zod-validation-error: 2.1.0(zod@3.25.7)
+      zod: 3.25.17
+      zod-validation-error: 2.1.0(zod@3.25.17)
 
   /babel-plugin-styled-components@2.1.4(styled-components@6.1.1):
     resolution: {integrity: sha512-Xgp9g+A/cG47sUyRwwYxGM4bR/jDRg5N6it/8+HxCnbT5XNKSKDT9xm4oag/osgqjC2It/vH0yXsomOG6k558g==}
@@ -27479,29 +27479,29 @@ packages:
       commander: 9.5.0
     dev: true
 
-  /zod-validation-error@2.1.0(zod@3.20.6):
+  /zod-validation-error@2.1.0(zod@3.22.3):
     resolution: {integrity: sha512-VJh93e2wb4c3tWtGgTa0OF/dTt/zoPCPzXq4V11ZjxmEAFaPi/Zss1xIZdEB5RD8GD00U0/iVXgqkF77RV7pdQ==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       zod: ^3.18.0
     dependencies:
-      zod: 3.20.6
+      zod: 3.22.3
     dev: true
 
-  /zod-validation-error@2.1.0(zod@3.25.7):
+  /zod-validation-error@2.1.0(zod@3.25.17):
     resolution: {integrity: sha512-VJh93e2wb4c3tWtGgTa0OF/dTt/zoPCPzXq4V11ZjxmEAFaPi/Zss1xIZdEB5RD8GD00U0/iVXgqkF77RV7pdQ==}
     engines: {node: '>=18.0.0'}
     peerDependencies:
       zod: ^3.18.0
     dependencies:
-      zod: 3.25.7
+      zod: 3.25.17
 
-  /zod@3.20.6:
-    resolution: {integrity: sha512-oyu0m54SGCtzh6EClBVqDDlAYRz4jrVtKwQ7ZnsEmMI9HnzuZFj8QFwAY1M5uniIYACdGvv0PBWPF2kO0aNofA==}
+  /zod@3.22.3:
+    resolution: {integrity: sha512-EjIevzuJRiRPbVH4mGc8nApb/lVLKVpmUhAaR5R5doKGfAnGJ6Gr3CViAVjP+4FWSxCsybeWQdcgCtbX+7oZug==}
     dev: true
 
-  /zod@3.25.7:
-    resolution: {integrity: sha512-YGdT1cVRmKkOg6Sq7vY7IkxdphySKnXhaUmFI4r4FcuFVNgpCb9tZfNwXbT6BPjD5oz0nubFsoo9pIqKrDcCvg==}
+  /zod@3.25.17:
+    resolution: {integrity: sha512-8hQzQ/kMOIFbwOgPrm9Sf9rtFHpFUMy4HvN0yEB0spw14aYi0uT5xG5CE2DB9cd51GWNsz+DNO7se1kztHMKnw==}
 
   /zscroller@0.4.8:
     resolution: {integrity: sha512-G5NiNLKx2+QhhvZi2yV1jjVXY50otktxkseX2hG2N/eixohOUk0AY8ZpbAxNqS9oJS/NxItCsowupy2tsXxAMw==}
