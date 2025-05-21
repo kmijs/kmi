@@ -40,13 +40,11 @@ interface Manifest extends ProjectManifest {
   logger.info(`branch: ${branch}`)
 
   // 检查是否是主干分支
-  if (branch !== 'master') {
+  if (branch !== 'main') {
     const { isOK } = await prompts([
       {
         type: 'confirm',
-        message: `当前分支${chalk.bold(
-          branch,
-        )}不是主干分支master, 是否执行发布`,
+        message: `当前分支${chalk.bold(branch)}不是主干分支 main, 是否执行发布`,
         name: 'isOK',
       },
     ])
@@ -128,7 +126,7 @@ interface Manifest extends ProjectManifest {
   }
 
   const { version } = fsExtra.readJsonSync(
-    join(PATHS.ROOT, 'packages/kmijs/package.json'),
+    join(PATHS.ROOT, 'packages/preset-bundler/package.json'),
   )
   const ask = await prompts([
     {
@@ -167,14 +165,12 @@ interface Manifest extends ProjectManifest {
   // pnpm publish
   logger.event('pnpm publish')
 
+  // 设置 npm token
+  await $`npm config set registry https://registry.npmjs.org/`
+  await $`npm config set //registry.npmjs.org/:_authToken=${process.env.NPM_TOKEN}`
+
   // dpcs https://pnpm.io/zh/cli/publish
-  await $`pnpm publish -r --report-summary --tag ${tag}  ${
-    isDry ? '--dry-run' : ''
-  }`
-
-  await $`git commit --all --message "chore(release): add publish summary"`
-
-  await $`git push`
+  await $`pnpm publish -r --tag ${tag}  ${isDry ? '--dry-run' : ''}`
 
   logger.event('publish successful')
 })().catch((error) => {
