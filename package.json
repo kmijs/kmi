@@ -6,28 +6,16 @@
   "keywords": [],
   "license": "ISC",
   "workspaces": [
-    "packages/*",
-    "plugins/*",
-    "codemods/*",
-    "presets/*",
-    "solutions/*",
-    "templates/*",
-    "devtools/*",
-    "runtimes/*"
+    "packages/*"
   ],
   "scripts": {
     "bootstrap": "kmi-scripts bootstrap",
     "build": "kmi-scripts turbo build",
-    "build:codemod": "kmi-scripts turbo build --filter='./codemods/*'",
     "change": "pnpm changeset",
     "check-dependency-version": "check-dependency-version-consistency . --ignore-package kmi-monorepo --ignore-dep cosmiconfig",
     "checkPackageFiles": "kmi-scripts checkPackageFiles",
     "dev": "kmi-scripts turbo dev --parallel",
     "dev:packages": "kmi-scripts turbo dev --parallel --filter='./packages/*'",
-    "dev:presets": "kmi-scripts turbo dev --parallel --filter='./presets/*'",
-    "dev:plugins": "kmi-scripts turbo dev --parallel --filter='./plugins/*'",
-    "dev:solutions": "kmi-scripts turbo dev --parallel --filter='./solutions/*'",
-    "dev:codemod": "kmi-scripts turbo dev --parallel --filter='./codemods/*'",
     "format": "prettier --write .",
     "preinstall": "npx only-allow pnpm",
     "postinstall": "simple-git-hooks && kmi-scripts postinstall",
@@ -36,8 +24,6 @@
     "checkNpmRelease": "kmi-scripts checkNpmRelease",
     "release": "pnpm checkPackageFiles && pnpm run ci && kmi-scripts release",
     "release:beta": "pnpm release --tag next --preid beta",
-    "release:nextv2": "pnpm release --tag nextv2 --preid beta",
-    "release:rc": "pnpm release --tag rc --preid rc",
     "release:canary": "kmi-scripts releaseCanary",
     "test": "vitest",
     "test:ci": "NODE_OPTIONS=--max_old_space_size=16384 vitest run",
@@ -46,11 +32,8 @@
     "test:e2e:turbo": "NODE_OPTIONS=--max_old_space_size=16384 turbo --filter=./e2e/* run test:e2e",
     "typecheck": "tsc --noEmit",
     "ci": "run-p typecheck test:ci test:e2e:turbo",
-    "ci:node16": "run-p test:ci test:e2e",
     "changelog": "conventional-changelog -i ./docs/src/CHANGELOG.md -s -u false -r 0 --config ./.changelogrc.js",
-    "changelog:generate": "conventional-changelog --config ./.changelogrc.js -u",
-    "test:ignoreWorkspaceE2e": "node ./scripts/ignoreWorkspaceE2e.mjs",
-    "docs:dev": "cd docs && pnpm dev"
+    "changelog:generate": "conventional-changelog --config ./.changelogrc.js -u"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm exec lint-staged --concurrent false",

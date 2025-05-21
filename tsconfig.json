@@ -8,8 +8,6 @@
       "@kmijs/shared": ["./packages/shared"],
       "@kmijs/bundler-shared": ["./packages/bundler-shared"],
       "@kmijs/bundler-webpack": ["./packages/bundler-webpack"],
-      "@kmijs/kmijs": ["./packages/kmijs"],
-      "@kmijs/core": ["./packages/core"],
       "@kmijs/types": ["./packages/types"]
     }
   },
@@ -22,11 +20,6 @@
     "**/*.e2e.ts",
     "**/templates",
     "**/e2e",
-    "devtools/client",
-    "runtimes",
-    "templates",
-    "**/bundles",
-    "solutions/react/compiled",
-    "presets/preset-react/libs"
+    "**/bundles"
   ]
 }
