@@ -1,5 +1,5 @@
 import path from 'node:path'
-import { createSnapshotSerializer } from '@scripts/test-utils'
+import { createSnapshotSerializer } from 'path-serializer'
 import { expect } from 'vitest'
 
 // @ts-ignore
