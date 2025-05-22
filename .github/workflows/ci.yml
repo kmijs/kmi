@@ -98,6 +98,9 @@ jobs:
       - name: Unit tests
         run: pnpm test:ci
 
+      - name: Install Playwright Chromium
+        run: npx playwright install chromium
+
       - name: E2E tests
         run: pnpm test:e2e
 
