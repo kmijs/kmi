@@ -34,22 +34,9 @@ test.describe('Basic react-max', () => {
   test('error request handling', async ({ page }) => {
     await page.goto('/users')
 
-    // 模拟响应用户列表
-    await page.route('/api/users', async (route) => {
-      await route.fulfill({
-        status: 200,
-        body: JSON.stringify({
-          success: true,
-          data: {
-            users: [{ name: '测试用户1' }, { name: '测试用户2' }],
-          },
-        }),
-      })
-    })
-
     // 检查页面上显示的用户
-    await expect(page.locator('text=测试用户1')).toBeVisible()
-    await expect(page.locator('text=测试用户2')).toBeVisible()
+    await expect(page.locator('text=admin')).toBeVisible()
+    await expect(page.locator('text=test')).toBeVisible()
 
     // 发送错误请求并验证
     const consoleMessages: string[] = []
