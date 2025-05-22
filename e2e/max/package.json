@@ -5,9 +5,9 @@
     "build": "max build",
     "dev": "cross-env PORT=1025 max dev",
     "e2e": "playwright test",
-    "preview": "max preview",
+    "preview": "max preview --port 1025",
     "setup": "max setup",
-    "test:e2e": "start-test dev http://127.0.0.1:1025/__umi/api/status e2e",
+    "test:e2e": "max build && start-test preview :1025/__kmi/api/status e2e",
     "test:open": "playwright codegen localhost:1025"
   },
   "dependencies": {
