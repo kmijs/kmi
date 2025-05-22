@@ -344,7 +344,7 @@ exports[`css > should support custom less loader options 1`] = `
               {
                 "loader": "<ROOT>/packages/bundler-shared-config/dist/config/css/less/index.js",
                 "options": {
-                  "additionalData": "@import "test.less";",
+                  "additionalData": "@import \\"test.less\\";",
                   "lessOptions": [Function],
                 },
               },
@@ -712,7 +712,7 @@ exports[`css > should support custom less loader options with function 1`] = `
     rules: [
       /* config.module.rule('css') */
       {
-        test: /.css(/?.*)?$/,
+        test: /\\.css(\\?.*)?$/,
         oneOf: [
           /* config.module.rule('css').oneOf('css') */
           {
@@ -760,7 +760,7 @@ exports[`css > should support custom less loader options with function 1`] = `
       },
       /* config.module.rule('less') */
       {
-        test: /.less(/?.*)?$/,
+        test: /\\.less(\\?.*)?$/,
         oneOf: [
           /* config.module.rule('less').oneOf('css') */
           {
@@ -776,7 +776,7 @@ exports[`css > should support custom less loader options with function 1`] = `
               },
               /* config.module.rule('less').oneOf('css').use('css-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/css-loader/index.js',
+                loader: '<ROOT>/packages/bundler-compiled/compiled/css-loader/index.js',
                 options: {
                   importLoaders: 1,
                   esModule: true,
@@ -804,7 +804,7 @@ exports[`css > should support custom less loader options with function 1`] = `
               },
               /* config.module.rule('less').oneOf('css').use('less-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-shared-config/dist/config/css/less/index.js',
+                loader: '<ROOT>/packages/bundler-shared-config/dist/config/css/less/index.js',
                 options: {
                   additionalData: () => '@import \\"test.less\\";',
                   lessOptions: (loaderContext) => ({
@@ -820,7 +820,7 @@ exports[`css > should support custom less loader options with function 1`] = `
       },
       /* config.module.rule('sass') */
       {
-        test: /.(sass|scss)(/?.*)?$/,
+        test: /\\.(sass|scss)(\\?.*)?$/,
         oneOf: [
           /* config.module.rule('sass').oneOf('css') */
           {
@@ -836,7 +836,7 @@ exports[`css > should support custom less loader options with function 1`] = `
               },
               /* config.module.rule('sass').oneOf('css').use('css-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/css-loader/index.js',
+                loader: '<ROOT>/packages/bundler-compiled/compiled/css-loader/index.js',
                 options: {
                   importLoaders: 1,
                   esModule: true,
@@ -864,7 +864,7 @@ exports[`css > should support custom less loader options with function 1`] = `
               },
               /* config.module.rule('sass').oneOf('css').use('sass-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/sass-loader/index.js'
+                loader: '<ROOT>/packages/bundler-compiled/compiled/sass-loader/index.js'
               }
             ]
           }
@@ -872,7 +872,7 @@ exports[`css > should support custom less loader options with function 1`] = `
       },
       /* config.module.rule('stylus') */
       {
-        test: /.(styl|stylus)(/?.*)?$/,
+        test: /\\.(styl|stylus)(\\?.*)?$/,
         oneOf: [
           /* config.module.rule('stylus').oneOf('css') */
           {
@@ -888,7 +888,7 @@ exports[`css > should support custom less loader options with function 1`] = `
               },
               /* config.module.rule('stylus').oneOf('css').use('css-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/css-loader/index.js',
+                loader: '<ROOT>/packages/bundler-compiled/compiled/css-loader/index.js',
                 options: {
                   importLoaders: 1,
                   esModule: true,
@@ -916,7 +916,7 @@ exports[`css > should support custom less loader options with function 1`] = `
               },
               /* config.module.rule('stylus').oneOf('css').use('stylus-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/stylus-loader/index.js'
+                loader: '<ROOT>/packages/bundler-compiled/compiled/stylus-loader/index.js'
               }
             ]
           }
@@ -933,7 +933,7 @@ exports[`css > should support custom less loader options with function 2`] = `
     rules: [
       /* config.module.rule('css') */
       {
-        test: /.css(/?.*)?$/,
+        test: /\\.css(\\?.*)?$/,
         oneOf: [
           /* config.module.rule('css').oneOf('css') */
           {
@@ -981,7 +981,7 @@ exports[`css > should support custom less loader options with function 2`] = `
       },
       /* config.module.rule('less') */
       {
-        test: /.less(/?.*)?$/,
+        test: /\\.less(\\?.*)?$/,
         oneOf: [
           /* config.module.rule('less').oneOf('css') */
           {
@@ -997,7 +997,7 @@ exports[`css > should support custom less loader options with function 2`] = `
               },
               /* config.module.rule('less').oneOf('css').use('css-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/css-loader/index.js',
+                loader: '<ROOT>/packages/bundler-compiled/compiled/css-loader/index.js',
                 options: {
                   importLoaders: 1,
                   esModule: true,
@@ -1025,7 +1025,7 @@ exports[`css > should support custom less loader options with function 2`] = `
               },
               /* config.module.rule('less').oneOf('css').use('less-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-shared-config/dist/config/css/less/index.js',
+                loader: '<ROOT>/packages/bundler-shared-config/dist/config/css/less/index.js',
                 options: {
                   lessOptions: (loaderContext) => ({
                     modifyVars: userConfig.theme,
@@ -1040,7 +1040,7 @@ exports[`css > should support custom less loader options with function 2`] = `
       },
       /* config.module.rule('sass') */
       {
-        test: /.(sass|scss)(/?.*)?$/,
+        test: /\\.(sass|scss)(\\?.*)?$/,
         oneOf: [
           /* config.module.rule('sass').oneOf('css') */
           {
@@ -1056,7 +1056,7 @@ exports[`css > should support custom less loader options with function 2`] = `
               },
               /* config.module.rule('sass').oneOf('css').use('css-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/css-loader/index.js',
+                loader: '<ROOT>/packages/bundler-compiled/compiled/css-loader/index.js',
                 options: {
                   importLoaders: 1,
                   esModule: true,
@@ -1084,7 +1084,7 @@ exports[`css > should support custom less loader options with function 2`] = `
               },
               /* config.module.rule('sass').oneOf('css').use('sass-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/sass-loader/index.js'
+                loader: '<ROOT>/packages/bundler-compiled/compiled/sass-loader/index.js'
               }
             ]
           }
@@ -1092,7 +1092,7 @@ exports[`css > should support custom less loader options with function 2`] = `
       },
       /* config.module.rule('stylus') */
       {
-        test: /.(styl|stylus)(/?.*)?$/,
+        test: /\\.(styl|stylus)(\\?.*)?$/,
         oneOf: [
           /* config.module.rule('stylus').oneOf('css') */
           {
@@ -1108,7 +1108,7 @@ exports[`css > should support custom less loader options with function 2`] = `
               },
               /* config.module.rule('stylus').oneOf('css').use('css-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/css-loader/index.js',
+                loader: '<ROOT>/packages/bundler-compiled/compiled/css-loader/index.js',
                 options: {
                   importLoaders: 1,
                   esModule: true,
@@ -1136,7 +1136,7 @@ exports[`css > should support custom less loader options with function 2`] = `
               },
               /* config.module.rule('stylus').oneOf('css').use('stylus-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/stylus-loader/index.js'
+                loader: '<ROOT>/packages/bundler-compiled/compiled/stylus-loader/index.js'
               }
             ]
           }
@@ -1153,7 +1153,7 @@ exports[`css > 在 webpack 模式下不应使用 LightningCSS 1`] = `
     rules: [
       /* config.module.rule('css') */
       {
-        test: /.css(/?.*)?$/,
+        test: /\\.css(\\?.*)?$/,
         oneOf: [
           /* config.module.rule('css').oneOf('css') */
           {
@@ -1186,7 +1186,7 @@ exports[`css > 在 webpack 模式下不应使用 LightningCSS 1`] = `
               },
               /* config.module.rule('css').oneOf('css').use('postcss-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/postcss-loader/index.js',
+                loader: '<ROOT>/packages/bundler-compiled/compiled/postcss-loader/index.js',
                 options: {
                   postcssOptions: {
                     ident: 'postcss',
@@ -1201,7 +1201,7 @@ exports[`css > 在 webpack 模式下不应使用 LightningCSS 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-custom-properties',
-                            prepare(){let _=new Map;return pe?{Once:re=>{_=w(re,{preserve:X})},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:()=>{_.clear()}}:{Once:async ne=>{const ie=(await le).entries(),pe=w(ne,{preserve:X}).entries();if(re)for(const[X,re]of[...ie,...pe])_.set(X,re);else for(const[X,re]of[...pe,...ie])_.set(X,re);await function(_,X){return Promise.all(X.map((async X=>{if(X instanceof Function)return void await X(C(_));if(\\"string\\"==typeof X){const re=fe.default.resolve(X),ne=fe.default.extname(re).slice(1).toLowerCase();return void await L(re,ne,C(_))}let re={};if(re=\\"toJSON\\"in X?X.toJSON(C(_)):C(_),\\"to\\"in X){const _=fe.default.resolve(X.to);let ne=X.type;return ne||(ne=fe.default.extname(_).slice(1).toLowerCase()),void await L(_,ne,re)}\\"customProperties\\"in X?X.customProperties=re:\\"custom-properties\\"in X&&(X[\\"custom-properties\\"]=re)})))}(_,ae)},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:(X,{result:re})=>{!ne&&(ie.length>0||ae.length>0)&&X.warn(re,'\\"importFrom\\" and \\"exportTo\\" will be removed in a future version of postcss-custom-properties./nWe are looking for insights and anecdotes on how these features are used so that we can design the best alternative./nPlease let us know if our proposal will work for you./nVisit the discussion on github for more details. https:/github.com/csstools/postcss-plugins/discussions/192'),_.clear()}}}
+                            prepare(){let _=new Map;return pe?{Once:re=>{_=w(re,{preserve:X})},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:()=>{_.clear()}}:{Once:async ne=>{const ie=(await le).entries(),pe=w(ne,{preserve:X}).entries();if(re)for(const[X,re]of[...ie,...pe])_.set(X,re);else for(const[X,re]of[...pe,...ie])_.set(X,re);await function(_,X){return Promise.all(X.map((async X=>{if(X instanceof Function)return void await X(C(_));if(\\"string\\"==typeof X){const re=fe.default.resolve(X),ne=fe.default.extname(re).slice(1).toLowerCase();return void await L(re,ne,C(_))}let re={};if(re=\\"toJSON\\"in X?X.toJSON(C(_)):C(_),\\"to\\"in X){const _=fe.default.resolve(X.to);let ne=X.type;return ne||(ne=fe.default.extname(_).slice(1).toLowerCase()),void await L(_,ne,re)}\\"customProperties\\"in X?X.customProperties=re:\\"custom-properties\\"in X&&(X[\\"custom-properties\\"]=re)})))}(_,ae)},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:(X,{result:re})=>{!ne&&(ie.length>0||ae.length>0)&&X.warn(re,'\\"importFrom\\" and \\"exportTo\\" will be removed in a future version of postcss-custom-properties.\\nWe are looking for insights and anecdotes on how these features are used so that we can design the best alternative.\\nPlease let us know if our proposal will work for you.\\nVisit the discussion on github for more details. https://github.com/csstools/postcss-plugins/discussions/192'),_.clear()}}}
                           },
                           {
                             postcssPlugin: 'postcss-media-minmax',
@@ -1281,7 +1281,7 @@ exports[`css > 在 webpack 模式下不应使用 LightningCSS 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-initial',
-                            Declaration: function (re){if(!/binitial/b/.test(re.value)){return}var ne=X(re.prop,re.value);if(ne.length===0)return;ne.forEach((function(_){if(!getPropPrevTo(re.prop,re)){re.cloneBefore(_)}}));if(_.replace===true){re.remove()}}
+                            Declaration: function (re){if(!/\\binitial\\b/.test(re.value)){return}var ne=X(re.prop,re.value);if(ne.length===0)return;ne.forEach((function(_){if(!getPropPrevTo(re.prop,re)){re.cloneBefore(_)}}));if(_.replace===true){re.remove()}}
                           },
                           {
                             postcssPlugin: 'postcss-page-break',
@@ -1315,7 +1315,7 @@ exports[`css > 在 webpack 模式下不应使用 LightningCSS 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-progressive-custom-properties',
-                            RuleExit: (_,{postcss:X})=>{const re=[],ne=new Set;_.each((ie=>{if(\\"decl\\"!==ie.type)return;if(!ie.variable)return;if(\\"initial\\"===ie.value.trim())return;if(\\"\\"===ie.value.trim())return;if(!ne.has(ie.prop.toString()))return void ne.add(ie.prop.toString());const ae=i(ie.value);if(!ae.length)return;const le=X.atRule({name:\\"supports\\",params:ae.join(\\" and \\"),source:_.source,raws:{before:\\"/n/n\\",after:\\"/n\\"}}),pe=_.clone();pe.removeAll(),pe.raws.before=\\"/n\\",pe.append(ie.clone()),ie.remove(),le.append(pe),re.push(le)})),0!==re.length&&re.reverse().forEach((X=>{_.after(X)}))}
+                            RuleExit: (_,{postcss:X})=>{const re=[],ne=new Set;_.each((ie=>{if(\\"decl\\"!==ie.type)return;if(!ie.variable)return;if(\\"initial\\"===ie.value.trim())return;if(\\"\\"===ie.value.trim())return;if(!ne.has(ie.prop.toString()))return void ne.add(ie.prop.toString());const ae=i(ie.value);if(!ae.length)return;const le=X.atRule({name:\\"supports\\",params:ae.join(\\" and \\"),source:_.source,raws:{before:\\"\\n\\n\\",after:\\"\\n\\"}}),pe=_.clone();pe.removeAll(),pe.raws.before=\\"\\n\\",pe.append(ie.clone()),ie.remove(),le.append(pe),re.push(le)})),0!==re.length&&re.reverse().forEach((X=>{_.after(X)}))}
                           },
                           {
                             postcssPlugin: 'postcss-preset-env',
@@ -1333,7 +1333,7 @@ exports[`css > 在 webpack 模式下不应使用 LightningCSS 1`] = `
       },
       /* config.module.rule('less') */
       {
-        test: /.less(/?.*)?$/,
+        test: /\\.less(\\?.*)?$/,
         oneOf: [
           /* config.module.rule('less').oneOf('css') */
           {
@@ -1349,7 +1349,7 @@ exports[`css > 在 webpack 模式下不应使用 LightningCSS 1`] = `
               },
               /* config.module.rule('less').oneOf('css').use('css-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/css-loader/index.js',
+                loader: '<ROOT>/packages/bundler-compiled/compiled/css-loader/index.js',
                 options: {
                   importLoaders: 1,
                   esModule: true,
@@ -1366,7 +1366,7 @@ exports[`css > 在 webpack 模式下不应使用 LightningCSS 1`] = `
               },
               /* config.module.rule('less').oneOf('css').use('postcss-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/postcss-loader/index.js',
+                loader: '<ROOT>/packages/bundler-compiled/compiled/postcss-loader/index.js',
                 options: {
                   postcssOptions: {
                     ident: 'postcss',
@@ -1381,7 +1381,7 @@ exports[`css > 在 webpack 模式下不应使用 LightningCSS 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-custom-properties',
-                            prepare(){let _=new Map;return pe?{Once:re=>{_=w(re,{preserve:X})},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:()=>{_.clear()}}:{Once:async ne=>{const ie=(await le).entries(),pe=w(ne,{preserve:X}).entries();if(re)for(const[X,re]of[...ie,...pe])_.set(X,re);else for(const[X,re]of[...pe,...ie])_.set(X,re);await function(_,X){return Promise.all(X.map((async X=>{if(X instanceof Function)return void await X(C(_));if(\\"string\\"==typeof X){const re=fe.default.resolve(X),ne=fe.default.extname(re).slice(1).toLowerCase();return void await L(re,ne,C(_))}let re={};if(re=\\"toJSON\\"in X?X.toJSON(C(_)):C(_),\\"to\\"in X){const _=fe.default.resolve(X.to);let ne=X.type;return ne||(ne=fe.default.extname(_).slice(1).toLowerCase()),void await L(_,ne,re)}\\"customProperties\\"in X?X.customProperties=re:\\"custom-properties\\"in X&&(X[\\"custom-properties\\"]=re)})))}(_,ae)},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:(X,{result:re})=>{!ne&&(ie.length>0||ae.length>0)&&X.warn(re,'\\"importFrom\\" and \\"exportTo\\" will be removed in a future version of postcss-custom-properties./nWe are looking for insights and anecdotes on how these features are used so that we can design the best alternative./nPlease let us know if our proposal will work for you./nVisit the discussion on github for more details. https:/github.com/csstools/postcss-plugins/discussions/192'),_.clear()}}}
+                            prepare(){let _=new Map;return pe?{Once:re=>{_=w(re,{preserve:X})},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:()=>{_.clear()}}:{Once:async ne=>{const ie=(await le).entries(),pe=w(ne,{preserve:X}).entries();if(re)for(const[X,re]of[...ie,...pe])_.set(X,re);else for(const[X,re]of[...pe,...ie])_.set(X,re);await function(_,X){return Promise.all(X.map((async X=>{if(X instanceof Function)return void await X(C(_));if(\\"string\\"==typeof X){const re=fe.default.resolve(X),ne=fe.default.extname(re).slice(1).toLowerCase();return void await L(re,ne,C(_))}let re={};if(re=\\"toJSON\\"in X?X.toJSON(C(_)):C(_),\\"to\\"in X){const _=fe.default.resolve(X.to);let ne=X.type;return ne||(ne=fe.default.extname(_).slice(1).toLowerCase()),void await L(_,ne,re)}\\"customProperties\\"in X?X.customProperties=re:\\"custom-properties\\"in X&&(X[\\"custom-properties\\"]=re)})))}(_,ae)},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:(X,{result:re})=>{!ne&&(ie.length>0||ae.length>0)&&X.warn(re,'\\"importFrom\\" and \\"exportTo\\" will be removed in a future version of postcss-custom-properties.\\nWe are looking for insights and anecdotes on how these features are used so that we can design the best alternative.\\nPlease let us know if our proposal will work for you.\\nVisit the discussion on github for more details. https://github.com/csstools/postcss-plugins/discussions/192'),_.clear()}}}
                           },
                           {
                             postcssPlugin: 'postcss-media-minmax',
@@ -1461,7 +1461,7 @@ exports[`css > 在 webpack 模式下不应使用 LightningCSS 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-initial',
-                            Declaration: function (re){if(!/binitial/b/.test(re.value)){return}var ne=X(re.prop,re.value);if(ne.length===0)return;ne.forEach((function(_){if(!getPropPrevTo(re.prop,re)){re.cloneBefore(_)}}));if(_.replace===true){re.remove()}}
+                            Declaration: function (re){if(!/\\binitial\\b/.test(re.value)){return}var ne=X(re.prop,re.value);if(ne.length===0)return;ne.forEach((function(_){if(!getPropPrevTo(re.prop,re)){re.cloneBefore(_)}}));if(_.replace===true){re.remove()}}
                           },
                           {
                             postcssPlugin: 'postcss-page-break',
@@ -1495,7 +1495,7 @@ exports[`css > 在 webpack 模式下不应使用 LightningCSS 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-progressive-custom-properties',
-                            RuleExit: (_,{postcss:X})=>{const re=[],ne=new Set;_.each((ie=>{if(\\"decl\\"!==ie.type)return;if(!ie.variable)return;if(\\"initial\\"===ie.value.trim())return;if(\\"\\"===ie.value.trim())return;if(!ne.has(ie.prop.toString()))return void ne.add(ie.prop.toString());const ae=i(ie.value);if(!ae.length)return;const le=X.atRule({name:\\"supports\\",params:ae.join(\\" and \\"),source:_.source,raws:{before:\\"/n/n\\",after:\\"/n\\"}}),pe=_.clone();pe.removeAll(),pe.raws.before=\\"/n\\",pe.append(ie.clone()),ie.remove(),le.append(pe),re.push(le)})),0!==re.length&&re.reverse().forEach((X=>{_.after(X)}))}
+                            RuleExit: (_,{postcss:X})=>{const re=[],ne=new Set;_.each((ie=>{if(\\"decl\\"!==ie.type)return;if(!ie.variable)return;if(\\"initial\\"===ie.value.trim())return;if(\\"\\"===ie.value.trim())return;if(!ne.has(ie.prop.toString()))return void ne.add(ie.prop.toString());const ae=i(ie.value);if(!ae.length)return;const le=X.atRule({name:\\"supports\\",params:ae.join(\\" and \\"),source:_.source,raws:{before:\\"\\n\\n\\",after:\\"\\n\\"}}),pe=_.clone();pe.removeAll(),pe.raws.before=\\"\\n\\",pe.append(ie.clone()),ie.remove(),le.append(pe),re.push(le)})),0!==re.length&&re.reverse().forEach((X=>{_.after(X)}))}
                           },
                           {
                             postcssPlugin: 'postcss-preset-env',
@@ -1509,9 +1509,9 @@ exports[`css > 在 webpack 模式下不应使用 LightningCSS 1`] = `
               },
               /* config.module.rule('less').oneOf('css').use('less-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/less-loader/index.js',
+                loader: '<ROOT>/packages/bundler-compiled/compiled/less-loader/index.js',
                 options: {
-                  implementation: '<WORKSPACE>/packages/bundler-shared/compiled/less/index.js',
+                  implementation: '<ROOT>/packages/bundler-shared/compiled/less/index.js',
                   lessOptions: (loaderContext) => ({
                     modifyVars: userConfig.theme,
                     javascriptEnabled: true,
@@ -1525,7 +1525,7 @@ exports[`css > 在 webpack 模式下不应使用 LightningCSS 1`] = `
       },
       /* config.module.rule('sass') */
       {
-        test: /.(sass|scss)(/?.*)?$/,
+        test: /\\.(sass|scss)(\\?.*)?$/,
         oneOf: [
           /* config.module.rule('sass').oneOf('css') */
           {
@@ -1541,7 +1541,7 @@ exports[`css > 在 webpack 模式下不应使用 LightningCSS 1`] = `
               },
               /* config.module.rule('sass').oneOf('css').use('css-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/css-loader/index.js',
+                loader: '<ROOT>/packages/bundler-compiled/compiled/css-loader/index.js',
                 options: {
                   importLoaders: 1,
                   esModule: true,
@@ -1558,7 +1558,7 @@ exports[`css > 在 webpack 模式下不应使用 LightningCSS 1`] = `
               },
               /* config.module.rule('sass').oneOf('css').use('postcss-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/postcss-loader/index.js',
+                loader: '<ROOT>/packages/bundler-compiled/compiled/postcss-loader/index.js',
                 options: {
                   postcssOptions: {
                     ident: 'postcss',
@@ -1573,7 +1573,7 @@ exports[`css > 在 webpack 模式下不应使用 LightningCSS 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-custom-properties',
-                            prepare(){let _=new Map;return pe?{Once:re=>{_=w(re,{preserve:X})},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:()=>{_.clear()}}:{Once:async ne=>{const ie=(await le).entries(),pe=w(ne,{preserve:X}).entries();if(re)for(const[X,re]of[...ie,...pe])_.set(X,re);else for(const[X,re]of[...pe,...ie])_.set(X,re);await function(_,X){return Promise.all(X.map((async X=>{if(X instanceof Function)return void await X(C(_));if(\\"string\\"==typeof X){const re=fe.default.resolve(X),ne=fe.default.extname(re).slice(1).toLowerCase();return void await L(re,ne,C(_))}let re={};if(re=\\"toJSON\\"in X?X.toJSON(C(_)):C(_),\\"to\\"in X){const _=fe.default.resolve(X.to);let ne=X.type;return ne||(ne=fe.default.extname(_).slice(1).toLowerCase()),void await L(_,ne,re)}\\"customProperties\\"in X?X.customProperties=re:\\"custom-properties\\"in X&&(X[\\"custom-properties\\"]=re)})))}(_,ae)},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:(X,{result:re})=>{!ne&&(ie.length>0||ae.length>0)&&X.warn(re,'\\"importFrom\\" and \\"exportTo\\" will be removed in a future version of postcss-custom-properties./nWe are looking for insights and anecdotes on how these features are used so that we can design the best alternative./nPlease let us know if our proposal will work for you./nVisit the discussion on github for more details. https:/github.com/csstools/postcss-plugins/discussions/192'),_.clear()}}}
+                            prepare(){let _=new Map;return pe?{Once:re=>{_=w(re,{preserve:X})},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:()=>{_.clear()}}:{Once:async ne=>{const ie=(await le).entries(),pe=w(ne,{preserve:X}).entries();if(re)for(const[X,re]of[...ie,...pe])_.set(X,re);else for(const[X,re]of[...pe,...ie])_.set(X,re);await function(_,X){return Promise.all(X.map((async X=>{if(X instanceof Function)return void await X(C(_));if(\\"string\\"==typeof X){const re=fe.default.resolve(X),ne=fe.default.extname(re).slice(1).toLowerCase();return void await L(re,ne,C(_))}let re={};if(re=\\"toJSON\\"in X?X.toJSON(C(_)):C(_),\\"to\\"in X){const _=fe.default.resolve(X.to);let ne=X.type;return ne||(ne=fe.default.extname(_).slice(1).toLowerCase()),void await L(_,ne,re)}\\"customProperties\\"in X?X.customProperties=re:\\"custom-properties\\"in X&&(X[\\"custom-properties\\"]=re)})))}(_,ae)},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:(X,{result:re})=>{!ne&&(ie.length>0||ae.length>0)&&X.warn(re,'\\"importFrom\\" and \\"exportTo\\" will be removed in a future version of postcss-custom-properties.\\nWe are looking for insights and anecdotes on how these features are used so that we can design the best alternative.\\nPlease let us know if our proposal will work for you.\\nVisit the discussion on github for more details. https://github.com/csstools/postcss-plugins/discussions/192'),_.clear()}}}
                           },
                           {
                             postcssPlugin: 'postcss-media-minmax',
@@ -1653,7 +1653,7 @@ exports[`css > 在 webpack 模式下不应使用 LightningCSS 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-initial',
-                            Declaration: function (re){if(!/binitial/b/.test(re.value)){return}var ne=X(re.prop,re.value);if(ne.length===0)return;ne.forEach((function(_){if(!getPropPrevTo(re.prop,re)){re.cloneBefore(_)}}));if(_.replace===true){re.remove()}}
+                            Declaration: function (re){if(!/\\binitial\\b/.test(re.value)){return}var ne=X(re.prop,re.value);if(ne.length===0)return;ne.forEach((function(_){if(!getPropPrevTo(re.prop,re)){re.cloneBefore(_)}}));if(_.replace===true){re.remove()}}
                           },
                           {
                             postcssPlugin: 'postcss-page-break',
@@ -1687,7 +1687,7 @@ exports[`css > 在 webpack 模式下不应使用 LightningCSS 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-progressive-custom-properties',
-                            RuleExit: (_,{postcss:X})=>{const re=[],ne=new Set;_.each((ie=>{if(\\"decl\\"!==ie.type)return;if(!ie.variable)return;if(\\"initial\\"===ie.value.trim())return;if(\\"\\"===ie.value.trim())return;if(!ne.has(ie.prop.toString()))return void ne.add(ie.prop.toString());const ae=i(ie.value);if(!ae.length)return;const le=X.atRule({name:\\"supports\\",params:ae.join(\\" and \\"),source:_.source,raws:{before:\\"/n/n\\",after:\\"/n\\"}}),pe=_.clone();pe.removeAll(),pe.raws.before=\\"/n\\",pe.append(ie.clone()),ie.remove(),le.append(pe),re.push(le)})),0!==re.length&&re.reverse().forEach((X=>{_.after(X)}))}
+                            RuleExit: (_,{postcss:X})=>{const re=[],ne=new Set;_.each((ie=>{if(\\"decl\\"!==ie.type)return;if(!ie.variable)return;if(\\"initial\\"===ie.value.trim())return;if(\\"\\"===ie.value.trim())return;if(!ne.has(ie.prop.toString()))return void ne.add(ie.prop.toString());const ae=i(ie.value);if(!ae.length)return;const le=X.atRule({name:\\"supports\\",params:ae.join(\\" and \\"),source:_.source,raws:{before:\\"\\n\\n\\",after:\\"\\n\\"}}),pe=_.clone();pe.removeAll(),pe.raws.before=\\"\\n\\",pe.append(ie.clone()),ie.remove(),le.append(pe),re.push(le)})),0!==re.length&&re.reverse().forEach((X=>{_.after(X)}))}
                           },
                           {
                             postcssPlugin: 'postcss-preset-env',
@@ -1701,7 +1701,7 @@ exports[`css > 在 webpack 模式下不应使用 LightningCSS 1`] = `
               },
               /* config.module.rule('sass').oneOf('css').use('sass-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/sass-loader/index.js'
+                loader: '<ROOT>/packages/bundler-compiled/compiled/sass-loader/index.js'
               }
             ]
           }
@@ -1709,7 +1709,7 @@ exports[`css > 在 webpack 模式下不应使用 LightningCSS 1`] = `
       },
       /* config.module.rule('stylus') */
       {
-        test: /.(styl|stylus)(/?.*)?$/,
+        test: /\\.(styl|stylus)(\\?.*)?$/,
         oneOf: [
           /* config.module.rule('stylus').oneOf('css') */
           {
@@ -1725,7 +1725,7 @@ exports[`css > 在 webpack 模式下不应使用 LightningCSS 1`] = `
               },
               /* config.module.rule('stylus').oneOf('css').use('css-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/css-loader/index.js',
+                loader: '<ROOT>/packages/bundler-compiled/compiled/css-loader/index.js',
                 options: {
                   importLoaders: 1,
                   esModule: true,
@@ -1742,7 +1742,7 @@ exports[`css > 在 webpack 模式下不应使用 LightningCSS 1`] = `
               },
               /* config.module.rule('stylus').oneOf('css').use('postcss-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/postcss-loader/index.js',
+                loader: '<ROOT>/packages/bundler-compiled/compiled/postcss-loader/index.js',
                 options: {
                   postcssOptions: {
                     ident: 'postcss',
@@ -1757,7 +1757,7 @@ exports[`css > 在 webpack 模式下不应使用 LightningCSS 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-custom-properties',
-                            prepare(){let _=new Map;return pe?{Once:re=>{_=w(re,{preserve:X})},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:()=>{_.clear()}}:{Once:async ne=>{const ie=(await le).entries(),pe=w(ne,{preserve:X}).entries();if(re)for(const[X,re]of[...ie,...pe])_.set(X,re);else for(const[X,re]of[...pe,...ie])_.set(X,re);await function(_,X){return Promise.all(X.map((async X=>{if(X instanceof Function)return void await X(C(_));if(\\"string\\"==typeof X){const re=fe.default.resolve(X),ne=fe.default.extname(re).slice(1).toLowerCase();return void await L(re,ne,C(_))}let re={};if(re=\\"toJSON\\"in X?X.toJSON(C(_)):C(_),\\"to\\"in X){const _=fe.default.resolve(X.to);let ne=X.type;return ne||(ne=fe.default.extname(_).slice(1).toLowerCase()),void await L(_,ne,re)}\\"customProperties\\"in X?X.customProperties=re:\\"custom-properties\\"in X&&(X[\\"custom-properties\\"]=re)})))}(_,ae)},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:(X,{result:re})=>{!ne&&(ie.length>0||ae.length>0)&&X.warn(re,'\\"importFrom\\" and \\"exportTo\\" will be removed in a future version of postcss-custom-properties./nWe are looking for insights and anecdotes on how these features are used so that we can design the best alternative./nPlease let us know if our proposal will work for you./nVisit the discussion on github for more details. https:/github.com/csstools/postcss-plugins/discussions/192'),_.clear()}}}
+                            prepare(){let _=new Map;return pe?{Once:re=>{_=w(re,{preserve:X})},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:()=>{_.clear()}}:{Once:async ne=>{const ie=(await le).entries(),pe=w(ne,{preserve:X}).entries();if(re)for(const[X,re]of[...ie,...pe])_.set(X,re);else for(const[X,re]of[...pe,...ie])_.set(X,re);await function(_,X){return Promise.all(X.map((async X=>{if(X instanceof Function)return void await X(C(_));if(\\"string\\"==typeof X){const re=fe.default.resolve(X),ne=fe.default.extname(re).slice(1).toLowerCase();return void await L(re,ne,C(_))}let re={};if(re=\\"toJSON\\"in X?X.toJSON(C(_)):C(_),\\"to\\"in X){const _=fe.default.resolve(X.to);let ne=X.type;return ne||(ne=fe.default.extname(_).slice(1).toLowerCase()),void await L(_,ne,re)}\\"customProperties\\"in X?X.customProperties=re:\\"custom-properties\\"in X&&(X[\\"custom-properties\\"]=re)})))}(_,ae)},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:(X,{result:re})=>{!ne&&(ie.length>0||ae.length>0)&&X.warn(re,'\\"importFrom\\" and \\"exportTo\\" will be removed in a future version of postcss-custom-properties.\\nWe are looking for insights and anecdotes on how these features are used so that we can design the best alternative.\\nPlease let us know if our proposal will work for you.\\nVisit the discussion on github for more details. https://github.com/csstools/postcss-plugins/discussions/192'),_.clear()}}}
                           },
                           {
                             postcssPlugin: 'postcss-media-minmax',
@@ -1837,7 +1837,7 @@ exports[`css > 在 webpack 模式下不应使用 LightningCSS 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-initial',
-                            Declaration: function (re){if(!/binitial/b/.test(re.value)){return}var ne=X(re.prop,re.value);if(ne.length===0)return;ne.forEach((function(_){if(!getPropPrevTo(re.prop,re)){re.cloneBefore(_)}}));if(_.replace===true){re.remove()}}
+                            Declaration: function (re){if(!/\\binitial\\b/.test(re.value)){return}var ne=X(re.prop,re.value);if(ne.length===0)return;ne.forEach((function(_){if(!getPropPrevTo(re.prop,re)){re.cloneBefore(_)}}));if(_.replace===true){re.remove()}}
                           },
                           {
                             postcssPlugin: 'postcss-page-break',
@@ -1871,7 +1871,7 @@ exports[`css > 在 webpack 模式下不应使用 LightningCSS 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-progressive-custom-properties',
-                            RuleExit: (_,{postcss:X})=>{const re=[],ne=new Set;_.each((ie=>{if(\\"decl\\"!==ie.type)return;if(!ie.variable)return;if(\\"initial\\"===ie.value.trim())return;if(\\"\\"===ie.value.trim())return;if(!ne.has(ie.prop.toString()))return void ne.add(ie.prop.toString());const ae=i(ie.value);if(!ae.length)return;const le=X.atRule({name:\\"supports\\",params:ae.join(\\" and \\"),source:_.source,raws:{before:\\"/n/n\\",after:\\"/n\\"}}),pe=_.clone();pe.removeAll(),pe.raws.before=\\"/n\\",pe.append(ie.clone()),ie.remove(),le.append(pe),re.push(le)})),0!==re.length&&re.reverse().forEach((X=>{_.after(X)}))}
+                            RuleExit: (_,{postcss:X})=>{const re=[],ne=new Set;_.each((ie=>{if(\\"decl\\"!==ie.type)return;if(!ie.variable)return;if(\\"initial\\"===ie.value.trim())return;if(\\"\\"===ie.value.trim())return;if(!ne.has(ie.prop.toString()))return void ne.add(ie.prop.toString());const ae=i(ie.value);if(!ae.length)return;const le=X.atRule({name:\\"supports\\",params:ae.join(\\" and \\"),source:_.source,raws:{before:\\"\\n\\n\\",after:\\"\\n\\"}}),pe=_.clone();pe.removeAll(),pe.raws.before=\\"\\n\\",pe.append(ie.clone()),ie.remove(),le.append(pe),re.push(le)})),0!==re.length&&re.reverse().forEach((X=>{_.after(X)}))}
                           },
                           {
                             postcssPlugin: 'postcss-preset-env',
@@ -1885,7 +1885,7 @@ exports[`css > 在 webpack 模式下不应使用 LightningCSS 1`] = `
               },
               /* config.module.rule('stylus').oneOf('css').use('stylus-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/stylus-loader/index.js'
+                loader: '<ROOT>/packages/bundler-compiled/compiled/stylus-loader/index.js'
               }
             ]
           }
@@ -1902,7 +1902,7 @@ exports[`css > 应该在Rspack中默认启用Less多线程编译 1`] = `
     rules: [
       /* config.module.rule('css') */
       {
-        test: /.css(/?.*)?$/,
+        test: /\\.css(\\?.*)?$/,
         oneOf: [
           /* config.module.rule('css').oneOf('css') */
           {
@@ -1935,7 +1935,7 @@ exports[`css > 应该在Rspack中默认启用Less多线程编译 1`] = `
               },
               /* config.module.rule('css').oneOf('css').use('postcss-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/postcss-loader/index.js',
+                loader: '<ROOT>/packages/bundler-compiled/compiled/postcss-loader/index.js',
                 options: {
                   postcssOptions: {
                     ident: 'postcss',
@@ -1950,7 +1950,7 @@ exports[`css > 应该在Rspack中默认启用Less多线程编译 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-custom-properties',
-                            prepare(){let _=new Map;return pe?{Once:re=>{_=w(re,{preserve:X})},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:()=>{_.clear()}}:{Once:async ne=>{const ie=(await le).entries(),pe=w(ne,{preserve:X}).entries();if(re)for(const[X,re]of[...ie,...pe])_.set(X,re);else for(const[X,re]of[...pe,...ie])_.set(X,re);await function(_,X){return Promise.all(X.map((async X=>{if(X instanceof Function)return void await X(C(_));if(\\"string\\"==typeof X){const re=fe.default.resolve(X),ne=fe.default.extname(re).slice(1).toLowerCase();return void await L(re,ne,C(_))}let re={};if(re=\\"toJSON\\"in X?X.toJSON(C(_)):C(_),\\"to\\"in X){const _=fe.default.resolve(X.to);let ne=X.type;return ne||(ne=fe.default.extname(_).slice(1).toLowerCase()),void await L(_,ne,re)}\\"customProperties\\"in X?X.customProperties=re:\\"custom-properties\\"in X&&(X[\\"custom-properties\\"]=re)})))}(_,ae)},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:(X,{result:re})=>{!ne&&(ie.length>0||ae.length>0)&&X.warn(re,'\\"importFrom\\" and \\"exportTo\\" will be removed in a future version of postcss-custom-properties./nWe are looking for insights and anecdotes on how these features are used so that we can design the best alternative./nPlease let us know if our proposal will work for you./nVisit the discussion on github for more details. https:/github.com/csstools/postcss-plugins/discussions/192'),_.clear()}}}
+                            prepare(){let _=new Map;return pe?{Once:re=>{_=w(re,{preserve:X})},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:()=>{_.clear()}}:{Once:async ne=>{const ie=(await le).entries(),pe=w(ne,{preserve:X}).entries();if(re)for(const[X,re]of[...ie,...pe])_.set(X,re);else for(const[X,re]of[...pe,...ie])_.set(X,re);await function(_,X){return Promise.all(X.map((async X=>{if(X instanceof Function)return void await X(C(_));if(\\"string\\"==typeof X){const re=fe.default.resolve(X),ne=fe.default.extname(re).slice(1).toLowerCase();return void await L(re,ne,C(_))}let re={};if(re=\\"toJSON\\"in X?X.toJSON(C(_)):C(_),\\"to\\"in X){const _=fe.default.resolve(X.to);let ne=X.type;return ne||(ne=fe.default.extname(_).slice(1).toLowerCase()),void await L(_,ne,re)}\\"customProperties\\"in X?X.customProperties=re:\\"custom-properties\\"in X&&(X[\\"custom-properties\\"]=re)})))}(_,ae)},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:(X,{result:re})=>{!ne&&(ie.length>0||ae.length>0)&&X.warn(re,'\\"importFrom\\" and \\"exportTo\\" will be removed in a future version of postcss-custom-properties.\\nWe are looking for insights and anecdotes on how these features are used so that we can design the best alternative.\\nPlease let us know if our proposal will work for you.\\nVisit the discussion on github for more details. https://github.com/csstools/postcss-plugins/discussions/192'),_.clear()}}}
                           },
                           {
                             postcssPlugin: 'postcss-media-minmax',
@@ -2030,7 +2030,7 @@ exports[`css > 应该在Rspack中默认启用Less多线程编译 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-initial',
-                            Declaration: function (re){if(!/binitial/b/.test(re.value)){return}var ne=X(re.prop,re.value);if(ne.length===0)return;ne.forEach((function(_){if(!getPropPrevTo(re.prop,re)){re.cloneBefore(_)}}));if(_.replace===true){re.remove()}}
+                            Declaration: function (re){if(!/\\binitial\\b/.test(re.value)){return}var ne=X(re.prop,re.value);if(ne.length===0)return;ne.forEach((function(_){if(!getPropPrevTo(re.prop,re)){re.cloneBefore(_)}}));if(_.replace===true){re.remove()}}
                           },
                           {
                             postcssPlugin: 'postcss-page-break',
@@ -2064,7 +2064,7 @@ exports[`css > 应该在Rspack中默认启用Less多线程编译 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-progressive-custom-properties',
-                            RuleExit: (_,{postcss:X})=>{const re=[],ne=new Set;_.each((ie=>{if(\\"decl\\"!==ie.type)return;if(!ie.variable)return;if(\\"initial\\"===ie.value.trim())return;if(\\"\\"===ie.value.trim())return;if(!ne.has(ie.prop.toString()))return void ne.add(ie.prop.toString());const ae=i(ie.value);if(!ae.length)return;const le=X.atRule({name:\\"supports\\",params:ae.join(\\" and \\"),source:_.source,raws:{before:\\"/n/n\\",after:\\"/n\\"}}),pe=_.clone();pe.removeAll(),pe.raws.before=\\"/n\\",pe.append(ie.clone()),ie.remove(),le.append(pe),re.push(le)})),0!==re.length&&re.reverse().forEach((X=>{_.after(X)}))}
+                            RuleExit: (_,{postcss:X})=>{const re=[],ne=new Set;_.each((ie=>{if(\\"decl\\"!==ie.type)return;if(!ie.variable)return;if(\\"initial\\"===ie.value.trim())return;if(\\"\\"===ie.value.trim())return;if(!ne.has(ie.prop.toString()))return void ne.add(ie.prop.toString());const ae=i(ie.value);if(!ae.length)return;const le=X.atRule({name:\\"supports\\",params:ae.join(\\" and \\"),source:_.source,raws:{before:\\"\\n\\n\\",after:\\"\\n\\"}}),pe=_.clone();pe.removeAll(),pe.raws.before=\\"\\n\\",pe.append(ie.clone()),ie.remove(),le.append(pe),re.push(le)})),0!==re.length&&re.reverse().forEach((X=>{_.after(X)}))}
                           },
                           {
                             postcssPlugin: 'postcss-preset-env',
@@ -2082,7 +2082,7 @@ exports[`css > 应该在Rspack中默认启用Less多线程编译 1`] = `
       },
       /* config.module.rule('less') */
       {
-        test: /.less(/?.*)?$/,
+        test: /\\.less(\\?.*)?$/,
         oneOf: [
           /* config.module.rule('less').oneOf('css') */
           {
@@ -2098,7 +2098,7 @@ exports[`css > 应该在Rspack中默认启用Less多线程编译 1`] = `
               },
               /* config.module.rule('less').oneOf('css').use('css-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/css-loader/index.js',
+                loader: '<ROOT>/packages/bundler-compiled/compiled/css-loader/index.js',
                 options: {
                   importLoaders: 1,
                   esModule: true,
@@ -2115,7 +2115,7 @@ exports[`css > 应该在Rspack中默认启用Less多线程编译 1`] = `
               },
               /* config.module.rule('less').oneOf('css').use('postcss-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/postcss-loader/index.js',
+                loader: '<ROOT>/packages/bundler-compiled/compiled/postcss-loader/index.js',
                 options: {
                   postcssOptions: {
                     ident: 'postcss',
@@ -2130,7 +2130,7 @@ exports[`css > 应该在Rspack中默认启用Less多线程编译 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-custom-properties',
-                            prepare(){let _=new Map;return pe?{Once:re=>{_=w(re,{preserve:X})},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:()=>{_.clear()}}:{Once:async ne=>{const ie=(await le).entries(),pe=w(ne,{preserve:X}).entries();if(re)for(const[X,re]of[...ie,...pe])_.set(X,re);else for(const[X,re]of[...pe,...ie])_.set(X,re);await function(_,X){return Promise.all(X.map((async X=>{if(X instanceof Function)return void await X(C(_));if(\\"string\\"==typeof X){const re=fe.default.resolve(X),ne=fe.default.extname(re).slice(1).toLowerCase();return void await L(re,ne,C(_))}let re={};if(re=\\"toJSON\\"in X?X.toJSON(C(_)):C(_),\\"to\\"in X){const _=fe.default.resolve(X.to);let ne=X.type;return ne||(ne=fe.default.extname(_).slice(1).toLowerCase()),void await L(_,ne,re)}\\"customProperties\\"in X?X.customProperties=re:\\"custom-properties\\"in X&&(X[\\"custom-properties\\"]=re)})))}(_,ae)},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:(X,{result:re})=>{!ne&&(ie.length>0||ae.length>0)&&X.warn(re,'\\"importFrom\\" and \\"exportTo\\" will be removed in a future version of postcss-custom-properties./nWe are looking for insights and anecdotes on how these features are used so that we can design the best alternative./nPlease let us know if our proposal will work for you./nVisit the discussion on github for more details. https:/github.com/csstools/postcss-plugins/discussions/192'),_.clear()}}}
+                            prepare(){let _=new Map;return pe?{Once:re=>{_=w(re,{preserve:X})},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:()=>{_.clear()}}:{Once:async ne=>{const ie=(await le).entries(),pe=w(ne,{preserve:X}).entries();if(re)for(const[X,re]of[...ie,...pe])_.set(X,re);else for(const[X,re]of[...pe,...ie])_.set(X,re);await function(_,X){return Promise.all(X.map((async X=>{if(X instanceof Function)return void await X(C(_));if(\\"string\\"==typeof X){const re=fe.default.resolve(X),ne=fe.default.extname(re).slice(1).toLowerCase();return void await L(re,ne,C(_))}let re={};if(re=\\"toJSON\\"in X?X.toJSON(C(_)):C(_),\\"to\\"in X){const _=fe.default.resolve(X.to);let ne=X.type;return ne||(ne=fe.default.extname(_).slice(1).toLowerCase()),void await L(_,ne,re)}\\"customProperties\\"in X?X.customProperties=re:\\"custom-properties\\"in X&&(X[\\"custom-properties\\"]=re)})))}(_,ae)},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:(X,{result:re})=>{!ne&&(ie.length>0||ae.length>0)&&X.warn(re,'\\"importFrom\\" and \\"exportTo\\" will be removed in a future version of postcss-custom-properties.\\nWe are looking for insights and anecdotes on how these features are used so that we can design the best alternative.\\nPlease let us know if our proposal will work for you.\\nVisit the discussion on github for more details. https://github.com/csstools/postcss-plugins/discussions/192'),_.clear()}}}
                           },
                           {
                             postcssPlugin: 'postcss-media-minmax',
@@ -2210,7 +2210,7 @@ exports[`css > 应该在Rspack中默认启用Less多线程编译 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-initial',
-                            Declaration: function (re){if(!/binitial/b/.test(re.value)){return}var ne=X(re.prop,re.value);if(ne.length===0)return;ne.forEach((function(_){if(!getPropPrevTo(re.prop,re)){re.cloneBefore(_)}}));if(_.replace===true){re.remove()}}
+                            Declaration: function (re){if(!/\\binitial\\b/.test(re.value)){return}var ne=X(re.prop,re.value);if(ne.length===0)return;ne.forEach((function(_){if(!getPropPrevTo(re.prop,re)){re.cloneBefore(_)}}));if(_.replace===true){re.remove()}}
                           },
                           {
                             postcssPlugin: 'postcss-page-break',
@@ -2244,7 +2244,7 @@ exports[`css > 应该在Rspack中默认启用Less多线程编译 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-progressive-custom-properties',
-                            RuleExit: (_,{postcss:X})=>{const re=[],ne=new Set;_.each((ie=>{if(\\"decl\\"!==ie.type)return;if(!ie.variable)return;if(\\"initial\\"===ie.value.trim())return;if(\\"\\"===ie.value.trim())return;if(!ne.has(ie.prop.toString()))return void ne.add(ie.prop.toString());const ae=i(ie.value);if(!ae.length)return;const le=X.atRule({name:\\"supports\\",params:ae.join(\\" and \\"),source:_.source,raws:{before:\\"/n/n\\",after:\\"/n\\"}}),pe=_.clone();pe.removeAll(),pe.raws.before=\\"/n\\",pe.append(ie.clone()),ie.remove(),le.append(pe),re.push(le)})),0!==re.length&&re.reverse().forEach((X=>{_.after(X)}))}
+                            RuleExit: (_,{postcss:X})=>{const re=[],ne=new Set;_.each((ie=>{if(\\"decl\\"!==ie.type)return;if(!ie.variable)return;if(\\"initial\\"===ie.value.trim())return;if(\\"\\"===ie.value.trim())return;if(!ne.has(ie.prop.toString()))return void ne.add(ie.prop.toString());const ae=i(ie.value);if(!ae.length)return;const le=X.atRule({name:\\"supports\\",params:ae.join(\\" and \\"),source:_.source,raws:{before:\\"\\n\\n\\",after:\\"\\n\\"}}),pe=_.clone();pe.removeAll(),pe.raws.before=\\"\\n\\",pe.append(ie.clone()),ie.remove(),le.append(pe),re.push(le)})),0!==re.length&&re.reverse().forEach((X=>{_.after(X)}))}
                           },
                           {
                             postcssPlugin: 'postcss-preset-env',
@@ -2258,7 +2258,7 @@ exports[`css > 应该在Rspack中默认启用Less多线程编译 1`] = `
               },
               /* config.module.rule('less').oneOf('css').use('less-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-shared-config/dist/config/css/less/index.js',
+                loader: '<ROOT>/packages/bundler-shared-config/dist/config/css/less/index.js',
                 options: {
                   lessOptions: (loaderContext) => ({
                     modifyVars: userConfig.theme,
@@ -2273,7 +2273,7 @@ exports[`css > 应该在Rspack中默认启用Less多线程编译 1`] = `
       },
       /* config.module.rule('sass') */
       {
-        test: /.(sass|scss)(/?.*)?$/,
+        test: /\\.(sass|scss)(\\?.*)?$/,
         oneOf: [
           /* config.module.rule('sass').oneOf('css') */
           {
@@ -2289,7 +2289,7 @@ exports[`css > 应该在Rspack中默认启用Less多线程编译 1`] = `
               },
               /* config.module.rule('sass').oneOf('css').use('css-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/css-loader/index.js',
+                loader: '<ROOT>/packages/bundler-compiled/compiled/css-loader/index.js',
                 options: {
                   importLoaders: 1,
                   esModule: true,
@@ -2306,7 +2306,7 @@ exports[`css > 应该在Rspack中默认启用Less多线程编译 1`] = `
               },
               /* config.module.rule('sass').oneOf('css').use('postcss-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/postcss-loader/index.js',
+                loader: '<ROOT>/packages/bundler-compiled/compiled/postcss-loader/index.js',
                 options: {
                   postcssOptions: {
                     ident: 'postcss',
@@ -2321,7 +2321,7 @@ exports[`css > 应该在Rspack中默认启用Less多线程编译 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-custom-properties',
-                            prepare(){let _=new Map;return pe?{Once:re=>{_=w(re,{preserve:X})},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:()=>{_.clear()}}:{Once:async ne=>{const ie=(await le).entries(),pe=w(ne,{preserve:X}).entries();if(re)for(const[X,re]of[...ie,...pe])_.set(X,re);else for(const[X,re]of[...pe,...ie])_.set(X,re);await function(_,X){return Promise.all(X.map((async X=>{if(X instanceof Function)return void await X(C(_));if(\\"string\\"==typeof X){const re=fe.default.resolve(X),ne=fe.default.extname(re).slice(1).toLowerCase();return void await L(re,ne,C(_))}let re={};if(re=\\"toJSON\\"in X?X.toJSON(C(_)):C(_),\\"to\\"in X){const _=fe.default.resolve(X.to);let ne=X.type;return ne||(ne=fe.default.extname(_).slice(1).toLowerCase()),void await L(_,ne,re)}\\"customProperties\\"in X?X.customProperties=re:\\"custom-properties\\"in X&&(X[\\"custom-properties\\"]=re)})))}(_,ae)},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:(X,{result:re})=>{!ne&&(ie.length>0||ae.length>0)&&X.warn(re,'\\"importFrom\\" and \\"exportTo\\" will be removed in a future version of postcss-custom-properties./nWe are looking for insights and anecdotes on how these features are used so that we can design the best alternative./nPlease let us know if our proposal will work for you./nVisit the discussion on github for more details. https:/github.com/csstools/postcss-plugins/discussions/192'),_.clear()}}}
+                            prepare(){let _=new Map;return pe?{Once:re=>{_=w(re,{preserve:X})},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:()=>{_.clear()}}:{Once:async ne=>{const ie=(await le).entries(),pe=w(ne,{preserve:X}).entries();if(re)for(const[X,re]of[...ie,...pe])_.set(X,re);else for(const[X,re]of[...pe,...ie])_.set(X,re);await function(_,X){return Promise.all(X.map((async X=>{if(X instanceof Function)return void await X(C(_));if(\\"string\\"==typeof X){const re=fe.default.resolve(X),ne=fe.default.extname(re).slice(1).toLowerCase();return void await L(re,ne,C(_))}let re={};if(re=\\"toJSON\\"in X?X.toJSON(C(_)):C(_),\\"to\\"in X){const _=fe.default.resolve(X.to);let ne=X.type;return ne||(ne=fe.default.extname(_).slice(1).toLowerCase()),void await L(_,ne,re)}\\"customProperties\\"in X?X.customProperties=re:\\"custom-properties\\"in X&&(X[\\"custom-properties\\"]=re)})))}(_,ae)},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:(X,{result:re})=>{!ne&&(ie.length>0||ae.length>0)&&X.warn(re,'\\"importFrom\\" and \\"exportTo\\" will be removed in a future version of postcss-custom-properties.\\nWe are looking for insights and anecdotes on how these features are used so that we can design the best alternative.\\nPlease let us know if our proposal will work for you.\\nVisit the discussion on github for more details. https://github.com/csstools/postcss-plugins/discussions/192'),_.clear()}}}
                           },
                           {
                             postcssPlugin: 'postcss-media-minmax',
@@ -2401,7 +2401,7 @@ exports[`css > 应该在Rspack中默认启用Less多线程编译 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-initial',
-                            Declaration: function (re){if(!/binitial/b/.test(re.value)){return}var ne=X(re.prop,re.value);if(ne.length===0)return;ne.forEach((function(_){if(!getPropPrevTo(re.prop,re)){re.cloneBefore(_)}}));if(_.replace===true){re.remove()}}
+                            Declaration: function (re){if(!/\\binitial\\b/.test(re.value)){return}var ne=X(re.prop,re.value);if(ne.length===0)return;ne.forEach((function(_){if(!getPropPrevTo(re.prop,re)){re.cloneBefore(_)}}));if(_.replace===true){re.remove()}}
                           },
                           {
                             postcssPlugin: 'postcss-page-break',
@@ -2435,7 +2435,7 @@ exports[`css > 应该在Rspack中默认启用Less多线程编译 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-progressive-custom-properties',
-                            RuleExit: (_,{postcss:X})=>{const re=[],ne=new Set;_.each((ie=>{if(\\"decl\\"!==ie.type)return;if(!ie.variable)return;if(\\"initial\\"===ie.value.trim())return;if(\\"\\"===ie.value.trim())return;if(!ne.has(ie.prop.toString()))return void ne.add(ie.prop.toString());const ae=i(ie.value);if(!ae.length)return;const le=X.atRule({name:\\"supports\\",params:ae.join(\\" and \\"),source:_.source,raws:{before:\\"/n/n\\",after:\\"/n\\"}}),pe=_.clone();pe.removeAll(),pe.raws.before=\\"/n\\",pe.append(ie.clone()),ie.remove(),le.append(pe),re.push(le)})),0!==re.length&&re.reverse().forEach((X=>{_.after(X)}))}
+                            RuleExit: (_,{postcss:X})=>{const re=[],ne=new Set;_.each((ie=>{if(\\"decl\\"!==ie.type)return;if(!ie.variable)return;if(\\"initial\\"===ie.value.trim())return;if(\\"\\"===ie.value.trim())return;if(!ne.has(ie.prop.toString()))return void ne.add(ie.prop.toString());const ae=i(ie.value);if(!ae.length)return;const le=X.atRule({name:\\"supports\\",params:ae.join(\\" and \\"),source:_.source,raws:{before:\\"\\n\\n\\",after:\\"\\n\\"}}),pe=_.clone();pe.removeAll(),pe.raws.before=\\"\\n\\",pe.append(ie.clone()),ie.remove(),le.append(pe),re.push(le)})),0!==re.length&&re.reverse().forEach((X=>{_.after(X)}))}
                           },
                           {
                             postcssPlugin: 'postcss-preset-env',
@@ -2449,7 +2449,7 @@ exports[`css > 应该在Rspack中默认启用Less多线程编译 1`] = `
               },
               /* config.module.rule('sass').oneOf('css').use('sass-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/sass-loader/index.js'
+                loader: '<ROOT>/packages/bundler-compiled/compiled/sass-loader/index.js'
               }
             ]
           }
@@ -2457,7 +2457,7 @@ exports[`css > 应该在Rspack中默认启用Less多线程编译 1`] = `
       },
       /* config.module.rule('stylus') */
       {
-        test: /.(styl|stylus)(/?.*)?$/,
+        test: /\\.(styl|stylus)(\\?.*)?$/,
         oneOf: [
           /* config.module.rule('stylus').oneOf('css') */
           {
@@ -2473,7 +2473,7 @@ exports[`css > 应该在Rspack中默认启用Less多线程编译 1`] = `
               },
               /* config.module.rule('stylus').oneOf('css').use('css-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/css-loader/index.js',
+                loader: '<ROOT>/packages/bundler-compiled/compiled/css-loader/index.js',
                 options: {
                   importLoaders: 1,
                   esModule: true,
@@ -2490,7 +2490,7 @@ exports[`css > 应该在Rspack中默认启用Less多线程编译 1`] = `
               },
               /* config.module.rule('stylus').oneOf('css').use('postcss-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/postcss-loader/index.js',
+                loader: '<ROOT>/packages/bundler-compiled/compiled/postcss-loader/index.js',
                 options: {
                   postcssOptions: {
                     ident: 'postcss',
@@ -2505,7 +2505,7 @@ exports[`css > 应该在Rspack中默认启用Less多线程编译 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-custom-properties',
-                            prepare(){let _=new Map;return pe?{Once:re=>{_=w(re,{preserve:X})},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:()=>{_.clear()}}:{Once:async ne=>{const ie=(await le).entries(),pe=w(ne,{preserve:X}).entries();if(re)for(const[X,re]of[...ie,...pe])_.set(X,re);else for(const[X,re]of[...pe,...ie])_.set(X,re);await function(_,X){return Promise.all(X.map((async X=>{if(X instanceof Function)return void await X(C(_));if(\\"string\\"==typeof X){const re=fe.default.resolve(X),ne=fe.default.extname(re).slice(1).toLowerCase();return void await L(re,ne,C(_))}let re={};if(re=\\"toJSON\\"in X?X.toJSON(C(_)):C(_),\\"to\\"in X){const _=fe.default.resolve(X.to);let ne=X.type;return ne||(ne=fe.default.extname(_).slice(1).toLowerCase()),void await L(_,ne,re)}\\"customProperties\\"in X?X.customProperties=re:\\"custom-properties\\"in X&&(X[\\"custom-properties\\"]=re)})))}(_,ae)},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:(X,{result:re})=>{!ne&&(ie.length>0||ae.length>0)&&X.warn(re,'\\"importFrom\\" and \\"exportTo\\" will be removed in a future version of postcss-custom-properties./nWe are looking for insights and anecdotes on how these features are used so that we can design the best alternative./nPlease let us know if our proposal will work for you./nVisit the discussion on github for more details. https:/github.com/csstools/postcss-plugins/discussions/192'),_.clear()}}}
+                            prepare(){let _=new Map;return pe?{Once:re=>{_=w(re,{preserve:X})},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:()=>{_.clear()}}:{Once:async ne=>{const ie=(await le).entries(),pe=w(ne,{preserve:X}).entries();if(re)for(const[X,re]of[...ie,...pe])_.set(X,re);else for(const[X,re]of[...pe,...ie])_.set(X,re);await function(_,X){return Promise.all(X.map((async X=>{if(X instanceof Function)return void await X(C(_));if(\\"string\\"==typeof X){const re=fe.default.resolve(X),ne=fe.default.extname(re).slice(1).toLowerCase();return void await L(re,ne,C(_))}let re={};if(re=\\"toJSON\\"in X?X.toJSON(C(_)):C(_),\\"to\\"in X){const _=fe.default.resolve(X.to);let ne=X.type;return ne||(ne=fe.default.extname(_).slice(1).toLowerCase()),void await L(_,ne,re)}\\"customProperties\\"in X?X.customProperties=re:\\"custom-properties\\"in X&&(X[\\"custom-properties\\"]=re)})))}(_,ae)},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:(X,{result:re})=>{!ne&&(ie.length>0||ae.length>0)&&X.warn(re,'\\"importFrom\\" and \\"exportTo\\" will be removed in a future version of postcss-custom-properties.\\nWe are looking for insights and anecdotes on how these features are used so that we can design the best alternative.\\nPlease let us know if our proposal will work for you.\\nVisit the discussion on github for more details. https://github.com/csstools/postcss-plugins/discussions/192'),_.clear()}}}
                           },
                           {
                             postcssPlugin: 'postcss-media-minmax',
@@ -2585,7 +2585,7 @@ exports[`css > 应该在Rspack中默认启用Less多线程编译 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-initial',
-                            Declaration: function (re){if(!/binitial/b/.test(re.value)){return}var ne=X(re.prop,re.value);if(ne.length===0)return;ne.forEach((function(_){if(!getPropPrevTo(re.prop,re)){re.cloneBefore(_)}}));if(_.replace===true){re.remove()}}
+                            Declaration: function (re){if(!/\\binitial\\b/.test(re.value)){return}var ne=X(re.prop,re.value);if(ne.length===0)return;ne.forEach((function(_){if(!getPropPrevTo(re.prop,re)){re.cloneBefore(_)}}));if(_.replace===true){re.remove()}}
                           },
                           {
                             postcssPlugin: 'postcss-page-break',
@@ -2619,7 +2619,7 @@ exports[`css > 应该在Rspack中默认启用Less多线程编译 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-progressive-custom-properties',
-                            RuleExit: (_,{postcss:X})=>{const re=[],ne=new Set;_.each((ie=>{if(\\"decl\\"!==ie.type)return;if(!ie.variable)return;if(\\"initial\\"===ie.value.trim())return;if(\\"\\"===ie.value.trim())return;if(!ne.has(ie.prop.toString()))return void ne.add(ie.prop.toString());const ae=i(ie.value);if(!ae.length)return;const le=X.atRule({name:\\"supports\\",params:ae.join(\\" and \\"),source:_.source,raws:{before:\\"/n/n\\",after:\\"/n\\"}}),pe=_.clone();pe.removeAll(),pe.raws.before=\\"/n\\",pe.append(ie.clone()),ie.remove(),le.append(pe),re.push(le)})),0!==re.length&&re.reverse().forEach((X=>{_.after(X)}))}
+                            RuleExit: (_,{postcss:X})=>{const re=[],ne=new Set;_.each((ie=>{if(\\"decl\\"!==ie.type)return;if(!ie.variable)return;if(\\"initial\\"===ie.value.trim())return;if(\\"\\"===ie.value.trim())return;if(!ne.has(ie.prop.toString()))return void ne.add(ie.prop.toString());const ae=i(ie.value);if(!ae.length)return;const le=X.atRule({name:\\"supports\\",params:ae.join(\\" and \\"),source:_.source,raws:{before:\\"\\n\\n\\",after:\\"\\n\\"}}),pe=_.clone();pe.removeAll(),pe.raws.before=\\"\\n\\",pe.append(ie.clone()),ie.remove(),le.append(pe),re.push(le)})),0!==re.length&&re.reverse().forEach((X=>{_.after(X)}))}
                           },
                           {
                             postcssPlugin: 'postcss-preset-env',
@@ -2633,7 +2633,7 @@ exports[`css > 应该在Rspack中默认启用Less多线程编译 1`] = `
               },
               /* config.module.rule('stylus').oneOf('css').use('stylus-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/stylus-loader/index.js'
+                loader: '<ROOT>/packages/bundler-compiled/compiled/stylus-loader/index.js'
               }
             ]
           }
@@ -4573,7 +4573,7 @@ exports[`css > 应该支持自定义PostCSS插件 1`] = `
     rules: [
       /* config.module.rule('css') */
       {
-        test: /.css(/?.*)?$/,
+        test: /\\.css(\\?.*)?$/,
         oneOf: [
           /* config.module.rule('css').oneOf('css') */
           {
@@ -4606,7 +4606,7 @@ exports[`css > 应该支持自定义PostCSS插件 1`] = `
               },
               /* config.module.rule('css').oneOf('css').use('postcss-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/postcss-loader/index.js',
+                loader: '<ROOT>/packages/bundler-compiled/compiled/postcss-loader/index.js',
                 options: {
                   postcssOptions: {
                     ident: 'postcss',
@@ -4621,7 +4621,7 @@ exports[`css > 应该支持自定义PostCSS插件 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-custom-properties',
-                            prepare(){let _=new Map;return pe?{Once:re=>{_=w(re,{preserve:X})},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:()=>{_.clear()}}:{Once:async ne=>{const ie=(await le).entries(),pe=w(ne,{preserve:X}).entries();if(re)for(const[X,re]of[...ie,...pe])_.set(X,re);else for(const[X,re]of[...pe,...ie])_.set(X,re);await function(_,X){return Promise.all(X.map((async X=>{if(X instanceof Function)return void await X(C(_));if(\\"string\\"==typeof X){const re=fe.default.resolve(X),ne=fe.default.extname(re).slice(1).toLowerCase();return void await L(re,ne,C(_))}let re={};if(re=\\"toJSON\\"in X?X.toJSON(C(_)):C(_),\\"to\\"in X){const _=fe.default.resolve(X.to);let ne=X.type;return ne||(ne=fe.default.extname(_).slice(1).toLowerCase()),void await L(_,ne,re)}\\"customProperties\\"in X?X.customProperties=re:\\"custom-properties\\"in X&&(X[\\"custom-properties\\"]=re)})))}(_,ae)},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:(X,{result:re})=>{!ne&&(ie.length>0||ae.length>0)&&X.warn(re,'\\"importFrom\\" and \\"exportTo\\" will be removed in a future version of postcss-custom-properties./nWe are looking for insights and anecdotes on how these features are used so that we can design the best alternative./nPlease let us know if our proposal will work for you./nVisit the discussion on github for more details. https:/github.com/csstools/postcss-plugins/discussions/192'),_.clear()}}}
+                            prepare(){let _=new Map;return pe?{Once:re=>{_=w(re,{preserve:X})},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:()=>{_.clear()}}:{Once:async ne=>{const ie=(await le).entries(),pe=w(ne,{preserve:X}).entries();if(re)for(const[X,re]of[...ie,...pe])_.set(X,re);else for(const[X,re]of[...pe,...ie])_.set(X,re);await function(_,X){return Promise.all(X.map((async X=>{if(X instanceof Function)return void await X(C(_));if(\\"string\\"==typeof X){const re=fe.default.resolve(X),ne=fe.default.extname(re).slice(1).toLowerCase();return void await L(re,ne,C(_))}let re={};if(re=\\"toJSON\\"in X?X.toJSON(C(_)):C(_),\\"to\\"in X){const _=fe.default.resolve(X.to);let ne=X.type;return ne||(ne=fe.default.extname(_).slice(1).toLowerCase()),void await L(_,ne,re)}\\"customProperties\\"in X?X.customProperties=re:\\"custom-properties\\"in X&&(X[\\"custom-properties\\"]=re)})))}(_,ae)},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:(X,{result:re})=>{!ne&&(ie.length>0||ae.length>0)&&X.warn(re,'\\"importFrom\\" and \\"exportTo\\" will be removed in a future version of postcss-custom-properties.\\nWe are looking for insights and anecdotes on how these features are used so that we can design the best alternative.\\nPlease let us know if our proposal will work for you.\\nVisit the discussion on github for more details. https://github.com/csstools/postcss-plugins/discussions/192'),_.clear()}}}
                           },
                           {
                             postcssPlugin: 'postcss-media-minmax',
@@ -4701,7 +4701,7 @@ exports[`css > 应该支持自定义PostCSS插件 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-initial',
-                            Declaration: function (re){if(!/binitial/b/.test(re.value)){return}var ne=X(re.prop,re.value);if(ne.length===0)return;ne.forEach((function(_){if(!getPropPrevTo(re.prop,re)){re.cloneBefore(_)}}));if(_.replace===true){re.remove()}}
+                            Declaration: function (re){if(!/\\binitial\\b/.test(re.value)){return}var ne=X(re.prop,re.value);if(ne.length===0)return;ne.forEach((function(_){if(!getPropPrevTo(re.prop,re)){re.cloneBefore(_)}}));if(_.replace===true){re.remove()}}
                           },
                           {
                             postcssPlugin: 'postcss-page-break',
@@ -4735,7 +4735,7 @@ exports[`css > 应该支持自定义PostCSS插件 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-progressive-custom-properties',
-                            RuleExit: (_,{postcss:X})=>{const re=[],ne=new Set;_.each((ie=>{if(\\"decl\\"!==ie.type)return;if(!ie.variable)return;if(\\"initial\\"===ie.value.trim())return;if(\\"\\"===ie.value.trim())return;if(!ne.has(ie.prop.toString()))return void ne.add(ie.prop.toString());const ae=i(ie.value);if(!ae.length)return;const le=X.atRule({name:\\"supports\\",params:ae.join(\\" and \\"),source:_.source,raws:{before:\\"/n/n\\",after:\\"/n\\"}}),pe=_.clone();pe.removeAll(),pe.raws.before=\\"/n\\",pe.append(ie.clone()),ie.remove(),le.append(pe),re.push(le)})),0!==re.length&&re.reverse().forEach((X=>{_.after(X)}))}
+                            RuleExit: (_,{postcss:X})=>{const re=[],ne=new Set;_.each((ie=>{if(\\"decl\\"!==ie.type)return;if(!ie.variable)return;if(\\"initial\\"===ie.value.trim())return;if(\\"\\"===ie.value.trim())return;if(!ne.has(ie.prop.toString()))return void ne.add(ie.prop.toString());const ae=i(ie.value);if(!ae.length)return;const le=X.atRule({name:\\"supports\\",params:ae.join(\\" and \\"),source:_.source,raws:{before:\\"\\n\\n\\",after:\\"\\n\\"}}),pe=_.clone();pe.removeAll(),pe.raws.before=\\"\\n\\",pe.append(ie.clone()),ie.remove(),le.append(pe),re.push(le)})),0!==re.length&&re.reverse().forEach((X=>{_.after(X)}))}
                           },
                           {
                             postcssPlugin: 'postcss-preset-env',
@@ -4754,7 +4754,7 @@ exports[`css > 应该支持自定义PostCSS插件 1`] = `
       },
       /* config.module.rule('less') */
       {
-        test: /.less(/?.*)?$/,
+        test: /\\.less(\\?.*)?$/,
         oneOf: [
           /* config.module.rule('less').oneOf('css') */
           {
@@ -4770,7 +4770,7 @@ exports[`css > 应该支持自定义PostCSS插件 1`] = `
               },
               /* config.module.rule('less').oneOf('css').use('css-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/css-loader/index.js',
+                loader: '<ROOT>/packages/bundler-compiled/compiled/css-loader/index.js',
                 options: {
                   importLoaders: 2,
                   esModule: true,
@@ -4787,7 +4787,7 @@ exports[`css > 应该支持自定义PostCSS插件 1`] = `
               },
               /* config.module.rule('less').oneOf('css').use('postcss-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/postcss-loader/index.js',
+                loader: '<ROOT>/packages/bundler-compiled/compiled/postcss-loader/index.js',
                 options: {
                   postcssOptions: {
                     ident: 'postcss',
@@ -4802,7 +4802,7 @@ exports[`css > 应该支持自定义PostCSS插件 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-custom-properties',
-                            prepare(){let _=new Map;return pe?{Once:re=>{_=w(re,{preserve:X})},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:()=>{_.clear()}}:{Once:async ne=>{const ie=(await le).entries(),pe=w(ne,{preserve:X}).entries();if(re)for(const[X,re]of[...ie,...pe])_.set(X,re);else for(const[X,re]of[...pe,...ie])_.set(X,re);await function(_,X){return Promise.all(X.map((async X=>{if(X instanceof Function)return void await X(C(_));if(\\"string\\"==typeof X){const re=fe.default.resolve(X),ne=fe.default.extname(re).slice(1).toLowerCase();return void await L(re,ne,C(_))}let re={};if(re=\\"toJSON\\"in X?X.toJSON(C(_)):C(_),\\"to\\"in X){const _=fe.default.resolve(X.to);let ne=X.type;return ne||(ne=fe.default.extname(_).slice(1).toLowerCase()),void await L(_,ne,re)}\\"customProperties\\"in X?X.customProperties=re:\\"custom-properties\\"in X&&(X[\\"custom-properties\\"]=re)})))}(_,ae)},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:(X,{result:re})=>{!ne&&(ie.length>0||ae.length>0)&&X.warn(re,'\\"importFrom\\" and \\"exportTo\\" will be removed in a future version of postcss-custom-properties./nWe are looking for insights and anecdotes on how these features are used so that we can design the best alternative./nPlease let us know if our proposal will work for you./nVisit the discussion on github for more details. https:/github.com/csstools/postcss-plugins/discussions/192'),_.clear()}}}
+                            prepare(){let _=new Map;return pe?{Once:re=>{_=w(re,{preserve:X})},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:()=>{_.clear()}}:{Once:async ne=>{const ie=(await le).entries(),pe=w(ne,{preserve:X}).entries();if(re)for(const[X,re]of[...ie,...pe])_.set(X,re);else for(const[X,re]of[...pe,...ie])_.set(X,re);await function(_,X){return Promise.all(X.map((async X=>{if(X instanceof Function)return void await X(C(_));if(\\"string\\"==typeof X){const re=fe.default.resolve(X),ne=fe.default.extname(re).slice(1).toLowerCase();return void await L(re,ne,C(_))}let re={};if(re=\\"toJSON\\"in X?X.toJSON(C(_)):C(_),\\"to\\"in X){const _=fe.default.resolve(X.to);let ne=X.type;return ne||(ne=fe.default.extname(_).slice(1).toLowerCase()),void await L(_,ne,re)}\\"customProperties\\"in X?X.customProperties=re:\\"custom-properties\\"in X&&(X[\\"custom-properties\\"]=re)})))}(_,ae)},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:(X,{result:re})=>{!ne&&(ie.length>0||ae.length>0)&&X.warn(re,'\\"importFrom\\" and \\"exportTo\\" will be removed in a future version of postcss-custom-properties.\\nWe are looking for insights and anecdotes on how these features are used so that we can design the best alternative.\\nPlease let us know if our proposal will work for you.\\nVisit the discussion on github for more details. https://github.com/csstools/postcss-plugins/discussions/192'),_.clear()}}}
                           },
                           {
                             postcssPlugin: 'postcss-media-minmax',
@@ -4882,7 +4882,7 @@ exports[`css > 应该支持自定义PostCSS插件 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-initial',
-                            Declaration: function (re){if(!/binitial/b/.test(re.value)){return}var ne=X(re.prop,re.value);if(ne.length===0)return;ne.forEach((function(_){if(!getPropPrevTo(re.prop,re)){re.cloneBefore(_)}}));if(_.replace===true){re.remove()}}
+                            Declaration: function (re){if(!/\\binitial\\b/.test(re.value)){return}var ne=X(re.prop,re.value);if(ne.length===0)return;ne.forEach((function(_){if(!getPropPrevTo(re.prop,re)){re.cloneBefore(_)}}));if(_.replace===true){re.remove()}}
                           },
                           {
                             postcssPlugin: 'postcss-page-break',
@@ -4916,7 +4916,7 @@ exports[`css > 应该支持自定义PostCSS插件 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-progressive-custom-properties',
-                            RuleExit: (_,{postcss:X})=>{const re=[],ne=new Set;_.each((ie=>{if(\\"decl\\"!==ie.type)return;if(!ie.variable)return;if(\\"initial\\"===ie.value.trim())return;if(\\"\\"===ie.value.trim())return;if(!ne.has(ie.prop.toString()))return void ne.add(ie.prop.toString());const ae=i(ie.value);if(!ae.length)return;const le=X.atRule({name:\\"supports\\",params:ae.join(\\" and \\"),source:_.source,raws:{before:\\"/n/n\\",after:\\"/n\\"}}),pe=_.clone();pe.removeAll(),pe.raws.before=\\"/n\\",pe.append(ie.clone()),ie.remove(),le.append(pe),re.push(le)})),0!==re.length&&re.reverse().forEach((X=>{_.after(X)}))}
+                            RuleExit: (_,{postcss:X})=>{const re=[],ne=new Set;_.each((ie=>{if(\\"decl\\"!==ie.type)return;if(!ie.variable)return;if(\\"initial\\"===ie.value.trim())return;if(\\"\\"===ie.value.trim())return;if(!ne.has(ie.prop.toString()))return void ne.add(ie.prop.toString());const ae=i(ie.value);if(!ae.length)return;const le=X.atRule({name:\\"supports\\",params:ae.join(\\" and \\"),source:_.source,raws:{before:\\"\\n\\n\\",after:\\"\\n\\"}}),pe=_.clone();pe.removeAll(),pe.raws.before=\\"\\n\\",pe.append(ie.clone()),ie.remove(),le.append(pe),re.push(le)})),0!==re.length&&re.reverse().forEach((X=>{_.after(X)}))}
                           },
                           {
                             postcssPlugin: 'postcss-preset-env',
@@ -4931,7 +4931,7 @@ exports[`css > 应该支持自定义PostCSS插件 1`] = `
               },
               /* config.module.rule('less').oneOf('css').use('less-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-shared-config/dist/config/css/less/index.js',
+                loader: '<ROOT>/packages/bundler-shared-config/dist/config/css/less/index.js',
                 options: {
                   lessOptions: (loaderContext) => ({
                     modifyVars: userConfig.theme,
@@ -4946,7 +4946,7 @@ exports[`css > 应该支持自定义PostCSS插件 1`] = `
       },
       /* config.module.rule('sass') */
       {
-        test: /.(sass|scss)(/?.*)?$/,
+        test: /\\.(sass|scss)(\\?.*)?$/,
         oneOf: [
           /* config.module.rule('sass').oneOf('css') */
           {
@@ -4962,7 +4962,7 @@ exports[`css > 应该支持自定义PostCSS插件 1`] = `
               },
               /* config.module.rule('sass').oneOf('css').use('css-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/css-loader/index.js',
+                loader: '<ROOT>/packages/bundler-compiled/compiled/css-loader/index.js',
                 options: {
                   importLoaders: 2,
                   esModule: true,
@@ -4979,7 +4979,7 @@ exports[`css > 应该支持自定义PostCSS插件 1`] = `
               },
               /* config.module.rule('sass').oneOf('css').use('postcss-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/postcss-loader/index.js',
+                loader: '<ROOT>/packages/bundler-compiled/compiled/postcss-loader/index.js',
                 options: {
                   postcssOptions: {
                     ident: 'postcss',
@@ -4994,7 +4994,7 @@ exports[`css > 应该支持自定义PostCSS插件 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-custom-properties',
-                            prepare(){let _=new Map;return pe?{Once:re=>{_=w(re,{preserve:X})},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:()=>{_.clear()}}:{Once:async ne=>{const ie=(await le).entries(),pe=w(ne,{preserve:X}).entries();if(re)for(const[X,re]of[...ie,...pe])_.set(X,re);else for(const[X,re]of[...pe,...ie])_.set(X,re);await function(_,X){return Promise.all(X.map((async X=>{if(X instanceof Function)return void await X(C(_));if(\\"string\\"==typeof X){const re=fe.default.resolve(X),ne=fe.default.extname(re).slice(1).toLowerCase();return void await L(re,ne,C(_))}let re={};if(re=\\"toJSON\\"in X?X.toJSON(C(_)):C(_),\\"to\\"in X){const _=fe.default.resolve(X.to);let ne=X.type;return ne||(ne=fe.default.extname(_).slice(1).toLowerCase()),void await L(_,ne,re)}\\"customProperties\\"in X?X.customProperties=re:\\"custom-properties\\"in X&&(X[\\"custom-properties\\"]=re)})))}(_,ae)},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:(X,{result:re})=>{!ne&&(ie.length>0||ae.length>0)&&X.warn(re,'\\"importFrom\\" and \\"exportTo\\" will be removed in a future version of postcss-custom-properties./nWe are looking for insights and anecdotes on how these features are used so that we can design the best alternative./nPlease let us know if our proposal will work for you./nVisit the discussion on github for more details. https:/github.com/csstools/postcss-plugins/discussions/192'),_.clear()}}}
+                            prepare(){let _=new Map;return pe?{Once:re=>{_=w(re,{preserve:X})},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:()=>{_.clear()}}:{Once:async ne=>{const ie=(await le).entries(),pe=w(ne,{preserve:X}).entries();if(re)for(const[X,re]of[...ie,...pe])_.set(X,re);else for(const[X,re]of[...pe,...ie])_.set(X,re);await function(_,X){return Promise.all(X.map((async X=>{if(X instanceof Function)return void await X(C(_));if(\\"string\\"==typeof X){const re=fe.default.resolve(X),ne=fe.default.extname(re).slice(1).toLowerCase();return void await L(re,ne,C(_))}let re={};if(re=\\"toJSON\\"in X?X.toJSON(C(_)):C(_),\\"to\\"in X){const _=fe.default.resolve(X.to);let ne=X.type;return ne||(ne=fe.default.extname(_).slice(1).toLowerCase()),void await L(_,ne,re)}\\"customProperties\\"in X?X.customProperties=re:\\"custom-properties\\"in X&&(X[\\"custom-properties\\"]=re)})))}(_,ae)},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:(X,{result:re})=>{!ne&&(ie.length>0||ae.length>0)&&X.warn(re,'\\"importFrom\\" and \\"exportTo\\" will be removed in a future version of postcss-custom-properties.\\nWe are looking for insights and anecdotes on how these features are used so that we can design the best alternative.\\nPlease let us know if our proposal will work for you.\\nVisit the discussion on github for more details. https://github.com/csstools/postcss-plugins/discussions/192'),_.clear()}}}
                           },
                           {
                             postcssPlugin: 'postcss-media-minmax',
@@ -5074,7 +5074,7 @@ exports[`css > 应该支持自定义PostCSS插件 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-initial',
-                            Declaration: function (re){if(!/binitial/b/.test(re.value)){return}var ne=X(re.prop,re.value);if(ne.length===0)return;ne.forEach((function(_){if(!getPropPrevTo(re.prop,re)){re.cloneBefore(_)}}));if(_.replace===true){re.remove()}}
+                            Declaration: function (re){if(!/\\binitial\\b/.test(re.value)){return}var ne=X(re.prop,re.value);if(ne.length===0)return;ne.forEach((function(_){if(!getPropPrevTo(re.prop,re)){re.cloneBefore(_)}}));if(_.replace===true){re.remove()}}
                           },
                           {
                             postcssPlugin: 'postcss-page-break',
@@ -5108,7 +5108,7 @@ exports[`css > 应该支持自定义PostCSS插件 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-progressive-custom-properties',
-                            RuleExit: (_,{postcss:X})=>{const re=[],ne=new Set;_.each((ie=>{if(\\"decl\\"!==ie.type)return;if(!ie.variable)return;if(\\"initial\\"===ie.value.trim())return;if(\\"\\"===ie.value.trim())return;if(!ne.has(ie.prop.toString()))return void ne.add(ie.prop.toString());const ae=i(ie.value);if(!ae.length)return;const le=X.atRule({name:\\"supports\\",params:ae.join(\\" and \\"),source:_.source,raws:{before:\\"/n/n\\",after:\\"/n\\"}}),pe=_.clone();pe.removeAll(),pe.raws.before=\\"/n\\",pe.append(ie.clone()),ie.remove(),le.append(pe),re.push(le)})),0!==re.length&&re.reverse().forEach((X=>{_.after(X)}))}
+                            RuleExit: (_,{postcss:X})=>{const re=[],ne=new Set;_.each((ie=>{if(\\"decl\\"!==ie.type)return;if(!ie.variable)return;if(\\"initial\\"===ie.value.trim())return;if(\\"\\"===ie.value.trim())return;if(!ne.has(ie.prop.toString()))return void ne.add(ie.prop.toString());const ae=i(ie.value);if(!ae.length)return;const le=X.atRule({name:\\"supports\\",params:ae.join(\\" and \\"),source:_.source,raws:{before:\\"\\n\\n\\",after:\\"\\n\\"}}),pe=_.clone();pe.removeAll(),pe.raws.before=\\"\\n\\",pe.append(ie.clone()),ie.remove(),le.append(pe),re.push(le)})),0!==re.length&&re.reverse().forEach((X=>{_.after(X)}))}
                           },
                           {
                             postcssPlugin: 'postcss-preset-env',
@@ -5123,7 +5123,7 @@ exports[`css > 应该支持自定义PostCSS插件 1`] = `
               },
               /* config.module.rule('sass').oneOf('css').use('sass-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/sass-loader/index.js'
+                loader: '<ROOT>/packages/bundler-compiled/compiled/sass-loader/index.js'
               }
             ]
           }
@@ -5131,7 +5131,7 @@ exports[`css > 应该支持自定义PostCSS插件 1`] = `
       },
       /* config.module.rule('stylus') */
       {
-        test: /.(styl|stylus)(/?.*)?$/,
+        test: /\\.(styl|stylus)(\\?.*)?$/,
         oneOf: [
           /* config.module.rule('stylus').oneOf('css') */
           {
@@ -5147,7 +5147,7 @@ exports[`css > 应该支持自定义PostCSS插件 1`] = `
               },
               /* config.module.rule('stylus').oneOf('css').use('css-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/css-loader/index.js',
+                loader: '<ROOT>/packages/bundler-compiled/compiled/css-loader/index.js',
                 options: {
                   importLoaders: 2,
                   esModule: true,
@@ -5164,7 +5164,7 @@ exports[`css > 应该支持自定义PostCSS插件 1`] = `
               },
               /* config.module.rule('stylus').oneOf('css').use('postcss-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/postcss-loader/index.js',
+                loader: '<ROOT>/packages/bundler-compiled/compiled/postcss-loader/index.js',
                 options: {
                   postcssOptions: {
                     ident: 'postcss',
@@ -5179,7 +5179,7 @@ exports[`css > 应该支持自定义PostCSS插件 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-custom-properties',
-                            prepare(){let _=new Map;return pe?{Once:re=>{_=w(re,{preserve:X})},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:()=>{_.clear()}}:{Once:async ne=>{const ie=(await le).entries(),pe=w(ne,{preserve:X}).entries();if(re)for(const[X,re]of[...ie,...pe])_.set(X,re);else for(const[X,re]of[...pe,...ie])_.set(X,re);await function(_,X){return Promise.all(X.map((async X=>{if(X instanceof Function)return void await X(C(_));if(\\"string\\"==typeof X){const re=fe.default.resolve(X),ne=fe.default.extname(re).slice(1).toLowerCase();return void await L(re,ne,C(_))}let re={};if(re=\\"toJSON\\"in X?X.toJSON(C(_)):C(_),\\"to\\"in X){const _=fe.default.resolve(X.to);let ne=X.type;return ne||(ne=fe.default.extname(_).slice(1).toLowerCase()),void await L(_,ne,re)}\\"customProperties\\"in X?X.customProperties=re:\\"custom-properties\\"in X&&(X[\\"custom-properties\\"]=re)})))}(_,ae)},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:(X,{result:re})=>{!ne&&(ie.length>0||ae.length>0)&&X.warn(re,'\\"importFrom\\" and \\"exportTo\\" will be removed in a future version of postcss-custom-properties./nWe are looking for insights and anecdotes on how these features are used so that we can design the best alternative./nPlease let us know if our proposal will work for you./nVisit the discussion on github for more details. https:/github.com/csstools/postcss-plugins/discussions/192'),_.clear()}}}
+                            prepare(){let _=new Map;return pe?{Once:re=>{_=w(re,{preserve:X})},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:()=>{_.clear()}}:{Once:async ne=>{const ie=(await le).entries(),pe=w(ne,{preserve:X}).entries();if(re)for(const[X,re]of[...ie,...pe])_.set(X,re);else for(const[X,re]of[...pe,...ie])_.set(X,re);await function(_,X){return Promise.all(X.map((async X=>{if(X instanceof Function)return void await X(C(_));if(\\"string\\"==typeof X){const re=fe.default.resolve(X),ne=fe.default.extname(re).slice(1).toLowerCase();return void await L(re,ne,C(_))}let re={};if(re=\\"toJSON\\"in X?X.toJSON(C(_)):C(_),\\"to\\"in X){const _=fe.default.resolve(X.to);let ne=X.type;return ne||(ne=fe.default.extname(_).slice(1).toLowerCase()),void await L(_,ne,re)}\\"customProperties\\"in X?X.customProperties=re:\\"custom-properties\\"in X&&(X[\\"custom-properties\\"]=re)})))}(_,ae)},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:(X,{result:re})=>{!ne&&(ie.length>0||ae.length>0)&&X.warn(re,'\\"importFrom\\" and \\"exportTo\\" will be removed in a future version of postcss-custom-properties.\\nWe are looking for insights and anecdotes on how these features are used so that we can design the best alternative.\\nPlease let us know if our proposal will work for you.\\nVisit the discussion on github for more details. https://github.com/csstools/postcss-plugins/discussions/192'),_.clear()}}}
                           },
                           {
                             postcssPlugin: 'postcss-media-minmax',
@@ -5259,7 +5259,7 @@ exports[`css > 应该支持自定义PostCSS插件 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-initial',
-                            Declaration: function (re){if(!/binitial/b/.test(re.value)){return}var ne=X(re.prop,re.value);if(ne.length===0)return;ne.forEach((function(_){if(!getPropPrevTo(re.prop,re)){re.cloneBefore(_)}}));if(_.replace===true){re.remove()}}
+                            Declaration: function (re){if(!/\\binitial\\b/.test(re.value)){return}var ne=X(re.prop,re.value);if(ne.length===0)return;ne.forEach((function(_){if(!getPropPrevTo(re.prop,re)){re.cloneBefore(_)}}));if(_.replace===true){re.remove()}}
                           },
                           {
                             postcssPlugin: 'postcss-page-break',
@@ -5293,7 +5293,7 @@ exports[`css > 应该支持自定义PostCSS插件 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-progressive-custom-properties',
-                            RuleExit: (_,{postcss:X})=>{const re=[],ne=new Set;_.each((ie=>{if(\\"decl\\"!==ie.type)return;if(!ie.variable)return;if(\\"initial\\"===ie.value.trim())return;if(\\"\\"===ie.value.trim())return;if(!ne.has(ie.prop.toString()))return void ne.add(ie.prop.toString());const ae=i(ie.value);if(!ae.length)return;const le=X.atRule({name:\\"supports\\",params:ae.join(\\" and \\"),source:_.source,raws:{before:\\"/n/n\\",after:\\"/n\\"}}),pe=_.clone();pe.removeAll(),pe.raws.before=\\"/n\\",pe.append(ie.clone()),ie.remove(),le.append(pe),re.push(le)})),0!==re.length&&re.reverse().forEach((X=>{_.after(X)}))}
+                            RuleExit: (_,{postcss:X})=>{const re=[],ne=new Set;_.each((ie=>{if(\\"decl\\"!==ie.type)return;if(!ie.variable)return;if(\\"initial\\"===ie.value.trim())return;if(\\"\\"===ie.value.trim())return;if(!ne.has(ie.prop.toString()))return void ne.add(ie.prop.toString());const ae=i(ie.value);if(!ae.length)return;const le=X.atRule({name:\\"supports\\",params:ae.join(\\" and \\"),source:_.source,raws:{before:\\"\\n\\n\\",after:\\"\\n\\"}}),pe=_.clone();pe.removeAll(),pe.raws.before=\\"\\n\\",pe.append(ie.clone()),ie.remove(),le.append(pe),re.push(le)})),0!==re.length&&re.reverse().forEach((X=>{_.after(X)}))}
                           },
                           {
                             postcssPlugin: 'postcss-preset-env',
@@ -5308,7 +5308,7 @@ exports[`css > 应该支持自定义PostCSS插件 1`] = `
               },
               /* config.module.rule('stylus').oneOf('css').use('stylus-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/stylus-loader/index.js'
+                loader: '<ROOT>/packages/bundler-compiled/compiled/stylus-loader/index.js'
               }
             ]
           }
@@ -5446,7 +5446,7 @@ exports[`css > 应该支持自定义Sass加载器配置 1`] = `
                 "options": {
                   "sassOptions": {
                     "includePaths": [
-                      "node_modules",
+                      "./node_modules",
                     ],
                   },
                 },
@@ -6923,7 +6923,7 @@ exports[`css > 应该正确配置基本的CSS规则 1`] = `
     rules: [
       /* config.module.rule('css') */
       {
-        test: /.css(/?.*)?$/,
+        test: /\\.css(\\?.*)?$/,
         oneOf: [
           /* config.module.rule('css').oneOf('css') */
           {
@@ -6956,7 +6956,7 @@ exports[`css > 应该正确配置基本的CSS规则 1`] = `
               },
               /* config.module.rule('css').oneOf('css').use('postcss-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/postcss-loader/index.js',
+                loader: '<ROOT>/packages/bundler-compiled/compiled/postcss-loader/index.js',
                 options: {
                   postcssOptions: {
                     ident: 'postcss',
@@ -6971,7 +6971,7 @@ exports[`css > 应该正确配置基本的CSS规则 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-custom-properties',
-                            prepare(){let _=new Map;return pe?{Once:re=>{_=w(re,{preserve:X})},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:()=>{_.clear()}}:{Once:async ne=>{const ie=(await le).entries(),pe=w(ne,{preserve:X}).entries();if(re)for(const[X,re]of[...ie,...pe])_.set(X,re);else for(const[X,re]of[...pe,...ie])_.set(X,re);await function(_,X){return Promise.all(X.map((async X=>{if(X instanceof Function)return void await X(C(_));if(\\"string\\"==typeof X){const re=fe.default.resolve(X),ne=fe.default.extname(re).slice(1).toLowerCase();return void await L(re,ne,C(_))}let re={};if(re=\\"toJSON\\"in X?X.toJSON(C(_)):C(_),\\"to\\"in X){const _=fe.default.resolve(X.to);let ne=X.type;return ne||(ne=fe.default.extname(_).slice(1).toLowerCase()),void await L(_,ne,re)}\\"customProperties\\"in X?X.customProperties=re:\\"custom-properties\\"in X&&(X[\\"custom-properties\\"]=re)})))}(_,ae)},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:(X,{result:re})=>{!ne&&(ie.length>0||ae.length>0)&&X.warn(re,'\\"importFrom\\" and \\"exportTo\\" will be removed in a future version of postcss-custom-properties./nWe are looking for insights and anecdotes on how these features are used so that we can design the best alternative./nPlease let us know if our proposal will work for you./nVisit the discussion on github for more details. https:/github.com/csstools/postcss-plugins/discussions/192'),_.clear()}}}
+                            prepare(){let _=new Map;return pe?{Once:re=>{_=w(re,{preserve:X})},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:()=>{_.clear()}}:{Once:async ne=>{const ie=(await le).entries(),pe=w(ne,{preserve:X}).entries();if(re)for(const[X,re]of[...ie,...pe])_.set(X,re);else for(const[X,re]of[...pe,...ie])_.set(X,re);await function(_,X){return Promise.all(X.map((async X=>{if(X instanceof Function)return void await X(C(_));if(\\"string\\"==typeof X){const re=fe.default.resolve(X),ne=fe.default.extname(re).slice(1).toLowerCase();return void await L(re,ne,C(_))}let re={};if(re=\\"toJSON\\"in X?X.toJSON(C(_)):C(_),\\"to\\"in X){const _=fe.default.resolve(X.to);let ne=X.type;return ne||(ne=fe.default.extname(_).slice(1).toLowerCase()),void await L(_,ne,re)}\\"customProperties\\"in X?X.customProperties=re:\\"custom-properties\\"in X&&(X[\\"custom-properties\\"]=re)})))}(_,ae)},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:(X,{result:re})=>{!ne&&(ie.length>0||ae.length>0)&&X.warn(re,'\\"importFrom\\" and \\"exportTo\\" will be removed in a future version of postcss-custom-properties.\\nWe are looking for insights and anecdotes on how these features are used so that we can design the best alternative.\\nPlease let us know if our proposal will work for you.\\nVisit the discussion on github for more details. https://github.com/csstools/postcss-plugins/discussions/192'),_.clear()}}}
                           },
                           {
                             postcssPlugin: 'postcss-media-minmax',
@@ -7051,7 +7051,7 @@ exports[`css > 应该正确配置基本的CSS规则 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-initial',
-                            Declaration: function (re){if(!/binitial/b/.test(re.value)){return}var ne=X(re.prop,re.value);if(ne.length===0)return;ne.forEach((function(_){if(!getPropPrevTo(re.prop,re)){re.cloneBefore(_)}}));if(_.replace===true){re.remove()}}
+                            Declaration: function (re){if(!/\\binitial\\b/.test(re.value)){return}var ne=X(re.prop,re.value);if(ne.length===0)return;ne.forEach((function(_){if(!getPropPrevTo(re.prop,re)){re.cloneBefore(_)}}));if(_.replace===true){re.remove()}}
                           },
                           {
                             postcssPlugin: 'postcss-page-break',
@@ -7085,7 +7085,7 @@ exports[`css > 应该正确配置基本的CSS规则 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-progressive-custom-properties',
-                            RuleExit: (_,{postcss:X})=>{const re=[],ne=new Set;_.each((ie=>{if(\\"decl\\"!==ie.type)return;if(!ie.variable)return;if(\\"initial\\"===ie.value.trim())return;if(\\"\\"===ie.value.trim())return;if(!ne.has(ie.prop.toString()))return void ne.add(ie.prop.toString());const ae=i(ie.value);if(!ae.length)return;const le=X.atRule({name:\\"supports\\",params:ae.join(\\" and \\"),source:_.source,raws:{before:\\"/n/n\\",after:\\"/n\\"}}),pe=_.clone();pe.removeAll(),pe.raws.before=\\"/n\\",pe.append(ie.clone()),ie.remove(),le.append(pe),re.push(le)})),0!==re.length&&re.reverse().forEach((X=>{_.after(X)}))}
+                            RuleExit: (_,{postcss:X})=>{const re=[],ne=new Set;_.each((ie=>{if(\\"decl\\"!==ie.type)return;if(!ie.variable)return;if(\\"initial\\"===ie.value.trim())return;if(\\"\\"===ie.value.trim())return;if(!ne.has(ie.prop.toString()))return void ne.add(ie.prop.toString());const ae=i(ie.value);if(!ae.length)return;const le=X.atRule({name:\\"supports\\",params:ae.join(\\" and \\"),source:_.source,raws:{before:\\"\\n\\n\\",after:\\"\\n\\"}}),pe=_.clone();pe.removeAll(),pe.raws.before=\\"\\n\\",pe.append(ie.clone()),ie.remove(),le.append(pe),re.push(le)})),0!==re.length&&re.reverse().forEach((X=>{_.after(X)}))}
                           },
                           {
                             postcssPlugin: 'postcss-preset-env',
@@ -7103,7 +7103,7 @@ exports[`css > 应该正确配置基本的CSS规则 1`] = `
       },
       /* config.module.rule('less') */
       {
-        test: /.less(/?.*)?$/,
+        test: /\\.less(\\?.*)?$/,
         oneOf: [
           /* config.module.rule('less').oneOf('css') */
           {
@@ -7119,7 +7119,7 @@ exports[`css > 应该正确配置基本的CSS规则 1`] = `
               },
               /* config.module.rule('less').oneOf('css').use('css-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/css-loader/index.js',
+                loader: '<ROOT>/packages/bundler-compiled/compiled/css-loader/index.js',
                 options: {
                   importLoaders: 1,
                   esModule: true,
@@ -7136,7 +7136,7 @@ exports[`css > 应该正确配置基本的CSS规则 1`] = `
               },
               /* config.module.rule('less').oneOf('css').use('postcss-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/postcss-loader/index.js',
+                loader: '<ROOT>/packages/bundler-compiled/compiled/postcss-loader/index.js',
                 options: {
                   postcssOptions: {
                     ident: 'postcss',
@@ -7151,7 +7151,7 @@ exports[`css > 应该正确配置基本的CSS规则 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-custom-properties',
-                            prepare(){let _=new Map;return pe?{Once:re=>{_=w(re,{preserve:X})},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:()=>{_.clear()}}:{Once:async ne=>{const ie=(await le).entries(),pe=w(ne,{preserve:X}).entries();if(re)for(const[X,re]of[...ie,...pe])_.set(X,re);else for(const[X,re]of[...pe,...ie])_.set(X,re);await function(_,X){return Promise.all(X.map((async X=>{if(X instanceof Function)return void await X(C(_));if(\\"string\\"==typeof X){const re=fe.default.resolve(X),ne=fe.default.extname(re).slice(1).toLowerCase();return void await L(re,ne,C(_))}let re={};if(re=\\"toJSON\\"in X?X.toJSON(C(_)):C(_),\\"to\\"in X){const _=fe.default.resolve(X.to);let ne=X.type;return ne||(ne=fe.default.extname(_).slice(1).toLowerCase()),void await L(_,ne,re)}\\"customProperties\\"in X?X.customProperties=re:\\"custom-properties\\"in X&&(X[\\"custom-properties\\"]=re)})))}(_,ae)},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:(X,{result:re})=>{!ne&&(ie.length>0||ae.length>0)&&X.warn(re,'\\"importFrom\\" and \\"exportTo\\" will be removed in a future version of postcss-custom-properties./nWe are looking for insights and anecdotes on how these features are used so that we can design the best alternative./nPlease let us know if our proposal will work for you./nVisit the discussion on github for more details. https:/github.com/csstools/postcss-plugins/discussions/192'),_.clear()}}}
+                            prepare(){let _=new Map;return pe?{Once:re=>{_=w(re,{preserve:X})},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:()=>{_.clear()}}:{Once:async ne=>{const ie=(await le).entries(),pe=w(ne,{preserve:X}).entries();if(re)for(const[X,re]of[...ie,...pe])_.set(X,re);else for(const[X,re]of[...pe,...ie])_.set(X,re);await function(_,X){return Promise.all(X.map((async X=>{if(X instanceof Function)return void await X(C(_));if(\\"string\\"==typeof X){const re=fe.default.resolve(X),ne=fe.default.extname(re).slice(1).toLowerCase();return void await L(re,ne,C(_))}let re={};if(re=\\"toJSON\\"in X?X.toJSON(C(_)):C(_),\\"to\\"in X){const _=fe.default.resolve(X.to);let ne=X.type;return ne||(ne=fe.default.extname(_).slice(1).toLowerCase()),void await L(_,ne,re)}\\"customProperties\\"in X?X.customProperties=re:\\"custom-properties\\"in X&&(X[\\"custom-properties\\"]=re)})))}(_,ae)},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:(X,{result:re})=>{!ne&&(ie.length>0||ae.length>0)&&X.warn(re,'\\"importFrom\\" and \\"exportTo\\" will be removed in a future version of postcss-custom-properties.\\nWe are looking for insights and anecdotes on how these features are used so that we can design the best alternative.\\nPlease let us know if our proposal will work for you.\\nVisit the discussion on github for more details. https://github.com/csstools/postcss-plugins/discussions/192'),_.clear()}}}
                           },
                           {
                             postcssPlugin: 'postcss-media-minmax',
@@ -7231,7 +7231,7 @@ exports[`css > 应该正确配置基本的CSS规则 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-initial',
-                            Declaration: function (re){if(!/binitial/b/.test(re.value)){return}var ne=X(re.prop,re.value);if(ne.length===0)return;ne.forEach((function(_){if(!getPropPrevTo(re.prop,re)){re.cloneBefore(_)}}));if(_.replace===true){re.remove()}}
+                            Declaration: function (re){if(!/\\binitial\\b/.test(re.value)){return}var ne=X(re.prop,re.value);if(ne.length===0)return;ne.forEach((function(_){if(!getPropPrevTo(re.prop,re)){re.cloneBefore(_)}}));if(_.replace===true){re.remove()}}
                           },
                           {
                             postcssPlugin: 'postcss-page-break',
@@ -7265,7 +7265,7 @@ exports[`css > 应该正确配置基本的CSS规则 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-progressive-custom-properties',
-                            RuleExit: (_,{postcss:X})=>{const re=[],ne=new Set;_.each((ie=>{if(\\"decl\\"!==ie.type)return;if(!ie.variable)return;if(\\"initial\\"===ie.value.trim())return;if(\\"\\"===ie.value.trim())return;if(!ne.has(ie.prop.toString()))return void ne.add(ie.prop.toString());const ae=i(ie.value);if(!ae.length)return;const le=X.atRule({name:\\"supports\\",params:ae.join(\\" and \\"),source:_.source,raws:{before:\\"/n/n\\",after:\\"/n\\"}}),pe=_.clone();pe.removeAll(),pe.raws.before=\\"/n\\",pe.append(ie.clone()),ie.remove(),le.append(pe),re.push(le)})),0!==re.length&&re.reverse().forEach((X=>{_.after(X)}))}
+                            RuleExit: (_,{postcss:X})=>{const re=[],ne=new Set;_.each((ie=>{if(\\"decl\\"!==ie.type)return;if(!ie.variable)return;if(\\"initial\\"===ie.value.trim())return;if(\\"\\"===ie.value.trim())return;if(!ne.has(ie.prop.toString()))return void ne.add(ie.prop.toString());const ae=i(ie.value);if(!ae.length)return;const le=X.atRule({name:\\"supports\\",params:ae.join(\\" and \\"),source:_.source,raws:{before:\\"\\n\\n\\",after:\\"\\n\\"}}),pe=_.clone();pe.removeAll(),pe.raws.before=\\"\\n\\",pe.append(ie.clone()),ie.remove(),le.append(pe),re.push(le)})),0!==re.length&&re.reverse().forEach((X=>{_.after(X)}))}
                           },
                           {
                             postcssPlugin: 'postcss-preset-env',
@@ -7279,7 +7279,7 @@ exports[`css > 应该正确配置基本的CSS规则 1`] = `
               },
               /* config.module.rule('less').oneOf('css').use('less-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-shared-config/dist/config/css/less/index.js',
+                loader: '<ROOT>/packages/bundler-shared-config/dist/config/css/less/index.js',
                 options: {
                   lessOptions: (loaderContext) => ({
                     modifyVars: userConfig.theme,
@@ -7294,7 +7294,7 @@ exports[`css > 应该正确配置基本的CSS规则 1`] = `
       },
       /* config.module.rule('sass') */
       {
-        test: /.(sass|scss)(/?.*)?$/,
+        test: /\\.(sass|scss)(\\?.*)?$/,
         oneOf: [
           /* config.module.rule('sass').oneOf('css') */
           {
@@ -7310,7 +7310,7 @@ exports[`css > 应该正确配置基本的CSS规则 1`] = `
               },
               /* config.module.rule('sass').oneOf('css').use('css-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/css-loader/index.js',
+                loader: '<ROOT>/packages/bundler-compiled/compiled/css-loader/index.js',
                 options: {
                   importLoaders: 1,
                   esModule: true,
@@ -7327,7 +7327,7 @@ exports[`css > 应该正确配置基本的CSS规则 1`] = `
               },
               /* config.module.rule('sass').oneOf('css').use('postcss-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/postcss-loader/index.js',
+                loader: '<ROOT>/packages/bundler-compiled/compiled/postcss-loader/index.js',
                 options: {
                   postcssOptions: {
                     ident: 'postcss',
@@ -7342,7 +7342,7 @@ exports[`css > 应该正确配置基本的CSS规则 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-custom-properties',
-                            prepare(){let _=new Map;return pe?{Once:re=>{_=w(re,{preserve:X})},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:()=>{_.clear()}}:{Once:async ne=>{const ie=(await le).entries(),pe=w(ne,{preserve:X}).entries();if(re)for(const[X,re]of[...ie,...pe])_.set(X,re);else for(const[X,re]of[...pe,...ie])_.set(X,re);await function(_,X){return Promise.all(X.map((async X=>{if(X instanceof Function)return void await X(C(_));if(\\"string\\"==typeof X){const re=fe.default.resolve(X),ne=fe.default.extname(re).slice(1).toLowerCase();return void await L(re,ne,C(_))}let re={};if(re=\\"toJSON\\"in X?X.toJSON(C(_)):C(_),\\"to\\"in X){const _=fe.default.resolve(X.to);let ne=X.type;return ne||(ne=fe.default.extname(_).slice(1).toLowerCase()),void await L(_,ne,re)}\\"customProperties\\"in X?X.customProperties=re:\\"custom-properties\\"in X&&(X[\\"custom-properties\\"]=re)})))}(_,ae)},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:(X,{result:re})=>{!ne&&(ie.length>0||ae.length>0)&&X.warn(re,'\\"importFrom\\" and \\"exportTo\\" will be removed in a future version of postcss-custom-properties./nWe are looking for insights and anecdotes on how these features are used so that we can design the best alternative./nPlease let us know if our proposal will work for you./nVisit the discussion on github for more details. https:/github.com/csstools/postcss-plugins/discussions/192'),_.clear()}}}
+                            prepare(){let _=new Map;return pe?{Once:re=>{_=w(re,{preserve:X})},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:()=>{_.clear()}}:{Once:async ne=>{const ie=(await le).entries(),pe=w(ne,{preserve:X}).entries();if(re)for(const[X,re]of[...ie,...pe])_.set(X,re);else for(const[X,re]of[...pe,...ie])_.set(X,re);await function(_,X){return Promise.all(X.map((async X=>{if(X instanceof Function)return void await X(C(_));if(\\"string\\"==typeof X){const re=fe.default.resolve(X),ne=fe.default.extname(re).slice(1).toLowerCase();return void await L(re,ne,C(_))}let re={};if(re=\\"toJSON\\"in X?X.toJSON(C(_)):C(_),\\"to\\"in X){const _=fe.default.resolve(X.to);let ne=X.type;return ne||(ne=fe.default.extname(_).slice(1).toLowerCase()),void await L(_,ne,re)}\\"customProperties\\"in X?X.customProperties=re:\\"custom-properties\\"in X&&(X[\\"custom-properties\\"]=re)})))}(_,ae)},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:(X,{result:re})=>{!ne&&(ie.length>0||ae.length>0)&&X.warn(re,'\\"importFrom\\" and \\"exportTo\\" will be removed in a future version of postcss-custom-properties.\\nWe are looking for insights and anecdotes on how these features are used so that we can design the best alternative.\\nPlease let us know if our proposal will work for you.\\nVisit the discussion on github for more details. https://github.com/csstools/postcss-plugins/discussions/192'),_.clear()}}}
                           },
                           {
                             postcssPlugin: 'postcss-media-minmax',
@@ -7422,7 +7422,7 @@ exports[`css > 应该正确配置基本的CSS规则 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-initial',
-                            Declaration: function (re){if(!/binitial/b/.test(re.value)){return}var ne=X(re.prop,re.value);if(ne.length===0)return;ne.forEach((function(_){if(!getPropPrevTo(re.prop,re)){re.cloneBefore(_)}}));if(_.replace===true){re.remove()}}
+                            Declaration: function (re){if(!/\\binitial\\b/.test(re.value)){return}var ne=X(re.prop,re.value);if(ne.length===0)return;ne.forEach((function(_){if(!getPropPrevTo(re.prop,re)){re.cloneBefore(_)}}));if(_.replace===true){re.remove()}}
                           },
                           {
                             postcssPlugin: 'postcss-page-break',
@@ -7456,7 +7456,7 @@ exports[`css > 应该正确配置基本的CSS规则 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-progressive-custom-properties',
-                            RuleExit: (_,{postcss:X})=>{const re=[],ne=new Set;_.each((ie=>{if(\\"decl\\"!==ie.type)return;if(!ie.variable)return;if(\\"initial\\"===ie.value.trim())return;if(\\"\\"===ie.value.trim())return;if(!ne.has(ie.prop.toString()))return void ne.add(ie.prop.toString());const ae=i(ie.value);if(!ae.length)return;const le=X.atRule({name:\\"supports\\",params:ae.join(\\" and \\"),source:_.source,raws:{before:\\"/n/n\\",after:\\"/n\\"}}),pe=_.clone();pe.removeAll(),pe.raws.before=\\"/n\\",pe.append(ie.clone()),ie.remove(),le.append(pe),re.push(le)})),0!==re.length&&re.reverse().forEach((X=>{_.after(X)}))}
+                            RuleExit: (_,{postcss:X})=>{const re=[],ne=new Set;_.each((ie=>{if(\\"decl\\"!==ie.type)return;if(!ie.variable)return;if(\\"initial\\"===ie.value.trim())return;if(\\"\\"===ie.value.trim())return;if(!ne.has(ie.prop.toString()))return void ne.add(ie.prop.toString());const ae=i(ie.value);if(!ae.length)return;const le=X.atRule({name:\\"supports\\",params:ae.join(\\" and \\"),source:_.source,raws:{before:\\"\\n\\n\\",after:\\"\\n\\"}}),pe=_.clone();pe.removeAll(),pe.raws.before=\\"\\n\\",pe.append(ie.clone()),ie.remove(),le.append(pe),re.push(le)})),0!==re.length&&re.reverse().forEach((X=>{_.after(X)}))}
                           },
                           {
                             postcssPlugin: 'postcss-preset-env',
@@ -7470,7 +7470,7 @@ exports[`css > 应该正确配置基本的CSS规则 1`] = `
               },
               /* config.module.rule('sass').oneOf('css').use('sass-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/sass-loader/index.js'
+                loader: '<ROOT>/packages/bundler-compiled/compiled/sass-loader/index.js'
               }
             ]
           }
@@ -7478,7 +7478,7 @@ exports[`css > 应该正确配置基本的CSS规则 1`] = `
       },
       /* config.module.rule('stylus') */
       {
-        test: /.(styl|stylus)(/?.*)?$/,
+        test: /\\.(styl|stylus)(\\?.*)?$/,
         oneOf: [
           /* config.module.rule('stylus').oneOf('css') */
           {
@@ -7494,7 +7494,7 @@ exports[`css > 应该正确配置基本的CSS规则 1`] = `
               },
               /* config.module.rule('stylus').oneOf('css').use('css-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/css-loader/index.js',
+                loader: '<ROOT>/packages/bundler-compiled/compiled/css-loader/index.js',
                 options: {
                   importLoaders: 1,
                   esModule: true,
@@ -7511,7 +7511,7 @@ exports[`css > 应该正确配置基本的CSS规则 1`] = `
               },
               /* config.module.rule('stylus').oneOf('css').use('postcss-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/postcss-loader/index.js',
+                loader: '<ROOT>/packages/bundler-compiled/compiled/postcss-loader/index.js',
                 options: {
                   postcssOptions: {
                     ident: 'postcss',
@@ -7526,7 +7526,7 @@ exports[`css > 应该正确配置基本的CSS规则 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-custom-properties',
-                            prepare(){let _=new Map;return pe?{Once:re=>{_=w(re,{preserve:X})},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:()=>{_.clear()}}:{Once:async ne=>{const ie=(await le).entries(),pe=w(ne,{preserve:X}).entries();if(re)for(const[X,re]of[...ie,...pe])_.set(X,re);else for(const[X,re]of[...pe,...ie])_.set(X,re);await function(_,X){return Promise.all(X.map((async X=>{if(X instanceof Function)return void await X(C(_));if(\\"string\\"==typeof X){const re=fe.default.resolve(X),ne=fe.default.extname(re).slice(1).toLowerCase();return void await L(re,ne,C(_))}let re={};if(re=\\"toJSON\\"in X?X.toJSON(C(_)):C(_),\\"to\\"in X){const _=fe.default.resolve(X.to);let ne=X.type;return ne||(ne=fe.default.extname(_).slice(1).toLowerCase()),void await L(_,ne,re)}\\"customProperties\\"in X?X.customProperties=re:\\"custom-properties\\"in X&&(X[\\"custom-properties\\"]=re)})))}(_,ae)},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:(X,{result:re})=>{!ne&&(ie.length>0||ae.length>0)&&X.warn(re,'\\"importFrom\\" and \\"exportTo\\" will be removed in a future version of postcss-custom-properties./nWe are looking for insights and anecdotes on how these features are used so that we can design the best alternative./nPlease let us know if our proposal will work for you./nVisit the discussion on github for more details. https:/github.com/csstools/postcss-plugins/discussions/192'),_.clear()}}}
+                            prepare(){let _=new Map;return pe?{Once:re=>{_=w(re,{preserve:X})},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:()=>{_.clear()}}:{Once:async ne=>{const ie=(await le).entries(),pe=w(ne,{preserve:X}).entries();if(re)for(const[X,re]of[...ie,...pe])_.set(X,re);else for(const[X,re]of[...pe,...ie])_.set(X,re);await function(_,X){return Promise.all(X.map((async X=>{if(X instanceof Function)return void await X(C(_));if(\\"string\\"==typeof X){const re=fe.default.resolve(X),ne=fe.default.extname(re).slice(1).toLowerCase();return void await L(re,ne,C(_))}let re={};if(re=\\"toJSON\\"in X?X.toJSON(C(_)):C(_),\\"to\\"in X){const _=fe.default.resolve(X.to);let ne=X.type;return ne||(ne=fe.default.extname(_).slice(1).toLowerCase()),void await L(_,ne,re)}\\"customProperties\\"in X?X.customProperties=re:\\"custom-properties\\"in X&&(X[\\"custom-properties\\"]=re)})))}(_,ae)},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:(X,{result:re})=>{!ne&&(ie.length>0||ae.length>0)&&X.warn(re,'\\"importFrom\\" and \\"exportTo\\" will be removed in a future version of postcss-custom-properties.\\nWe are looking for insights and anecdotes on how these features are used so that we can design the best alternative.\\nPlease let us know if our proposal will work for you.\\nVisit the discussion on github for more details. https://github.com/csstools/postcss-plugins/discussions/192'),_.clear()}}}
                           },
                           {
                             postcssPlugin: 'postcss-media-minmax',
@@ -7606,7 +7606,7 @@ exports[`css > 应该正确配置基本的CSS规则 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-initial',
-                            Declaration: function (re){if(!/binitial/b/.test(re.value)){return}var ne=X(re.prop,re.value);if(ne.length===0)return;ne.forEach((function(_){if(!getPropPrevTo(re.prop,re)){re.cloneBefore(_)}}));if(_.replace===true){re.remove()}}
+                            Declaration: function (re){if(!/\\binitial\\b/.test(re.value)){return}var ne=X(re.prop,re.value);if(ne.length===0)return;ne.forEach((function(_){if(!getPropPrevTo(re.prop,re)){re.cloneBefore(_)}}));if(_.replace===true){re.remove()}}
                           },
                           {
                             postcssPlugin: 'postcss-page-break',
@@ -7640,7 +7640,7 @@ exports[`css > 应该正确配置基本的CSS规则 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-progressive-custom-properties',
-                            RuleExit: (_,{postcss:X})=>{const re=[],ne=new Set;_.each((ie=>{if(\\"decl\\"!==ie.type)return;if(!ie.variable)return;if(\\"initial\\"===ie.value.trim())return;if(\\"\\"===ie.value.trim())return;if(!ne.has(ie.prop.toString()))return void ne.add(ie.prop.toString());const ae=i(ie.value);if(!ae.length)return;const le=X.atRule({name:\\"supports\\",params:ae.join(\\" and \\"),source:_.source,raws:{before:\\"/n/n\\",after:\\"/n\\"}}),pe=_.clone();pe.removeAll(),pe.raws.before=\\"/n\\",pe.append(ie.clone()),ie.remove(),le.append(pe),re.push(le)})),0!==re.length&&re.reverse().forEach((X=>{_.after(X)}))}
+                            RuleExit: (_,{postcss:X})=>{const re=[],ne=new Set;_.each((ie=>{if(\\"decl\\"!==ie.type)return;if(!ie.variable)return;if(\\"initial\\"===ie.value.trim())return;if(\\"\\"===ie.value.trim())return;if(!ne.has(ie.prop.toString()))return void ne.add(ie.prop.toString());const ae=i(ie.value);if(!ae.length)return;const le=X.atRule({name:\\"supports\\",params:ae.join(\\" and \\"),source:_.source,raws:{before:\\"\\n\\n\\",after:\\"\\n\\"}}),pe=_.clone();pe.removeAll(),pe.raws.before=\\"\\n\\",pe.append(ie.clone()),ie.remove(),le.append(pe),re.push(le)})),0!==re.length&&re.reverse().forEach((X=>{_.after(X)}))}
                           },
                           {
                             postcssPlugin: 'postcss-preset-env',
@@ -7654,7 +7654,7 @@ exports[`css > 应该正确配置基本的CSS规则 1`] = `
               },
               /* config.module.rule('stylus').oneOf('css').use('stylus-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/stylus-loader/index.js'
+                loader: '<ROOT>/packages/bundler-compiled/compiled/stylus-loader/index.js'
               }
             ]
           }
@@ -7671,7 +7671,7 @@ exports[`css > 应该能够禁用Less多线程编译 1`] = `
     rules: [
       /* config.module.rule('css') */
       {
-        test: /.css(/?.*)?$/,
+        test: /\\.css(\\?.*)?$/,
         oneOf: [
           /* config.module.rule('css').oneOf('css') */
           {
@@ -7704,7 +7704,7 @@ exports[`css > 应该能够禁用Less多线程编译 1`] = `
               },
               /* config.module.rule('css').oneOf('css').use('postcss-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/postcss-loader/index.js',
+                loader: '<ROOT>/packages/bundler-compiled/compiled/postcss-loader/index.js',
                 options: {
                   postcssOptions: {
                     ident: 'postcss',
@@ -7719,7 +7719,7 @@ exports[`css > 应该能够禁用Less多线程编译 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-custom-properties',
-                            prepare(){let _=new Map;return pe?{Once:re=>{_=w(re,{preserve:X})},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:()=>{_.clear()}}:{Once:async ne=>{const ie=(await le).entries(),pe=w(ne,{preserve:X}).entries();if(re)for(const[X,re]of[...ie,...pe])_.set(X,re);else for(const[X,re]of[...pe,...ie])_.set(X,re);await function(_,X){return Promise.all(X.map((async X=>{if(X instanceof Function)return void await X(C(_));if(\\"string\\"==typeof X){const re=fe.default.resolve(X),ne=fe.default.extname(re).slice(1).toLowerCase();return void await L(re,ne,C(_))}let re={};if(re=\\"toJSON\\"in X?X.toJSON(C(_)):C(_),\\"to\\"in X){const _=fe.default.resolve(X.to);let ne=X.type;return ne||(ne=fe.default.extname(_).slice(1).toLowerCase()),void await L(_,ne,re)}\\"customProperties\\"in X?X.customProperties=re:\\"custom-properties\\"in X&&(X[\\"custom-properties\\"]=re)})))}(_,ae)},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:(X,{result:re})=>{!ne&&(ie.length>0||ae.length>0)&&X.warn(re,'\\"importFrom\\" and \\"exportTo\\" will be removed in a future version of postcss-custom-properties./nWe are looking for insights and anecdotes on how these features are used so that we can design the best alternative./nPlease let us know if our proposal will work for you./nVisit the discussion on github for more details. https:/github.com/csstools/postcss-plugins/discussions/192'),_.clear()}}}
+                            prepare(){let _=new Map;return pe?{Once:re=>{_=w(re,{preserve:X})},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:()=>{_.clear()}}:{Once:async ne=>{const ie=(await le).entries(),pe=w(ne,{preserve:X}).entries();if(re)for(const[X,re]of[...ie,...pe])_.set(X,re);else for(const[X,re]of[...pe,...ie])_.set(X,re);await function(_,X){return Promise.all(X.map((async X=>{if(X instanceof Function)return void await X(C(_));if(\\"string\\"==typeof X){const re=fe.default.resolve(X),ne=fe.default.extname(re).slice(1).toLowerCase();return void await L(re,ne,C(_))}let re={};if(re=\\"toJSON\\"in X?X.toJSON(C(_)):C(_),\\"to\\"in X){const _=fe.default.resolve(X.to);let ne=X.type;return ne||(ne=fe.default.extname(_).slice(1).toLowerCase()),void await L(_,ne,re)}\\"customProperties\\"in X?X.customProperties=re:\\"custom-properties\\"in X&&(X[\\"custom-properties\\"]=re)})))}(_,ae)},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:(X,{result:re})=>{!ne&&(ie.length>0||ae.length>0)&&X.warn(re,'\\"importFrom\\" and \\"exportTo\\" will be removed in a future version of postcss-custom-properties.\\nWe are looking for insights and anecdotes on how these features are used so that we can design the best alternative.\\nPlease let us know if our proposal will work for you.\\nVisit the discussion on github for more details. https://github.com/csstools/postcss-plugins/discussions/192'),_.clear()}}}
                           },
                           {
                             postcssPlugin: 'postcss-media-minmax',
@@ -7799,7 +7799,7 @@ exports[`css > 应该能够禁用Less多线程编译 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-initial',
-                            Declaration: function (re){if(!/binitial/b/.test(re.value)){return}var ne=X(re.prop,re.value);if(ne.length===0)return;ne.forEach((function(_){if(!getPropPrevTo(re.prop,re)){re.cloneBefore(_)}}));if(_.replace===true){re.remove()}}
+                            Declaration: function (re){if(!/\\binitial\\b/.test(re.value)){return}var ne=X(re.prop,re.value);if(ne.length===0)return;ne.forEach((function(_){if(!getPropPrevTo(re.prop,re)){re.cloneBefore(_)}}));if(_.replace===true){re.remove()}}
                           },
                           {
                             postcssPlugin: 'postcss-page-break',
@@ -7833,7 +7833,7 @@ exports[`css > 应该能够禁用Less多线程编译 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-progressive-custom-properties',
-                            RuleExit: (_,{postcss:X})=>{const re=[],ne=new Set;_.each((ie=>{if(\\"decl\\"!==ie.type)return;if(!ie.variable)return;if(\\"initial\\"===ie.value.trim())return;if(\\"\\"===ie.value.trim())return;if(!ne.has(ie.prop.toString()))return void ne.add(ie.prop.toString());const ae=i(ie.value);if(!ae.length)return;const le=X.atRule({name:\\"supports\\",params:ae.join(\\" and \\"),source:_.source,raws:{before:\\"/n/n\\",after:\\"/n\\"}}),pe=_.clone();pe.removeAll(),pe.raws.before=\\"/n\\",pe.append(ie.clone()),ie.remove(),le.append(pe),re.push(le)})),0!==re.length&&re.reverse().forEach((X=>{_.after(X)}))}
+                            RuleExit: (_,{postcss:X})=>{const re=[],ne=new Set;_.each((ie=>{if(\\"decl\\"!==ie.type)return;if(!ie.variable)return;if(\\"initial\\"===ie.value.trim())return;if(\\"\\"===ie.value.trim())return;if(!ne.has(ie.prop.toString()))return void ne.add(ie.prop.toString());const ae=i(ie.value);if(!ae.length)return;const le=X.atRule({name:\\"supports\\",params:ae.join(\\" and \\"),source:_.source,raws:{before:\\"\\n\\n\\",after:\\"\\n\\"}}),pe=_.clone();pe.removeAll(),pe.raws.before=\\"\\n\\",pe.append(ie.clone()),ie.remove(),le.append(pe),re.push(le)})),0!==re.length&&re.reverse().forEach((X=>{_.after(X)}))}
                           },
                           {
                             postcssPlugin: 'postcss-preset-env',
@@ -7851,7 +7851,7 @@ exports[`css > 应该能够禁用Less多线程编译 1`] = `
       },
       /* config.module.rule('less') */
       {
-        test: /.less(/?.*)?$/,
+        test: /\\.less(\\?.*)?$/,
         oneOf: [
           /* config.module.rule('less').oneOf('css') */
           {
@@ -7867,7 +7867,7 @@ exports[`css > 应该能够禁用Less多线程编译 1`] = `
               },
               /* config.module.rule('less').oneOf('css').use('css-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/css-loader/index.js',
+                loader: '<ROOT>/packages/bundler-compiled/compiled/css-loader/index.js',
                 options: {
                   importLoaders: 1,
                   esModule: true,
@@ -7884,7 +7884,7 @@ exports[`css > 应该能够禁用Less多线程编译 1`] = `
               },
               /* config.module.rule('less').oneOf('css').use('postcss-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/postcss-loader/index.js',
+                loader: '<ROOT>/packages/bundler-compiled/compiled/postcss-loader/index.js',
                 options: {
                   postcssOptions: {
                     ident: 'postcss',
@@ -7899,7 +7899,7 @@ exports[`css > 应该能够禁用Less多线程编译 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-custom-properties',
-                            prepare(){let _=new Map;return pe?{Once:re=>{_=w(re,{preserve:X})},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:()=>{_.clear()}}:{Once:async ne=>{const ie=(await le).entries(),pe=w(ne,{preserve:X}).entries();if(re)for(const[X,re]of[...ie,...pe])_.set(X,re);else for(const[X,re]of[...pe,...ie])_.set(X,re);await function(_,X){return Promise.all(X.map((async X=>{if(X instanceof Function)return void await X(C(_));if(\\"string\\"==typeof X){const re=fe.default.resolve(X),ne=fe.default.extname(re).slice(1).toLowerCase();return void await L(re,ne,C(_))}let re={};if(re=\\"toJSON\\"in X?X.toJSON(C(_)):C(_),\\"to\\"in X){const _=fe.default.resolve(X.to);let ne=X.type;return ne||(ne=fe.default.extname(_).slice(1).toLowerCase()),void await L(_,ne,re)}\\"customProperties\\"in X?X.customProperties=re:\\"custom-properties\\"in X&&(X[\\"custom-properties\\"]=re)})))}(_,ae)},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:(X,{result:re})=>{!ne&&(ie.length>0||ae.length>0)&&X.warn(re,'\\"importFrom\\" and \\"exportTo\\" will be removed in a future version of postcss-custom-properties./nWe are looking for insights and anecdotes on how these features are used so that we can design the best alternative./nPlease let us know if our proposal will work for you./nVisit the discussion on github for more details. https:/github.com/csstools/postcss-plugins/discussions/192'),_.clear()}}}
+                            prepare(){let _=new Map;return pe?{Once:re=>{_=w(re,{preserve:X})},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:()=>{_.clear()}}:{Once:async ne=>{const ie=(await le).entries(),pe=w(ne,{preserve:X}).entries();if(re)for(const[X,re]of[...ie,...pe])_.set(X,re);else for(const[X,re]of[...pe,...ie])_.set(X,re);await function(_,X){return Promise.all(X.map((async X=>{if(X instanceof Function)return void await X(C(_));if(\\"string\\"==typeof X){const re=fe.default.resolve(X),ne=fe.default.extname(re).slice(1).toLowerCase();return void await L(re,ne,C(_))}let re={};if(re=\\"toJSON\\"in X?X.toJSON(C(_)):C(_),\\"to\\"in X){const _=fe.default.resolve(X.to);let ne=X.type;return ne||(ne=fe.default.extname(_).slice(1).toLowerCase()),void await L(_,ne,re)}\\"customProperties\\"in X?X.customProperties=re:\\"custom-properties\\"in X&&(X[\\"custom-properties\\"]=re)})))}(_,ae)},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:(X,{result:re})=>{!ne&&(ie.length>0||ae.length>0)&&X.warn(re,'\\"importFrom\\" and \\"exportTo\\" will be removed in a future version of postcss-custom-properties.\\nWe are looking for insights and anecdotes on how these features are used so that we can design the best alternative.\\nPlease let us know if our proposal will work for you.\\nVisit the discussion on github for more details. https://github.com/csstools/postcss-plugins/discussions/192'),_.clear()}}}
                           },
                           {
                             postcssPlugin: 'postcss-media-minmax',
@@ -7979,7 +7979,7 @@ exports[`css > 应该能够禁用Less多线程编译 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-initial',
-                            Declaration: function (re){if(!/binitial/b/.test(re.value)){return}var ne=X(re.prop,re.value);if(ne.length===0)return;ne.forEach((function(_){if(!getPropPrevTo(re.prop,re)){re.cloneBefore(_)}}));if(_.replace===true){re.remove()}}
+                            Declaration: function (re){if(!/\\binitial\\b/.test(re.value)){return}var ne=X(re.prop,re.value);if(ne.length===0)return;ne.forEach((function(_){if(!getPropPrevTo(re.prop,re)){re.cloneBefore(_)}}));if(_.replace===true){re.remove()}}
                           },
                           {
                             postcssPlugin: 'postcss-page-break',
@@ -8013,7 +8013,7 @@ exports[`css > 应该能够禁用Less多线程编译 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-progressive-custom-properties',
-                            RuleExit: (_,{postcss:X})=>{const re=[],ne=new Set;_.each((ie=>{if(\\"decl\\"!==ie.type)return;if(!ie.variable)return;if(\\"initial\\"===ie.value.trim())return;if(\\"\\"===ie.value.trim())return;if(!ne.has(ie.prop.toString()))return void ne.add(ie.prop.toString());const ae=i(ie.value);if(!ae.length)return;const le=X.atRule({name:\\"supports\\",params:ae.join(\\" and \\"),source:_.source,raws:{before:\\"/n/n\\",after:\\"/n\\"}}),pe=_.clone();pe.removeAll(),pe.raws.before=\\"/n\\",pe.append(ie.clone()),ie.remove(),le.append(pe),re.push(le)})),0!==re.length&&re.reverse().forEach((X=>{_.after(X)}))}
+                            RuleExit: (_,{postcss:X})=>{const re=[],ne=new Set;_.each((ie=>{if(\\"decl\\"!==ie.type)return;if(!ie.variable)return;if(\\"initial\\"===ie.value.trim())return;if(\\"\\"===ie.value.trim())return;if(!ne.has(ie.prop.toString()))return void ne.add(ie.prop.toString());const ae=i(ie.value);if(!ae.length)return;const le=X.atRule({name:\\"supports\\",params:ae.join(\\" and \\"),source:_.source,raws:{before:\\"\\n\\n\\",after:\\"\\n\\"}}),pe=_.clone();pe.removeAll(),pe.raws.before=\\"\\n\\",pe.append(ie.clone()),ie.remove(),le.append(pe),re.push(le)})),0!==re.length&&re.reverse().forEach((X=>{_.after(X)}))}
                           },
                           {
                             postcssPlugin: 'postcss-preset-env',
@@ -8027,9 +8027,9 @@ exports[`css > 应该能够禁用Less多线程编译 1`] = `
               },
               /* config.module.rule('less').oneOf('css').use('less-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/less-loader/index.js',
+                loader: '<ROOT>/packages/bundler-compiled/compiled/less-loader/index.js',
                 options: {
-                  implementation: '<WORKSPACE>/packages/bundler-shared/compiled/less/index.js',
+                  implementation: '<ROOT>/packages/bundler-shared/compiled/less/index.js',
                   lessOptions: (loaderContext) => ({
                     modifyVars: userConfig.theme,
                     javascriptEnabled: true,
@@ -8043,7 +8043,7 @@ exports[`css > 应该能够禁用Less多线程编译 1`] = `
       },
       /* config.module.rule('sass') */
       {
-        test: /.(sass|scss)(/?.*)?$/,
+        test: /\\.(sass|scss)(\\?.*)?$/,
         oneOf: [
           /* config.module.rule('sass').oneOf('css') */
           {
@@ -8059,7 +8059,7 @@ exports[`css > 应该能够禁用Less多线程编译 1`] = `
               },
               /* config.module.rule('sass').oneOf('css').use('css-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/css-loader/index.js',
+                loader: '<ROOT>/packages/bundler-compiled/compiled/css-loader/index.js',
                 options: {
                   importLoaders: 1,
                   esModule: true,
@@ -8076,7 +8076,7 @@ exports[`css > 应该能够禁用Less多线程编译 1`] = `
               },
               /* config.module.rule('sass').oneOf('css').use('postcss-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/postcss-loader/index.js',
+                loader: '<ROOT>/packages/bundler-compiled/compiled/postcss-loader/index.js',
                 options: {
                   postcssOptions: {
                     ident: 'postcss',
@@ -8091,7 +8091,7 @@ exports[`css > 应该能够禁用Less多线程编译 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-custom-properties',
-                            prepare(){let _=new Map;return pe?{Once:re=>{_=w(re,{preserve:X})},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:()=>{_.clear()}}:{Once:async ne=>{const ie=(await le).entries(),pe=w(ne,{preserve:X}).entries();if(re)for(const[X,re]of[...ie,...pe])_.set(X,re);else for(const[X,re]of[...pe,...ie])_.set(X,re);await function(_,X){return Promise.all(X.map((async X=>{if(X instanceof Function)return void await X(C(_));if(\\"string\\"==typeof X){const re=fe.default.resolve(X),ne=fe.default.extname(re).slice(1).toLowerCase();return void await L(re,ne,C(_))}let re={};if(re=\\"toJSON\\"in X?X.toJSON(C(_)):C(_),\\"to\\"in X){const _=fe.default.resolve(X.to);let ne=X.type;return ne||(ne=fe.default.extname(_).slice(1).toLowerCase()),void await L(_,ne,re)}\\"customProperties\\"in X?X.customProperties=re:\\"custom-properties\\"in X&&(X[\\"custom-properties\\"]=re)})))}(_,ae)},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:(X,{result:re})=>{!ne&&(ie.length>0||ae.length>0)&&X.warn(re,'\\"importFrom\\" and \\"exportTo\\" will be removed in a future version of postcss-custom-properties./nWe are looking for insights and anecdotes on how these features are used so that we can design the best alternative./nPlease let us know if our proposal will work for you./nVisit the discussion on github for more details. https:/github.com/csstools/postcss-plugins/discussions/192'),_.clear()}}}
+                            prepare(){let _=new Map;return pe?{Once:re=>{_=w(re,{preserve:X})},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:()=>{_.clear()}}:{Once:async ne=>{const ie=(await le).entries(),pe=w(ne,{preserve:X}).entries();if(re)for(const[X,re]of[...ie,...pe])_.set(X,re);else for(const[X,re]of[...pe,...ie])_.set(X,re);await function(_,X){return Promise.all(X.map((async X=>{if(X instanceof Function)return void await X(C(_));if(\\"string\\"==typeof X){const re=fe.default.resolve(X),ne=fe.default.extname(re).slice(1).toLowerCase();return void await L(re,ne,C(_))}let re={};if(re=\\"toJSON\\"in X?X.toJSON(C(_)):C(_),\\"to\\"in X){const _=fe.default.resolve(X.to);let ne=X.type;return ne||(ne=fe.default.extname(_).slice(1).toLowerCase()),void await L(_,ne,re)}\\"customProperties\\"in X?X.customProperties=re:\\"custom-properties\\"in X&&(X[\\"custom-properties\\"]=re)})))}(_,ae)},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:(X,{result:re})=>{!ne&&(ie.length>0||ae.length>0)&&X.warn(re,'\\"importFrom\\" and \\"exportTo\\" will be removed in a future version of postcss-custom-properties.\\nWe are looking for insights and anecdotes on how these features are used so that we can design the best alternative.\\nPlease let us know if our proposal will work for you.\\nVisit the discussion on github for more details. https://github.com/csstools/postcss-plugins/discussions/192'),_.clear()}}}
                           },
                           {
                             postcssPlugin: 'postcss-media-minmax',
@@ -8171,7 +8171,7 @@ exports[`css > 应该能够禁用Less多线程编译 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-initial',
-                            Declaration: function (re){if(!/binitial/b/.test(re.value)){return}var ne=X(re.prop,re.value);if(ne.length===0)return;ne.forEach((function(_){if(!getPropPrevTo(re.prop,re)){re.cloneBefore(_)}}));if(_.replace===true){re.remove()}}
+                            Declaration: function (re){if(!/\\binitial\\b/.test(re.value)){return}var ne=X(re.prop,re.value);if(ne.length===0)return;ne.forEach((function(_){if(!getPropPrevTo(re.prop,re)){re.cloneBefore(_)}}));if(_.replace===true){re.remove()}}
                           },
                           {
                             postcssPlugin: 'postcss-page-break',
@@ -8205,7 +8205,7 @@ exports[`css > 应该能够禁用Less多线程编译 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-progressive-custom-properties',
-                            RuleExit: (_,{postcss:X})=>{const re=[],ne=new Set;_.each((ie=>{if(\\"decl\\"!==ie.type)return;if(!ie.variable)return;if(\\"initial\\"===ie.value.trim())return;if(\\"\\"===ie.value.trim())return;if(!ne.has(ie.prop.toString()))return void ne.add(ie.prop.toString());const ae=i(ie.value);if(!ae.length)return;const le=X.atRule({name:\\"supports\\",params:ae.join(\\" and \\"),source:_.source,raws:{before:\\"/n/n\\",after:\\"/n\\"}}),pe=_.clone();pe.removeAll(),pe.raws.before=\\"/n\\",pe.append(ie.clone()),ie.remove(),le.append(pe),re.push(le)})),0!==re.length&&re.reverse().forEach((X=>{_.after(X)}))}
+                            RuleExit: (_,{postcss:X})=>{const re=[],ne=new Set;_.each((ie=>{if(\\"decl\\"!==ie.type)return;if(!ie.variable)return;if(\\"initial\\"===ie.value.trim())return;if(\\"\\"===ie.value.trim())return;if(!ne.has(ie.prop.toString()))return void ne.add(ie.prop.toString());const ae=i(ie.value);if(!ae.length)return;const le=X.atRule({name:\\"supports\\",params:ae.join(\\" and \\"),source:_.source,raws:{before:\\"\\n\\n\\",after:\\"\\n\\"}}),pe=_.clone();pe.removeAll(),pe.raws.before=\\"\\n\\",pe.append(ie.clone()),ie.remove(),le.append(pe),re.push(le)})),0!==re.length&&re.reverse().forEach((X=>{_.after(X)}))}
                           },
                           {
                             postcssPlugin: 'postcss-preset-env',
@@ -8219,7 +8219,7 @@ exports[`css > 应该能够禁用Less多线程编译 1`] = `
               },
               /* config.module.rule('sass').oneOf('css').use('sass-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/sass-loader/index.js'
+                loader: '<ROOT>/packages/bundler-compiled/compiled/sass-loader/index.js'
               }
             ]
           }
@@ -8227,7 +8227,7 @@ exports[`css > 应该能够禁用Less多线程编译 1`] = `
       },
       /* config.module.rule('stylus') */
       {
-        test: /.(styl|stylus)(/?.*)?$/,
+        test: /\\.(styl|stylus)(\\?.*)?$/,
         oneOf: [
           /* config.module.rule('stylus').oneOf('css') */
           {
@@ -8243,7 +8243,7 @@ exports[`css > 应该能够禁用Less多线程编译 1`] = `
               },
               /* config.module.rule('stylus').oneOf('css').use('css-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/css-loader/index.js',
+                loader: '<ROOT>/packages/bundler-compiled/compiled/css-loader/index.js',
                 options: {
                   importLoaders: 1,
                   esModule: true,
@@ -8260,7 +8260,7 @@ exports[`css > 应该能够禁用Less多线程编译 1`] = `
               },
               /* config.module.rule('stylus').oneOf('css').use('postcss-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/postcss-loader/index.js',
+                loader: '<ROOT>/packages/bundler-compiled/compiled/postcss-loader/index.js',
                 options: {
                   postcssOptions: {
                     ident: 'postcss',
@@ -8275,7 +8275,7 @@ exports[`css > 应该能够禁用Less多线程编译 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-custom-properties',
-                            prepare(){let _=new Map;return pe?{Once:re=>{_=w(re,{preserve:X})},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:()=>{_.clear()}}:{Once:async ne=>{const ie=(await le).entries(),pe=w(ne,{preserve:X}).entries();if(re)for(const[X,re]of[...ie,...pe])_.set(X,re);else for(const[X,re]of[...pe,...ie])_.set(X,re);await function(_,X){return Promise.all(X.map((async X=>{if(X instanceof Function)return void await X(C(_));if(\\"string\\"==typeof X){const re=fe.default.resolve(X),ne=fe.default.extname(re).slice(1).toLowerCase();return void await L(re,ne,C(_))}let re={};if(re=\\"toJSON\\"in X?X.toJSON(C(_)):C(_),\\"to\\"in X){const _=fe.default.resolve(X.to);let ne=X.type;return ne||(ne=fe.default.extname(_).slice(1).toLowerCase()),void await L(_,ne,re)}\\"customProperties\\"in X?X.customProperties=re:\\"custom-properties\\"in X&&(X[\\"custom-properties\\"]=re)})))}(_,ae)},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:(X,{result:re})=>{!ne&&(ie.length>0||ae.length>0)&&X.warn(re,'\\"importFrom\\" and \\"exportTo\\" will be removed in a future version of postcss-custom-properties./nWe are looking for insights and anecdotes on how these features are used so that we can design the best alternative./nPlease let us know if our proposal will work for you./nVisit the discussion on github for more details. https:/github.com/csstools/postcss-plugins/discussions/192'),_.clear()}}}
+                            prepare(){let _=new Map;return pe?{Once:re=>{_=w(re,{preserve:X})},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:()=>{_.clear()}}:{Once:async ne=>{const ie=(await le).entries(),pe=w(ne,{preserve:X}).entries();if(re)for(const[X,re]of[...ie,...pe])_.set(X,re);else for(const[X,re]of[...pe,...ie])_.set(X,re);await function(_,X){return Promise.all(X.map((async X=>{if(X instanceof Function)return void await X(C(_));if(\\"string\\"==typeof X){const re=fe.default.resolve(X),ne=fe.default.extname(re).slice(1).toLowerCase();return void await L(re,ne,C(_))}let re={};if(re=\\"toJSON\\"in X?X.toJSON(C(_)):C(_),\\"to\\"in X){const _=fe.default.resolve(X.to);let ne=X.type;return ne||(ne=fe.default.extname(_).slice(1).toLowerCase()),void await L(_,ne,re)}\\"customProperties\\"in X?X.customProperties=re:\\"custom-properties\\"in X&&(X[\\"custom-properties\\"]=re)})))}(_,ae)},Declaration:re=>{k(re,_,{preserve:X})},OnceExit:(X,{result:re})=>{!ne&&(ie.length>0||ae.length>0)&&X.warn(re,'\\"importFrom\\" and \\"exportTo\\" will be removed in a future version of postcss-custom-properties.\\nWe are looking for insights and anecdotes on how these features are used so that we can design the best alternative.\\nPlease let us know if our proposal will work for you.\\nVisit the discussion on github for more details. https://github.com/csstools/postcss-plugins/discussions/192'),_.clear()}}}
                           },
                           {
                             postcssPlugin: 'postcss-media-minmax',
@@ -8355,7 +8355,7 @@ exports[`css > 应该能够禁用Less多线程编译 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-initial',
-                            Declaration: function (re){if(!/binitial/b/.test(re.value)){return}var ne=X(re.prop,re.value);if(ne.length===0)return;ne.forEach((function(_){if(!getPropPrevTo(re.prop,re)){re.cloneBefore(_)}}));if(_.replace===true){re.remove()}}
+                            Declaration: function (re){if(!/\\binitial\\b/.test(re.value)){return}var ne=X(re.prop,re.value);if(ne.length===0)return;ne.forEach((function(_){if(!getPropPrevTo(re.prop,re)){re.cloneBefore(_)}}));if(_.replace===true){re.remove()}}
                           },
                           {
                             postcssPlugin: 'postcss-page-break',
@@ -8389,7 +8389,7 @@ exports[`css > 应该能够禁用Less多线程编译 1`] = `
                           },
                           {
                             postcssPlugin: 'postcss-progressive-custom-properties',
-                            RuleExit: (_,{postcss:X})=>{const re=[],ne=new Set;_.each((ie=>{if(\\"decl\\"!==ie.type)return;if(!ie.variable)return;if(\\"initial\\"===ie.value.trim())return;if(\\"\\"===ie.value.trim())return;if(!ne.has(ie.prop.toString()))return void ne.add(ie.prop.toString());const ae=i(ie.value);if(!ae.length)return;const le=X.atRule({name:\\"supports\\",params:ae.join(\\" and \\"),source:_.source,raws:{before:\\"/n/n\\",after:\\"/n\\"}}),pe=_.clone();pe.removeAll(),pe.raws.before=\\"/n\\",pe.append(ie.clone()),ie.remove(),le.append(pe),re.push(le)})),0!==re.length&&re.reverse().forEach((X=>{_.after(X)}))}
+                            RuleExit: (_,{postcss:X})=>{const re=[],ne=new Set;_.each((ie=>{if(\\"decl\\"!==ie.type)return;if(!ie.variable)return;if(\\"initial\\"===ie.value.trim())return;if(\\"\\"===ie.value.trim())return;if(!ne.has(ie.prop.toString()))return void ne.add(ie.prop.toString());const ae=i(ie.value);if(!ae.length)return;const le=X.atRule({name:\\"supports\\",params:ae.join(\\" and \\"),source:_.source,raws:{before:\\"\\n\\n\\",after:\\"\\n\\"}}),pe=_.clone();pe.removeAll(),pe.raws.before=\\"\\n\\",pe.append(ie.clone()),ie.remove(),le.append(pe),re.push(le)})),0!==re.length&&re.reverse().forEach((X=>{_.after(X)}))}
                           },
                           {
                             postcssPlugin: 'postcss-preset-env',
@@ -8403,7 +8403,7 @@ exports[`css > 应该能够禁用Less多线程编译 1`] = `
               },
               /* config.module.rule('stylus').oneOf('css').use('stylus-loader') */
               {
-                loader: '<WORKSPACE>/packages/bundler-compiled/compiled/stylus-loader/index.js'
+                loader: '<ROOT>/packages/bundler-compiled/compiled/stylus-loader/index.js'
               }
             ]
           }

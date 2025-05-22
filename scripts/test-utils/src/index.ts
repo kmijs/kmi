@@ -25,6 +25,7 @@ export function createSnapshotSerializer(options?: SnapshotSerializerOptions): {
 
   const pathMatchers: PathMatcher[] = [
     { mark: 'root', match: cwd },
+    { mark: 'root', match: pathToRegex(cwd) },
     { mark: 'workspace', match: workspace },
     { mark: 'workspace', match: pathToRegex(workspace) },
     ...customMatchers,
