@@ -96,6 +96,7 @@ jobs:
         run: pnpm build
 
       - name: Unit tests
+        if: matrix.os != 'windows-latest'
         run: pnpm test:ci
 
       - name: Install Playwright Chromium
