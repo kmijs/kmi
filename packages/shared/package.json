@@ -1,7 +1,7 @@
 {
   "name": "@kmijs/shared",
   "version": "0.0.1",
-  "description": "kmi 共享模块依赖及工具函数",
+  "description": "kmi shared module dependencies and utility functions",
   "keywords": [],
   "repository": {
     "type": "git",

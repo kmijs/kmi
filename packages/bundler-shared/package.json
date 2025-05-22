@@ -1,7 +1,7 @@
 {
   "name": "@kmijs/bundler-shared",
   "version": "0.0.1",
-  "description": "构建工具公共依赖及共享方法",
+  "description": "Build tool shared dependencies and utility functions",
   "keywords": [],
   "repository": {
     "type": "git",
