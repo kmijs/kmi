@@ -7,7 +7,6 @@
     "analyze": "cross-env ANALYZE=1 max build",
     "build": "max build",
     "dev": "npm run start:dev",
-    "postinstall": "max setup",
     "openapi": "max openapi",
     "preview": "npm run build && max preview --port 8000",
     "record": "cross-env NODE_ENV=development REACT_APP_ENV=test max record --scene=login",

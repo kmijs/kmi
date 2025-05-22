@@ -86,7 +86,7 @@ interface Manifest extends ProjectManifest {
   logger.event('生成版本')
   function getVersion() {
     const { version: oldVersion } = fsExtra.readJsonSync(
-      pathe.join(PATHS.ROOT, 'packages/kmijs/package.json'),
+      pathe.join(PATHS.ROOT, 'packages/preset-bundler/package.json'),
     )
     const mainVersion = '2.0.0'
     const day = dayjs().format('YYYYMMDD')
@@ -127,15 +127,13 @@ interface Manifest extends ProjectManifest {
 
   await $`pwd`
 
+  // 设置 npm token
+  await $`npm config set registry https://registry.npmjs.org/`
+  await $`npm config set //registry.npmjs.org/:_authToken=${process.env.NPM_TOKEN}`
+
   // dpcs https://pnpm.io/zh/cli/publish
   await $`pnpm -r publish --tag ${tag} --filter=@kmijs/* --force
   ${isDry ? '--dry-run' : ''}`
-
-  // TODO 不在提交代码
-  if (!isDry) {
-    // await $`git commit --all --message "chore(release): ${version}"`;
-    // await $`git push`;
-  }
 
   logger.event('publish successful')
 })().catch((error) => {

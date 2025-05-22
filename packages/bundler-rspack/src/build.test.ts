@@ -120,10 +120,10 @@ const expects: Record<string, (opts: IOpts) => void> = {
   },
   'css-inset'({ files }: IOpts) {
     expect(files['index.css']).toMatch(
-      '.ant-modal-mask{position:fixed;top:0;right:0;bottom:0;left:0;z-index:1000;height:100%;background-color:rgba(0,0,0,.45)}',
+      '.ant-modal-mask{z-index:1000;background-color:rgba(0,0,0,.45);height:100%;position:fixed;top:0;bottom:0;left:0;right:0}',
     )
     expect(files['index.css']).toMatch(
-      '.hello{padding-bottom:constant(safe-area-inset-bottom);padding-bottom:env(safe-area-inset-bottom);top:0;right:0;bottom:0;left:0}',
+      '.hello{padding-bottom:constant(safe-area-inset-bottom);padding-bottom:env(safe-area-inset-bottom);top:0;bottom:0;left:0;right:0}',
     )
   },
 }

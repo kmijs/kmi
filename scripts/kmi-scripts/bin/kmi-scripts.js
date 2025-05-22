@@ -17,7 +17,6 @@ assert(
 )
 
 console.log(chalk.cyan(`kmi-scripts: ${name}\n`))
-
 const spawn = sync('tsx', [scriptsPath, ...argv.slice(1)], {
   env: {
     ...process.env,

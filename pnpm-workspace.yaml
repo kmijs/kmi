@@ -3,7 +3,6 @@ packages:
   - 'e2e/*'
   - 'examples/*'
   - 'packages/*'
-  - 'plugins/*'
   - 'scripts/*'
   - '!**/compiled/**'
   - 'templates/*/**'

@@ -1,0 +1,116 @@
+name: CI
+
+env:
+  NODE_OPTIONS: --max-old-space-size=16384
+
+on:
+  push:
+    branches: [main, master]
+    paths-ignore:
+      - "examples/**"
+      - "scripts/**"
+      - "**.md"
+      - "docs/**"
+  pull_request:
+    branches: [main, master]
+    paths-ignore:
+      - "examples/**"
+      - "scripts/**"
+      - "**.md"
+      - "docs/**"
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 8.15.8
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.x
+          cache: "pnpm"
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build
+        run: pnpm build
+
+      - name: Lint
+        run: pnpm lint || true
+
+      - name: Type check
+        run: pnpm typecheck
+
+  build-and-test:
+    # needs: lint
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        node-version: [22.x]
+        os: [ubuntu-latest, windows-latest]
+      fail-fast: false
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 8.15.8
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: "pnpm"
+
+      - name: Get month for cache key
+        id: date
+        run: echo "date=$(date +'%Y-%m')" >> $GITHUB_OUTPUT
+        shell: bash
+
+      - name: Setup Turbo cache
+        uses: actions/cache@v3
+        with:
+          path: .turbo
+          key: turbo-${{ matrix.os }}-${{ matrix.node-version }}-${{ steps.date.outputs.date }}-${{ github.sha }}
+          restore-keys: |
+            turbo-${{ matrix.os }}-${{ matrix.node-version }}-${{ steps.date.outputs.date }}-
+            turbo-${{ matrix.os }}-${{ matrix.node-version }}-
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build
+        run: pnpm build
+
+      - name: Unit tests
+        if: matrix.os != 'windows-latest'
+        run: pnpm test:ci
+
+      - name: Install Playwright Chromium
+        run: npx playwright install chromium
+
+      - name: E2E tests
+        run: pnpm test:e2e
+
+  # TODO: Open after public
+  # dependency-review:
+  #   runs-on: ubuntu-latest
+  #   if: github.event_name == 'pull_request'
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v4
+  #     - name: Dependency Review
+  #       uses: actions/dependency-review-action@v3

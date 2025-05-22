@@ -28,7 +28,8 @@
       "e2e/with-react-max",
       "e2e/with-react-console",
       "templates/template-react-console",
-      "packages/shared/src/BaseGenerator/fixtures"
+      "packages/shared/src/BaseGenerator/fixtures",
+      "e2e/**/*"
     ]
   },
   "formatter": {

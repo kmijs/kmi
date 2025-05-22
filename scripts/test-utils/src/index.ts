@@ -1,3 +1,4 @@
+import { winPath } from '@kmijs/shared'
 import { isPathString, normalizeToPosixPath } from './path'
 import type { PathMatcher } from './pathSerializer'
 import {
@@ -18,15 +19,16 @@ export function createSnapshotSerializer(options?: SnapshotSerializerOptions): {
   print: (val: unknown) => string
 } {
   const {
-    cwd = process.cwd(),
+    // cwd = process.cwd(),
     workspace = process.cwd(),
     replace: customMatchers = [],
   } = options || {}
 
   const pathMatchers: PathMatcher[] = [
-    { mark: 'root', match: cwd },
+    // { mark: 'root', match: cwd },
     { mark: 'workspace', match: workspace },
     { mark: 'workspace', match: pathToRegex(workspace) },
+    { mark: 'workspace', match: winPath(workspace) },
     ...customMatchers,
     ...createDefaultPathMatchers(workspace),
   ]
@@ -52,3 +54,5 @@ export function createSnapshotSerializer(options?: SnapshotSerializerOptions): {
     },
   }
 }
+
+export { pathe } from '@kmijs/shared'

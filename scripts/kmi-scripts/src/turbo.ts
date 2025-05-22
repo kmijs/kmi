@@ -12,10 +12,8 @@ import { spawnSync } from './utils/utils'
 
   // filter
   if (!args.join(' ').includes('--filter')) {
-    // Tips: should use double quotes, single quotes are not valid on windows.
-    args.push(
-      `--filter='./packages/*' --filter='./presets/*' --filter='./plugins/*' --filter='./solutions/*' --filter='./codemods/*' --filter='./devtools/*'`,
-    )
+    // 提示: 应该使用双引号, 在 Windows 系统上单引号无效
+    args.unshift('--filter', `"./packages/*"`)
   }
 
   // turbo cache
