@@ -9,16 +9,10 @@ process.env.KMI_REMOTE_PLUGINS = 'none'
 
 expect.addSnapshotSerializer(
   createSnapshotSerializer({
-    workspace: path.join(__dirname, '..'),
+    root: path.join(__dirname, '..'),
     features: {
-      replaceRoot: true,
-      replaceWorkspace: true,
-      replacePnpmInner: true,
-      replaceTmpDir: true,
-      replaceHomeDir: true,
+      escapeDoubleQuotes: false,
       transformWin32Path: true,
-      escapeDoubleQuotes: true,
-      escapeEOL: true,
     },
   }),
 )

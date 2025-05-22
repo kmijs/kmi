@@ -3,7 +3,7 @@
 exports[`output > normal 1`] = `
 "{
   output: {
-    path: '<WORKSPACE>/packages/bundler-shared-config/src/config/dist',
+    path: '<ROOT>/packages/bundler-shared-config/src/config/dist',
     filename: '[name].js',
     chunkFilename: '[name].async.js',
     publicPath: 'auto',
@@ -27,7 +27,7 @@ exports[`output > normal 1`] = `
 exports[`output > normal dev 1`] = `
 "{
   output: {
-    path: '<WORKSPACE>/packages/bundler-shared-config/src/config/dist',
+    path: '<ROOT>/packages/bundler-shared-config/src/config/dist',
     filename: '[name].js',
     chunkFilename: '[name].async.js',
     publicPath: 'auto',
@@ -51,7 +51,7 @@ exports[`output > normal dev 1`] = `
 exports[`output > should allow to set outputPath.js and outputPath.css to empty string 1`] = `
 "{
   output: {
-    path: '<WORKSPACE>/packages/bundler-shared-config/src/config/dist',
+    path: '<ROOT>/packages/bundler-shared-config/src/config/dist',
     filename: '[name].js',
     chunkFilename: '[name].async.js',
     publicPath: 'auto',
@@ -75,7 +75,7 @@ exports[`output > should allow to set outputPath.js and outputPath.css to empty 
 exports[`output > 允许 自定义 filename 1`] = `
 "{
   output: {
-    path: '<WORKSPACE>/packages/bundler-shared-config/src/config/dist',
+    path: '<ROOT>/packages/bundler-shared-config/src/config/dist',
     filename: '[name].[contenthash:10].js',
     chunkFilename: 'async/[name].[contenthash:8].js',
     publicPath: 'auto',
@@ -99,7 +99,7 @@ exports[`output > 允许 自定义 filename 1`] = `
 exports[`output > 应该允许使用 outputPath 自定义目录 1`] = `
 "{
   output: {
-    path: '<WORKSPACE>/packages/bundler-shared-config/src/config/dist/server',
+    path: '<ROOT>/packages/bundler-shared-config/src/config/dist/server',
     filename: '[name].js',
     chunkFilename: '[name].async.js',
     publicPath: 'auto',
@@ -123,7 +123,7 @@ exports[`output > 应该允许使用 outputPath 自定义目录 1`] = `
 exports[`output > 应该允许使用 outputPath.root 自定义目录 1`] = `
 "{
   output: {
-    path: '<WORKSPACE>/packages/bundler-shared-config/src/config/dist/server',
+    path: '<ROOT>/packages/bundler-shared-config/src/config/dist/server',
     filename: 'js/[name].js',
     chunkFilename: 'js/[name].async.js',
     publicPath: 'auto',
@@ -147,7 +147,7 @@ exports[`output > 应该允许使用 outputPath.root 自定义目录 1`] = `
 exports[`output > 应该允许通过 outputPath.js 自定义 js 路径 1`] = `
 "{
   output: {
-    path: '<WORKSPACE>/packages/bundler-shared-config/src/config/dist',
+    path: '<ROOT>/packages/bundler-shared-config/src/config/dist',
     filename: 'static/js/[name].js',
     chunkFilename: 'static/js/[name].async.js',
     publicPath: 'auto',
