@@ -18,14 +18,14 @@ export function createSnapshotSerializer(options?: SnapshotSerializerOptions): {
   print: (val: unknown) => string
 } {
   const {
-    cwd = process.cwd(),
+    // cwd = process.cwd(),
     workspace = process.cwd(),
     replace: customMatchers = [],
   } = options || {}
 
   const pathMatchers: PathMatcher[] = [
-    { mark: 'root', match: cwd },
-    { mark: 'workspace', match: workspace },
+    // { mark: 'root', match: cwd },
+    // { mark: 'workspace', match: workspace },
     { mark: 'workspace', match: pathToRegex(workspace) },
     ...customMatchers,
     ...createDefaultPathMatchers(workspace),
