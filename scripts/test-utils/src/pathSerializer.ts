@@ -1,5 +1,5 @@
 import os from 'node:os'
-import _ from 'lodash'
+import _ from '@kmijs/shared/compiled/lodash'
 import {
   compilePathMatcherRegExp,
   getRealTemporaryDirectory,

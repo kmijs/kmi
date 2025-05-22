@@ -1090,12 +1090,9 @@ importers:
 
   scripts/test-utils:
     dependencies:
-      '@types/lodash':
-        specifier: 4.14.191
-        version: 4.14.191
-      lodash:
-        specifier: 4.17.21
-        version: 4.17.21
+      '@kmijs/shared':
+        specifier: workspace:*
+        version: link:../../packages/shared
       upath:
         specifier: 2.0.1
         version: 2.0.1
@@ -7831,6 +7828,7 @@ packages:
 
   /@types/lodash@4.14.191:
     resolution: {integrity: sha512-BdZ5BCCvho3EIXw6wUCXHe7rS53AIDPLE+JzwgT+OsJk53oBfbSmZZ7CX4VaRoN78N+TJpFi9QPlfIVNmJYWxQ==}
+    dev: true
 
   /@types/lodash@4.17.17:
     resolution: {integrity: sha512-RRVJ+J3J+WmyOTqnz3PiBLA501eKwXl2noseKOrNo/6+XEHjTAxO4xHvxQB6QuNm+s4WRbn6rSiap8+EA+ykFQ==}

@@ -5,9 +5,6 @@
     "types": ["vitest/globals"],
     "jsx": "react",
     "paths": {
-      "@kmijs/shared": ["./packages/shared"],
-      "@kmijs/bundler-shared": ["./packages/bundler-shared"],
-      "@kmijs/bundler-webpack": ["./packages/bundler-webpack"],
       "@kmijs/types": ["./packages/types"]
     }
   },

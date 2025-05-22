@@ -1,14 +1,14 @@
 // @ts-ignore
-import { Spin } from 'antd';
+import { Spin } from 'antd'
 // @ts-ignore
-import styles from './index.less';
+import styles from './index.less'
 
 const Loading: React.FC = () => {
   return (
     <div className={styles.loading}>
-      <Spin tip="loading ..."></Spin>
+      <Spin tip="loading ..." />
     </div>
-  );
-};
+  )
+}
 
-export default Loading;
+export default Loading

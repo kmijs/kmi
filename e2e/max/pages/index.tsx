@@ -1,30 +1,30 @@
 // @ts-ignore
+import { TestDecorator } from '@/components/decorator'
+// @ts-ignore
 import {
   FormattedMessage,
-  history,
   Icon,
+  history,
   useAccess,
   useIntl,
   useModel,
-} from '@umijs/max';
-// @ts-ignore
-import { TestDecorator } from '@/components/decorator';
-import { Button, DatePicker, Input } from 'antd';
-import styles from './index.less';
-console.log(TestDecorator);
+} from '@umijs/max'
+import { Button, DatePicker, Input } from 'antd'
+import styles from './index.less'
+console.log(TestDecorator)
 
 const includedIcons = [
   'local:rice',
   'local:logo/umi',
   'ant-design:fire-twotone',
-];
+]
 
 export default function HomePage() {
-  const { initialState } = useModel('@@initialState');
-  console.log('initialState', initialState);
-  const access = useAccess();
-  console.log('access', access);
-  const intl = useIntl();
+  const { initialState } = useModel('@@initialState')
+  console.log('initialState', initialState)
+  const access = useAccess()
+  console.log('access', access)
+  const intl = useIntl()
 
   return (
     <div>
@@ -43,7 +43,7 @@ export default function HomePage() {
       <Button
         type="primary"
         onClick={() => {
-          history.push('/users');
+          history.push('/users')
         }}
       >
         Go to /users
@@ -62,11 +62,11 @@ export default function HomePage() {
       <h2>Local Icons</h2>
       <div>
         {includedIcons.map((i) => {
-          return <Icon spin icon={i} className={i} key={i} />;
+          return <Icon spin icon={i} className={i} key={i} />
         })}
         <Icon icon="local:logo/foo/smile" />
         <Icon icon="local:logo/heart-Upper-CASE" />
       </div>
     </div>
-  );
+  )
 }

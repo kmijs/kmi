@@ -1,16 +1,17 @@
-import React from 'react';
-import { history, useSearchParams } from '@umijs/max';
+import { history, useSearchParams } from '@umijs/max'
+import React from 'react'
 
 export default function Page() {
-  const [p] = useSearchParams();
+  const [p] = useSearchParams()
   return (
     <div>
       <h1>History API</h1>
 
       <div>
         <button
+          type="button"
           onClick={() => {
-            history.replace({ search: '?t=replace' });
+            history.replace({ search: '?t=replace', pathname: '/' })
           }}
         >
           history.replace(search)
@@ -19,8 +20,9 @@ export default function Page() {
 
       <div>
         <button
+          type="button"
           onClick={() => {
-            history.push({ search: '?t=push' });
+            history.push({ search: '?t=push', pathname: '/' })
           }}
         >
           history.push(search)
@@ -29,8 +31,9 @@ export default function Page() {
 
       <div>
         <button
+          type="button"
           onClick={() => {
-            history.replace({ search: '?t=replace', pathname: '/' });
+            history.replace({ search: '?t=replace', pathname: '/' })
           }}
         >
           history.replace(pathname)
@@ -39,8 +42,9 @@ export default function Page() {
 
       <div>
         <button
+          type="button"
           onClick={() => {
-            history.push({ search: '?t=push', pathname: '/' });
+            history.push({ search: '?t=push', pathname: '/' })
           }}
         >
           history.push(pathname)
@@ -49,5 +53,5 @@ export default function Page() {
 
       <div>{p.toString()}</div>
     </div>
-  );
+  )
 }

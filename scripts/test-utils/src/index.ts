@@ -53,3 +53,5 @@ export function createSnapshotSerializer(options?: SnapshotSerializerOptions): {
     },
   }
 }
+
+export { pathe } from '@kmijs/shared'

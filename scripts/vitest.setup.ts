@@ -1,4 +1,4 @@
-import { pathe } from '@kmijs/shared'
+import { pathe } from '@scripts/test-utils'
 import { createSnapshotSerializer } from 'path-serializer'
 import { expect } from 'vitest'
 
