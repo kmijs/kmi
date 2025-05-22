@@ -1,5 +1,4 @@
-import { pathe } from '@scripts/test-utils'
-import { createSnapshotSerializer } from 'path-serializer'
+import { createSnapshotSerializer, pathe } from '@scripts/test-utils'
 import { expect } from 'vitest'
 
 // @ts-ignore
@@ -9,6 +8,6 @@ process.env.KMI_REMOTE_PLUGINS = 'none'
 
 expect.addSnapshotSerializer(
   createSnapshotSerializer({
-    root: pathe.join(__dirname, '..'),
+    workspace: pathe.join(__dirname, '..'),
   }),
 )

@@ -10,6 +10,12 @@ import { spawnSync } from './utils/utils'
     args.push('--force')
   }
 
+  // filter
+  if (!args.join(' ').includes('--filter')) {
+    // 提示: 应该使用双引号, 在 Windows 系统上单引号无效
+    args.unshift('--filter', `"./packages/*"`)
+  }
+
   // turbo cache
   if (!args.includes('--cache-dir')) {
     args.unshift('--cache-dir', `".turbo"`)
