@@ -1,0 +1,10 @@
+{
+  "changelog": ["@changesets/changelog-github", { "repo": "kmijs/kmi" }],
+  "commit": false,
+  "fixed": [],
+  "linked": [],
+  "access": "restricted",
+  "baseBranch": "main",
+  "updateInternalDependencies": "patch",
+  "ignore": []
+}
