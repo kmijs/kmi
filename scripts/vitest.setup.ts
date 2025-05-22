@@ -1,3 +1,4 @@
+import path from 'node:path'
 import { createSnapshotSerializer } from '@scripts/test-utils'
 import { expect } from 'vitest'
 
