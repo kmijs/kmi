@@ -10,14 +10,6 @@ import { spawnSync } from './utils/utils'
     args.push('--force')
   }
 
-  // filter
-  if (!args.join(' ').includes('--filter')) {
-    // Tips: should use double quotes, single quotes are not valid on windows.
-    args.push(
-      `--filter='./packages/*' --filter='./presets/*' --filter='./plugins/*' --filter='./solutions/*' --filter='./codemods/*' --filter='./devtools/*'`,
-    )
-  }
-
   // turbo cache
   if (!args.includes('--cache-dir')) {
     args.unshift('--cache-dir', `".turbo"`)
