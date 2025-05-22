@@ -1,7 +1,7 @@
 import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
-import { lodash as _ } from '@kmijs/shared'
+import _ from 'lodash'
 import upath from 'upath'
 
 export const isPathString = (test: string): boolean =>
