@@ -1,4 +1,4 @@
-import path from 'node:path'
+import { pathe } from '@kmijs/shared'
 import { createSnapshotSerializer } from 'path-serializer'
 import { expect } from 'vitest'
 
@@ -9,6 +9,6 @@ process.env.KMI_REMOTE_PLUGINS = 'none'
 
 expect.addSnapshotSerializer(
   createSnapshotSerializer({
-    root: path.join(__dirname, '..'),
+    root: pathe.join(__dirname, '..'),
   }),
 )

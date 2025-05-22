@@ -53,7 +53,7 @@ jobs:
         run: pnpm typecheck
 
   build-and-test:
-    needs: lint
+    # needs: lint
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
