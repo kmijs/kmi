@@ -4,7 +4,7 @@
   "scripts": {
     "dev": "cross-env PORT=5555 max dev",
     "e2e": "playwright test",
-    "preview": "cross-envPORT=5555 max preview --port 5555",
+    "preview": "max preview --port 5555",
     "setup": "max setup",
     "prestart:all-qiankun:dev": "npm run setup",
     "start:all-qiankun:dev": "kmi-scripts turbo dev --parallel --filter=@e2e/with-qiankun-*",
