@@ -20,7 +20,7 @@ export function applyBasic(opts: SharedConfigOptions) {
   Object.keys(opts.entry).forEach((key) => {
     const entry = config.entry(key)
     if (isDev && opts.hmr) {
-      entry.add(winPath(require.resolve('../../client/client/client')))
+      entry.add('../../client/client/client')
     }
     entry.add(opts.entry[key])
   })
