@@ -1,4 +1,5 @@
 import { CHAIN_ID } from '@kmijs/bundler-shared'
+import { winPath } from '@kmijs/shared'
 import { DEFAULT_DEVTOOL } from '../constants'
 import type { SharedConfigOptions } from '../types'
 import { Env } from '../types'
@@ -19,7 +20,7 @@ export function applyBasic(opts: SharedConfigOptions) {
   Object.keys(opts.entry).forEach((key) => {
     const entry = config.entry(key)
     if (isDev && opts.hmr) {
-      entry.add(require.resolve('../../client/client/client'))
+      entry.add(winPath(require.resolve('../../client/client/client')))
     }
     entry.add(opts.entry[key])
   })

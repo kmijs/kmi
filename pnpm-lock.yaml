@@ -148,6 +148,90 @@ importers:
         specifier: ^3.2.4
         version: 3.4.17
 
+  e2e/with-qiankun-master:
+    dependencies:
+      '@umijs/max':
+        specifier: ^4.4.11
+        version: 4.4.11(@types/node@20.8.9)(@types/react-dom@18.3.0)(@types/react@18.3.11)(prettier@3.0.3)(react-dom@18.3.1)(react@18.3.1)(typescript@5.2.2)
+      qiankun:
+        specifier: ^2.10.1
+        version: 2.10.16
+      react:
+        specifier: 18.3.1
+        version: 18.3.1
+      react-dom:
+        specifier: 18.3.1
+        version: 18.3.1(react@18.3.1)
+    devDependencies:
+      '@kmijs/preset-bundler':
+        specifier: workspace:*
+        version: link:../../packages/preset-bundler
+      '@types/react':
+        specifier: ^18
+        version: 18.3.11
+      '@types/react-dom':
+        specifier: ^18
+        version: 18.3.0
+      cross-env:
+        specifier: ^7.0.3
+        version: 7.0.3
+      typescript:
+        specifier: ^5
+        version: 5.2.2
+
+  e2e/with-qiankun-slave:
+    dependencies:
+      '@umijs/max':
+        specifier: ^4.4.11
+        version: 4.4.11(@types/node@20.8.9)(@types/react-dom@18.3.0)(@types/react@18.3.11)(prettier@3.0.3)(react-dom@18.3.1)(react@18.3.1)(typescript@5.2.2)
+      react:
+        specifier: 18.3.1
+        version: 18.3.1
+      react-dom:
+        specifier: 18.3.1
+        version: 18.3.1(react@18.3.1)
+    devDependencies:
+      '@kmijs/preset-bundler':
+        specifier: workspace:*
+        version: link:../../packages/preset-bundler
+      '@types/react':
+        specifier: ^18
+        version: 18.3.11
+      '@types/react-dom':
+        specifier: ^18
+        version: 18.3.0
+      cross-env:
+        specifier: ^7.0.3
+        version: 7.0.3
+      typescript:
+        specifier: ^5
+        version: 5.2.2
+
+  e2e/with-qiankun-slave-app2:
+    dependencies:
+      '@umijs/max':
+        specifier: ^4.4.11
+        version: 4.4.11(@types/node@20.8.9)(@types/react-dom@18.3.0)(@types/react@18.3.11)(prettier@3.0.3)(react-dom@18.3.1)(react@18.3.1)(typescript@5.2.2)
+      react:
+        specifier: 18.3.1
+        version: 18.3.1
+      react-dom:
+        specifier: 18.3.1
+        version: 18.3.1(react@18.3.1)
+    devDependencies:
+      '@kmijs/preset-bundler':
+        specifier: workspace:*
+        version: link:../../packages/preset-bundler
+      '@types/react':
+        specifier: ^18
+        version: 18.3.11
+      '@types/react-dom':
+        specifier: ^18
+        version: 18.3.0
+      typescript:
+        specifier: ^5
+        version: 5.2.2
+
   examples/ant-pro:
     dependencies:
       '@ant-design/icons':
