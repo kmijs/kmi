@@ -1,5 +1,4 @@
 import { CHAIN_ID } from '@kmijs/bundler-shared'
-import { winPath } from '@kmijs/shared'
 import { DEFAULT_DEVTOOL } from '../constants'
 import type { SharedConfigOptions } from '../types'
 import { Env } from '../types'
