@@ -1,42 +1,42 @@
 # Kmi
 > Based on Umi to provide Rspack support and other best practices
 
-## 简介
+## Introduction
 
-Kmi 为 [UmiJS](https://umijs.org/) 提供了 [Rspack](https://www.rspack.dev/) 支持以及现代 Web 开发的最佳实践。它旨在提供更快速、更高效的开发体验，并具有更好的构建性能。
+Kmi provides [Rspack](https://www.rspack.dev/) support and modern web development best practices for [UmiJS](https://umijs.org/). It aims to provide faster and more efficient development experience with better build performance.
 
-## 特性
-- **Rspack 集成**: 使用 Rspack 作为构建工具，相比 Webpack 构建速度提升数倍
-- **平滑降级**: 提供 terser、postcss 等传统工具链支持，保证项目稳定性。新项目可无缝使用 lightningcss、swc 等新一代工具链，实现性能提升
-- **简单易用**: 通过配置开关轻松切换 Rspack/Webpack 构建模式，遇到问题可快速回退
-- **统一接口**: 提供统一的配置接口，屏蔽底层构建工具差异，降低学习成本
+## Features
+- **Rspack Integration**: Uses Rspack as the build tool, providing several times faster build speed compared to Webpack
+- **Smooth Fallback**: Provides support for traditional toolchains like terser and postcss to ensure project stability. New projects can seamlessly use next-generation toolchains like lightningcss and swc for performance improvements
+- **Easy to Use**: Easily switch between Rspack/Webpack build modes through configuration toggles, with quick fallback when issues arise
+- **Unified Interface**: Provides unified configuration interface that abstracts away differences in underlying build tools, reducing learning costs
 
-## 快速开始
+## Quick Start
 
-### 安装
+### Installation
 
 ```bash
-# 创建新的 Umi 项目
+# Create a new Umi project
 npx create-umi@latest my-rspack-app
 cd my-rspack-app
 
-# 安装依赖
+# Install dependencies
 pnpm install
 ```
 
-### 配置
+### Configuration
 
-在项目根目录创建或修改 `.umirc.ts` 文件：
+Create or modify the `.umirc.ts` file in the project root directory:
 
 ```typescript
 import { defineConfig } from 'umi';
 
 export default defineConfig({
-  // 配置 Kmi 预设
+  // Configure Kmi preset
   presets: ['@kmijs/preset-bundler'],
-  // 开启 Rspack
+  // Enable Rspack
   rspack: {},
-  // 其他 Umi 配置...
+  // Other Umi configurations...
   routes: [
     { path: '/', component: 'index' },
     { path: '/users', component: 'users' },
@@ -44,39 +44,39 @@ export default defineConfig({
 });
 ```
 
-### 自定义构建配置
+### Custom Build Configuration
 
-- 通过 bundler 选项来修改 Webpack(Rspack) 配置对象
+- Modify Webpack(Rspack) configuration object via bundler option
 
 ```typescript
 import { defineConfig } from 'umi';
 
 export default defineConfig({
-  // 配置 Kmi 预设
+  // Configure Kmi preset
   presets: ['@kmijs/preset-bundler'],
-  // 开启 Rspack
+  // Enable Rspack
   rspack: {},
-  // 通过 bundler 选项来修改 Webpack(Rspack) 配置对象。
+  // Modify Webpack(Rspack) configuration object via bundler option
   bundler: {
     resolve: {
-      // 与内置的 resolve.extensions 合并
+      // Merged with built-in resolve.extensions
       extensions: ['.web.tsx'],
     }
   }
 });
 ```
-- 以函数的形式修改 Webpack(Rspack) 配置
+- Modify Webpack(Rspack) configuration in function form
 ```typescript
 import { defineConfig } from 'umi';
 
 export default defineConfig({
-  // 配置 Kmi 预设
+  // Configure Kmi preset
   presets: ['@kmijs/preset-bundler'],
-  // 开启 Rspack
+  // Enable Rspack
   rspack: {},
-  // 以函数的形式修改 Webpack(Rspack) 配置
+  // Modify Webpack(Rspack) configuration in function form
   async bundler (config, { isProd }) {
-    // 这里仅是示例
+    // This is just an example
     if (isProd) {
       chain.devtool('source-map');
     }
@@ -87,19 +87,19 @@ export default defineConfig({
 });
 ```
 
-- 用链式编程的方式修改 Webpack(Rspack) 配置
+- Modify Webpack(Rspack) configuration using chain programming
 
 ```typescript
 import { defineConfig } from 'umi';
 
 export default defineConfig({
-  // 配置 Kmi 预设
+  // Configure Kmi preset
   presets: ['@kmijs/preset-bundler'],
-  // 开启 Rspack
+  // Enable Rspack
   rspack: {},
-  // 通过 bundler 你可以拿到同时兼容 Webpack 和 Rspack 的插件
+  // Through bundler you can get plugins that are compatible with both Webpack and Rspack
   bundlerChain (config, { bundler }) {
-    // 这里仅是示例
+    // This is just an example
     config.plugin('custom-define').use(bundler.DefinePlugin, [
       {
         'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
@@ -110,17 +110,17 @@ export default defineConfig({
 });
 ```
 
-### 开发
+### Development
 
 ```bash
-# 启动开发服务器
+# Start the development server
 pnpm dev
 ```
 
-### 生产构建
+### Production Build
 
 ```bash
-# 构建应用
+# Build the application
 pnpm build
 ```
 
