@@ -1,0 +1,21 @@
+{
+  "name": "@e2e/with-qiankun-master",
+  "private": true,
+  "scripts": {
+    "dev": "PORT=8889 max dev",
+    "preview": "max preview --port 8889",
+    "setup": "max setup",
+    "start": "npm run dev"
+  },
+  "dependencies": {
+    "@umijs/max": "^4.4.11",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@kmijs/preset-bundler": "workspace:*",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "typescript": "^5"
+  }
+}
