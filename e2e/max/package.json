@@ -23,6 +23,7 @@
     "@iconify-json/ic": "1.1.17",
     "@iconify-json/solar": "1.1.9",
     "@kmijs/preset-bundler": "workspace:*",
+    "@kmijs/shared": "workspace:*",
     "@types/react": "18.3.11",
     "@types/react-dom": "18.3.0",
     "cross-env": "^7.0.3",

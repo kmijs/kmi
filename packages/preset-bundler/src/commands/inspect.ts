@@ -14,7 +14,7 @@ export default (api: IApi) => {
     description:
       'The inspect command is used to view the Umi configuration and Rspack(Webpack) configuration of the project.',
     configResolveMode: 'loose',
-    details: 'umi inspect --mode development',
+    details: 'umi inspect --mode production',
     // umi not support args
     // args: {
     //   mode: {
