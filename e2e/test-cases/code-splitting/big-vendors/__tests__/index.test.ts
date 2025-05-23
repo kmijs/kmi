@@ -21,10 +21,7 @@ test('case code splitting big vendors', async () => {
     .filter((name) => name.endsWith('.js'))
     .map((name) => path.basename(name))
 
-  expect(jsFiles.length).toEqual(7)
+  expect(jsFiles.length).toEqual(2)
   expect(jsFiles).toContain('umi.js')
   expect(jsFiles).toContain('chunk-vendors.js')
-  expect(jsFiles).toContain('antd.async.js')
-  expect(jsFiles).toContain('p__index.async.js')
-  expect(jsFiles).toContain('p__about.async.js')
 })

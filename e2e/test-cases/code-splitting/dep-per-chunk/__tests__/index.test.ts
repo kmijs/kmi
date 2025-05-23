@@ -21,7 +21,7 @@ test('case code splitting depPerChunk', async () => {
     .filter((name) => name.endsWith('.js'))
     .map((name) => path.basename(name))
 
-  expect(jsFiles).toContain('kmi.js')
+  expect(jsFiles).toContain('umi.js')
   expect(jsFiles.find((file) => file.includes('npm.react'))).toBeTruthy()
   expect(jsFiles.find((file) => file.includes('npm.antd'))).toBeTruthy()
   expect(jsFiles.find((file) => file.includes('npm.react-dom'))).toBeTruthy()
