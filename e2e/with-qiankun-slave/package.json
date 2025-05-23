@@ -8,7 +8,7 @@
     "setup": "max setup",
     "prestart:all-qiankun:dev": "npm run setup",
     "start:all-qiankun:dev": "kmi-scripts turbo dev --parallel --filter=@e2e/with-qiankun-*",
-    "test:e2e": "cross-env PORT=8889 start-test start:all-qiankun:dev 8889 e2e",
+    "test:e2e": "start-test start:all-qiankun:dev 8889 e2e",
     "test:open": "playwright codegen localhost:1029"
   },
   "dependencies": {
