@@ -1,0 +1,17 @@
+{
+  "name": "@e2e/test-cases",
+  "private": true,
+  "dependencies": {
+    "antd": "^5.4.5"
+  },
+  "devDependencies": {
+    "@ant-design/plots": "^2.1.5",
+    "@e2e/helper": "workspace:*",
+    "@kmijs/shared": "workspace:*",
+    "@types/react": "18.0.26",
+    "@types/react-dom": "18.0.10",
+    "@umijs/max": "^4.4.11",
+    "moment": "^2.29.1",
+    "umi": "^4.4.11"
+  }
+}

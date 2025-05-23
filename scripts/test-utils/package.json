@@ -8,7 +8,13 @@
   "author": "",
   "main": "./src/index.ts",
   "dependencies": {
+    "@kmijs/bundler-shared": "workspace:*",
+    "@kmijs/preset-bundler": "workspace:*",
     "@kmijs/shared": "workspace:*",
+    "@kmijs/types": "workspace:*",
+    "@umijs/core": "^4.4.11",
+    "@umijs/preset-umi": "^4.4.11",
+    "umi": "^4.4.11",
     "upath": "2.0.1"
   }
 }

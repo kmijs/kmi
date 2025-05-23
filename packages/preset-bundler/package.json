@@ -40,6 +40,7 @@
     "@kmijs/shared": "workspace:*",
     "@kmijs/types": "workspace:*",
     "@rspack/plugin-react-refresh": "^1.0.1",
+    "core-js": "3.28.0",
     "react-refresh": "0.14.0"
   },
   "devDependencies": {

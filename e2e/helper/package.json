@@ -1,0 +1,11 @@
+{
+  "name": "@e2e/helper",
+  "private": true,
+  "main": "index.ts",
+  "dependencies": {
+    "@kmijs/preset-bundler": "workspace:*",
+    "@kmijs/shared": "workspace:*",
+    "@kmijs/types": "workspace:*",
+    "@umijs/max": "^4.4.11"
+  }
+}

@@ -17,9 +17,15 @@ import { getEsBuildTarget } from '../utils/getEsBuildTarget'
 export function applyCompress(opts: SharedConfigOptions) {
   const { config, userConfig, env, bundlerType } = opts
 
-  // 默认使用 terser 压缩、 swc 压缩导致
-  const jsMinifier = userConfig.jsMinifier || DEFAULT_JS_MINIFIER
-  const cssMinifier = userConfig.cssMinifier || DEFAULT_CSS_MINIFIER
+  // webpack 默认使用 esbuild, rspack 默认使用 swc
+  const jsMinifier =
+    userConfig.jsMinifier ??
+    (bundlerType === 'webpack' ? JSMinifier.esbuild : DEFAULT_JS_MINIFIER)
+
+  // webpack 默认使用 esbuild, rspack 默认使用 lightningcss
+  const cssMinifier =
+    userConfig.cssMinifier ??
+    (bundlerType === 'webpack' ? CSSMinifier.esbuild : DEFAULT_CSS_MINIFIER)
 
   if (
     env === Env.development ||

@@ -1,4 +1,5 @@
 import { defineConfig } from '@umijs/max'
+import { createDependenciesRegExp } from '@kmijs/shared'
 
 export default defineConfig({
   routes: [
@@ -85,6 +86,17 @@ export default defineConfig({
   // lowImport: {},
   codeSplitting: {
     jsStrategy: 'granularChunks',
+    jsStrategyOptions: {
+      forceSplitting: {
+        'lib-icon': createDependenciesRegExp('@ant-design/icons'),
+        'lib-antd': createDependenciesRegExp('antd'),
+        'lib-dayjs': createDependenciesRegExp('dayjs'),
+      },
+      override: {
+        usedExports: true,
+        minSize: 15000,
+      },
+    },
   },
   icons: {
     autoInstall: {},
