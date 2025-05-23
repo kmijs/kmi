@@ -2,13 +2,13 @@
   "name": "@e2e/with-qiankun-slave",
   "private": true,
   "scripts": {
-    "dev": "PORT=5555 max dev",
+    "dev": "cross-env PORT=5555 max dev",
     "e2e": "playwright test",
-    "preview": "PORT=5555 max preview --port 5555",
+    "preview": "cross-envPORT=5555 max preview --port 5555",
     "setup": "max setup",
     "prestart:all-qiankun:dev": "npm run setup",
     "start:all-qiankun:dev": "kmi-scripts turbo dev --parallel --filter=@e2e/with-qiankun-*",
-    "test:e2e": "PORT=8889 start-test start:all-qiankun:dev 8889 e2e",
+    "test:e2e": "cross-env PORT=8889 start-test start:all-qiankun:dev 8889 e2e",
     "test:open": "playwright codegen localhost:1029"
   },
   "dependencies": {
@@ -20,6 +20,7 @@
     "@kmijs/preset-bundler": "workspace:*",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "cross-env": "^7.0.3",
     "typescript": "^5"
   }
 }

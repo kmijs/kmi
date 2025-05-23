@@ -169,6 +169,9 @@ importers:
       '@types/react-dom':
         specifier: ^18
         version: 18.3.0
+      cross-env:
+        specifier: ^7.0.3
+        version: 7.0.3
       typescript:
         specifier: ^5
         version: 5.2.2
@@ -194,6 +197,9 @@ importers:
       '@types/react-dom':
         specifier: ^18
         version: 18.3.0
+      cross-env:
+        specifier: ^7.0.3
+        version: 7.0.3
       typescript:
         specifier: ^5
         version: 5.2.2

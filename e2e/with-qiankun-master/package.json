@@ -2,7 +2,7 @@
   "name": "@e2e/with-qiankun-master",
   "private": true,
   "scripts": {
-    "dev": "PORT=8889 max dev",
+    "dev": "cross-env PORT=8889 max dev",
     "preview": "max preview --port 8889",
     "setup": "max setup",
     "start": "npm run dev"
@@ -16,6 +16,7 @@
     "@kmijs/preset-bundler": "workspace:*",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "cross-env": "^7.0.3",
     "typescript": "^5"
   }
 }
