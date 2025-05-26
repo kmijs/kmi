@@ -2,11 +2,13 @@
   "name": "@example/{{{ name }}}",
   "private": true,
   "scripts": {
-    "dev": "kmi dev",
-    "build": "kmi build",
-    "setup": "kmi setup"
+    "dev": "umi dev",
+    "build": "umi build",
+    "setup": "umi setup",
+    "start": "npm run dev"
   },
   "dependencies": {
-    "@kmijs/core": "workspace:*"
+    "umi": "^4.4.11",
+    "@kmijs/preset-bundler": "workspace:*"
   }
 }

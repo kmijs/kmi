@@ -1,0 +1,51 @@
+{
+  "name": "@kmijs/plugin-code-inspector",
+  "version": "0.0.1",
+  "description": "",
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kmijs/kmi/-/tree/main/plugins/plugin-code-inspector"
+  },
+  "license": "ISC",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "compiled",
+    "dist"
+  ],
+  "scripts": {
+    "build": "father build",
+    "build:deps": "kmi-scripts bundleDeps",
+    "dev": "father dev",
+    "prebundle": "prebundle",
+    "prepublishOnly": "pnpm build"
+  },
+  "dependencies": {
+    "@kmijs/shared": "workspace:*",
+    "@vue/compiler-dom": "3.2.47"
+  },
+  "devDependencies": {
+    "@kmijs/types": "workspace:*",
+    "code-inspector-core": "0.20.0",
+    "umi": "^4.4.11",
+    "webpack-code-inspector-plugin": "0.20.0"
+  },
+  "engines": {
+    "node": ">=16.10.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "authors": [
+    "renhong.xrh@gmail.com"
+  ]
+}

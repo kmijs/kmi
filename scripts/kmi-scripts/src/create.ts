@@ -8,7 +8,7 @@ import { version } from '../../../packages/bundler-rspack/package.json'
 
 const BASE_DIR_MAP: Record<string, string> = {
   basic: 'packages',
-  plugin: 'plugins',
+  plugin: 'packages',
   example: 'examples',
   e2e: 'e2e',
 }
