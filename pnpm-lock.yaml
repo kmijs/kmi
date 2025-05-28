@@ -427,6 +427,19 @@ importers:
         specifier: workspace:*
         version: link:../../packages/plugin-code-inspector
 
+  examples/with-rsdoctor:
+    dependencies:
+      '@kmijs/preset-bundler':
+        specifier: workspace:*
+        version: link:../../packages/preset-bundler
+      umi:
+        specifier: ^4.4.11
+        version: 4.4.11(@types/node@20.8.9)(@types/react@18.0.26)(prettier@3.0.3)(typescript@5.2.2)
+    devDependencies:
+      '@kmijs/plugin-rsdoctor':
+        specifier: workspace:*
+        version: link:../../packages/plugin-rsdoctor
+
   packages/babel-preset-react:
     dependencies:
       '@babel/runtime':
@@ -882,6 +895,18 @@ importers:
       webpack-code-inspector-plugin:
         specifier: 0.20.0
         version: 0.20.0
+
+  packages/plugin-rsdoctor:
+    devDependencies:
+      '@kmijs/shared':
+        specifier: workspace:*
+        version: link:../shared
+      '@kmijs/types':
+        specifier: workspace:*
+        version: link:../types
+      umi:
+        specifier: ^4.4.11
+        version: 4.4.11(@types/node@20.8.9)(@types/react@18.0.26)(prettier@3.0.3)(typescript@5.2.2)
 
   packages/plugin-svgr:
     dependencies:

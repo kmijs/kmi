@@ -1,0 +1,45 @@
+{
+  "name": "@kmijs/plugin-rsdoctor",
+  "version": "0.0.1",
+  "description": "",
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kmijs/kmi/-/tree/main/plugins/plugin-rsdoctor"
+  },
+  "license": "ISC",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "compiled",
+    "dist"
+  ],
+  "scripts": {
+    "build": "father build",
+    "build:deps": "kmi-scripts bundleDeps",
+    "dev": "father dev",
+    "prepublishOnly": "pnpm build"
+  },
+  "devDependencies": {
+    "@kmijs/shared": "workspace:*",
+    "@kmijs/types": "workspace:*",
+    "umi": "^4.4.11"
+  },
+  "engines": {
+    "node": ">=16.10.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "authors": [
+    "xierenyuan@qq.com"
+  ]
+}
