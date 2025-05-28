@@ -1,0 +1,17 @@
+{
+  "name": "@example/with-rsdoctor",
+  "private": true,
+  "scripts": {
+    "dev": "umi dev",
+    "build": "umi build",
+    "setup": "umi setup",
+    "start": "npm run dev"
+  },
+  "dependencies": {
+    "umi": "^4.4.11",
+    "@kmijs/preset-bundler": "workspace:*"
+  },
+  "devDependencies": {
+    "@kmijs/plugin-rsdoctor": "workspace:*"
+  }
+}
