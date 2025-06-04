@@ -16,22 +16,22 @@ hero:
     src: /kmi.png
     alt: Logo
 features:
-  - title: 极速构建
-    details: 核心编译模块基于 Rust 前端工具链，提供更极致的开发体验。
-    icon: 🏃🏻‍♀️
-  - title: 支持 MDX 内容写作
-    details: MDX 是一种强大的内容写作方式，允许你在 Markdown 中使用 React 组件。
-    icon: 📦
-  - title: 内置全文搜索
-    details: 在构建时自动为你生成全文搜索索引，提供开箱即用的全文搜索能力。
-    icon: 🎨
-  - title: 简单的国际化方案
-    details: 通过内置的国际化方案，你可以轻松地为文档或组件提供多语言支持。
-    icon: 🌍
-  - title: 静态站点生成
-    details: 在生产环境下，自动构建成静态 HTML 文件，可以轻松部署到任何地方。
-    icon: 🌈
-  - title: 提供多种自定义能力
-    details: 通过其扩展机制，你可以轻松扩展主题 UI 和构建流程。
+  - title: Rspack 集成
+    details: 使用 Rspack 作为构建工具，与 Webpack 相比提供数倍的构建速度
+    icon: 🚀
+  - title: 低成本接入
+    details: 兼容 Umi 生态、仅需一个依赖和一行配置，即可无缝接入 Rspack 构建能力
+    icon: ⚡️
+  - title: 平滑回退
+    details: 提供传统工具链支持，确保项目稳定性。同时支持新一代工具链，让你的项目构建性能全面提升
+    icon: 👷
+  - title: 易于使用
+    details: 通过配置切换轻松在 Rspack/Webpack 构建模式之间切换，出现问题时可快速回退
+    icon: 🍻
+  - title: 统一接口
+    details: 提供统一的配置接口，抽象底层构建工具的差异，降低学习成本
+    icon: 💡
+  - title: 可扩展
     icon: 🔥
+    details: 通过 Umi 插件机制提供 Hook, 你可以轻松的扩展其他构建能力
 ---
