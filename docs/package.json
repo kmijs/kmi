@@ -3,18 +3,16 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "rspress build",
+    "build": "vitepress build docs",
     "check": "biome check --write",
-    "dev": "rspress dev",
+    "dev": "vitepress dev docs",
     "format": "prettier --write .",
-    "preview": "rspress preview"
-  },
-  "dependencies": {
-    "rspress": "^1.40.2"
+    "preview": "vitepress preview docs"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
     "@types/node": "^18.11.17",
-    "prettier": "^3.4.2"
+    "prettier": "^3.4.2",
+    "vitepress": "^1.0.0-rc.4"
   }
 }

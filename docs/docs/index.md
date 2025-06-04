@@ -1,5 +1,5 @@
 ---
-pageType: home
+layout: home
 
 hero:
   name: Kmi

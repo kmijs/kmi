@@ -1,4 +1,4 @@
-# Rspress website
+# VitePress website
 
 ## Setup
 
