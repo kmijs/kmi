@@ -10,8 +10,9 @@ export default defineConfig({
   lastUpdated: true,
   cleanUrls: true,
   metaChunk: true,
+  base: '/kmi/',
   srcDir: './docs',
-  head: [['link', { rel: 'icon', href: '/kmi.png' }]],
+  head: [['link', { rel: 'icon', href: '/kmi/kmi.png' }]],
   themeConfig: {
     logo: '/kmi.png',
     siteTitle: 'KMI',
