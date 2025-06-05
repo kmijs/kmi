@@ -218,7 +218,7 @@ export default defineConfig({
 
 ## 通过插件修改
 
-在 Kmi 中提供了 [modifyBundlerConfig](/plugins/dev/api#modifyBundlerConfig)、 [bundlerChain](/plugins/dev/api#bundlerChain) 修改默认的 Webpack(Rspack) 配置
+在 Kmi 中提供了 [modifyBundlerConfig](/api#modifyBundlerConfig)、 [bundlerChain](/api#bundlerChain) 修改默认的 Webpack(Rspack) 配置
 
 示例
 
