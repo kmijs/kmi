@@ -14,7 +14,7 @@ English | [简体中文](./README.zh-CN.md)
 
 Kmi provides [Rspack](https://www.rspack.dev/) support and modern web development best practices for [UmiJS](https://umijs.org/). It aims to provide faster and more efficient development experience with better build performance.
 
-## Features
+## ✨ Features
 - **Rspack Integration**: Uses Rspack as the build tool, providing several times faster build speed compared to Webpack
 - **Smooth Fallback**: Provides support for traditional toolchains like terser and postcss to ensure project stability. New projects can seamlessly use next-generation toolchains like lightningcss and swc for performance improvements
 - **Easy to Use**: Easily switch between Rspack/Webpack build modes through configuration toggles, with quick fallback when issues arise
@@ -28,24 +28,9 @@ Kmi provides [Rspack](https://www.rspack.dev/) support and modern web developmen
 
 #### Create a project via command line
 
-::: code-group
-
-```sh [pnpm]
-pnpm dlx create-kmi@latest hello-kmi
-```
-
-```sh [yarn]
-yarn create kmi hello-kmi
-```
-
 ```sh [npm]
 npm init kmi@latest hello-kmi
 ```
-
-```sh [bun]
-bun create kmi@latest hello-kmi
-```
-:::
 
 * `hello-kmi` is your project name, please specify according to your actual needs
 

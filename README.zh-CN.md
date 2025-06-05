@@ -26,24 +26,9 @@ Kmi 为 [UmiJS](https://umijs.org/) 提供 [Rspack](https://www.rspack.dev/) 支
 
 #### 通过命令行创建项目
 
-::: code-group
-
-```sh [pnpm]
-pnpm dlx create-kmi@latest hello-kmi
-```
-
-```sh [yarn]
-yarn create kmi hello-kmi
-```
-
 ```sh [npm]
 npm init kmi@latest hello-kmi
 ```
-
-```sh [bun]
-bun create kmi@latest hello-kmi
-```
-:::
 
 * `hello-kmi` is your project name, please specify according to your actual needs
 
