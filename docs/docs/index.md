@@ -8,7 +8,7 @@ hero:
   actions:
     - theme: brand
       text: Quick Start
-      link: /guide/rspack
+      link: /guide/quick-start
     - theme: alt
       text: GitHub
       link: https://github.com/kmijs/kmi

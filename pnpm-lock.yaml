@@ -895,6 +895,12 @@ importers:
         specifier: 5.0.2
         version: 5.0.2(webpack@5.97.1)
 
+  packages/create-kmi:
+    dependencies:
+      '@umijs/utils':
+        specifier: ^4.4.11
+        version: 4.4.11
+
   packages/plugin-code-inspector:
     dependencies:
       '@kmijs/shared':

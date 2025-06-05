@@ -17,7 +17,7 @@ export default defineConfig({
     logo: '/kmi.png',
     siteTitle: 'KMI',
     nav: [
-      { text: '指南', link: '/guide/rspack' },
+      { text: '指南', link: '/guide/quick-start' },
       { text: '配置', link: '/config/config' },
       { text: 'API', link: '/api' },
     ],
@@ -32,6 +32,7 @@ export default defineConfig({
     sidebar: {
       '/guide/': [{
         text: '指南', items: [
+          { text: '快速开始', link: '/guide/quick-start' },
           { text: '使用 Rspack 构建', link: '/guide/rspack' },
           { text: '配置 bundler', link: '/guide/config-bundler' },
           { text: '配置 Swc', link: '/guide/config-swc' },
