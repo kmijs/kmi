@@ -3,16 +3,16 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "vitepress build docs",
+    "build": "vitepress build",
     "check": "biome check --write",
-    "dev": "vitepress dev docs",
+    "dev": "vitepress dev",
     "format": "prettier --write .",
-    "preview": "vitepress preview docs"
+    "preview": "vitepress preview"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
     "@types/node": "^18.11.17",
     "prettier": "^3.4.2",
-    "vitepress": "^1.0.0-rc.4"
+    "vitepress": "^1.1.0"
   }
 }
