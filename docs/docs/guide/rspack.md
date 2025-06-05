@@ -33,7 +33,7 @@ export default defineConfig({
 在使用 Rspack 前，你需要了解以下事项：
 
 - Rspack 能够兼容大部分 webpack 插件和几乎所有的 loaders，但仍有少数 webpack 插件暂时无法使用，详见 [Plugin 兼容](https://rspack.dev/zh/guide/compatibility/plugin)。
-- Rspack 默认基于 SWC 进行代码编译和压缩， 如项目使用了 额外的 babel 插件, 请联系 Kmi oncall 就行沟通处理。
+- Rspack 默认基于 SWC 进行代码编译和压缩， 如项目使用了 额外的 babel 插件, 请检查是否有替代的 swc 插件 或者通过 `useBabel` 启用 babel 支持。
 
 ## 配置迁移
 在 Umi 中可以像 Webpack 一样使用 [chainWebpack](/config/config#chainwebpack) 进行配置的自定义, 所以通常情况下 你不需要额外做什么, 就可以完成配置的平移

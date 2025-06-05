@@ -14,11 +14,6 @@
 
 `bundler` 选项用于修改 `Webpack(Rspack)` 的配置项。
 
-::: tip
-Kmi 内置的 Webpack(Rspack) 配置会随着迭代而发生变化，这些变化不会反映在 semver 中，因此在升级 Kmi 时，你的自定义配置可能会失效。因此
-通常我们并不推荐大家直接操作原生构建配置, 如有插件或者能力的支持诉求可以联系 Kmi Oncall 寻求支持
-:::
-
 ### bundler value 是对象
 - 类型：`Configuration`
 - 默认值：`undefiend`
