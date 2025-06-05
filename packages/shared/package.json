@@ -43,7 +43,7 @@
     "@types/semver": "7.5.4",
     "@types/yargs-parser": "21.0.2",
     "address": "1.1.2",
-    "axios": "0.27.2",
+    "axios": "0.30.0",
     "boxen": "8.0.1",
     "chalk": "4.1.2",
     "cheerio": "1.0.0-rc.12",
