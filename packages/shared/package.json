@@ -1,6 +1,6 @@
 {
   "name": "@kmijs/shared",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "kmi shared module dependencies and utility functions",
   "keywords": [],
   "repository": {

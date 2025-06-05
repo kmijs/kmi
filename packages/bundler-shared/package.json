@@ -1,6 +1,6 @@
 {
   "name": "@kmijs/bundler-shared",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Build tool shared dependencies and utility functions",
   "keywords": [],
   "repository": {
