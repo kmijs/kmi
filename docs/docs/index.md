@@ -1,5 +1,5 @@
 ---
-pageType: home
+layout: home
 
 hero:
   name: Kmi
@@ -8,7 +8,7 @@ hero:
   actions:
     - theme: brand
       text: Quick Start
-      link: /guide/
+      link: /guide/rspack
     - theme: alt
       text: GitHub
       link: https://github.com/kmijs/kmi
