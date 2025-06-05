@@ -36,14 +36,14 @@ export default defineConfig({
 - Rspack 默认基于 SWC 进行代码编译和压缩， 如项目使用了 额外的 babel 插件, 请联系 Kmi oncall 就行沟通处理。
 
 ## 配置迁移
-在 Umi 中可以像 Webpack 一样使用 [chainWebpack](/config/shared-config#chainwebpack) 进行配置的自定义, 所以通常情况下 你不需要额外做什么, 就可以完成配置的平移
+在 Umi 中可以像 Webpack 一样使用 [chainWebpack](/config/config#chainwebpack) 进行配置的自定义, 所以通常情况下 你不需要额外做什么, 就可以完成配置的平移
 
 ## Faq
 
 ### Babel 插件替代
 
 #### babel-plugin-import
-在 Kmi 中可以通过配置 `transformImport`  转换 import 的路径，可以用于模块化引用三方包的子路径，能力类似于 [babel-plugin-import](https://www.npmjs.com/package/babel-plugin-import)。 更多详见 [transformImport](/config/shared-config#transformimport)
+在 Kmi 中可以通过配置 `transformImport`  转换 import 的路径，可以用于模块化引用三方包的子路径，能力类似于 [babel-plugin-import](https://www.npmjs.com/package/babel-plugin-import)。 更多详见 [transformImport](/config/config#transformimport)
 
 - 类型
 ```ts

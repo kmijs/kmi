@@ -1,0 +1,231 @@
+/**
+ * Customize default theme styling by overriding CSS variables:
+ * https://github.com/vuejs/vitepress/blob/main/src/client/theme-default/styles/vars.css
+ */
+
+:root {
+  --vp-c-brand: #0468ff;
+  --vp-c-brand-light: #747bff;
+  --vt-c-green: #17d293;
+  --vt-c-white: #ffffff;
+  --vp-c-brand-dark: #4e91f5;
+  --vp-c-default-1: var(--vp-c-gray-1);
+  --vp-c-default-2: var(--vp-c-gray-2);
+  --vp-c-default-3: var(--vp-c-gray-3);
+  --vp-c-default-soft: var(--vp-c-gray-soft);
+
+  --vp-c-brand-1: var(--vp-c-brand);
+  --vp-c-brand-2: #00bfff;
+  /* --vp-c-brand-3: #02bbff; */
+  --vp-c-brand-3: #0468ff;
+  --vp-c-brand-soft: var(--vp-c-indigo-soft);
+
+  --vp-c-tip-1: var(--vp-c-brand-1);
+  --vp-c-tip-2: var(--vp-c-brand-2);
+  --vp-c-tip-3: var(--vp-c-brand-3);
+  --vp-c-tip-soft: var(--vp-c-brand-soft);
+
+  --vp-c-warning-1: var(--vp-c-yellow-1);
+  --vp-c-warning-2: var(--vp-c-yellow-2);
+  --vp-c-warning-3: var(--vp-c-yellow-3);
+  --vp-c-warning-soft: var(--vp-c-yellow-soft);
+
+  --vp-c-danger-1: var(--vp-c-red-1);
+  --vp-c-danger-2: var(--vp-c-red-2);
+  --vp-c-danger-3: var(--vp-c-red-3);
+  --vp-c-danger-soft: var(--vp-c-red-soft);
+  --vp-sidebar-width: 290px;
+}
+
+@media (max-width: 1400px) {
+  :root {
+    --vp-sidebar-width: 240px;
+  }
+
+  .VPNavBarMenuLink {
+    padding: 0 8px !important;
+  }
+}
+
+/**
+ * Component: Button
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --vp-button-brand-border: transparent;
+  --vp-button-brand-text: var(--vp-c-white);
+  --vp-button-brand-bg: var(--vp-c-brand-3);
+  --vp-button-brand-hover-border: transparent;
+  --vp-button-brand-hover-text: var(--vp-c-white);
+  --vp-button-brand-hover-bg: var(--vp-c-brand-2);
+  --vp-button-brand-active-border: transparent;
+  --vp-button-brand-active-text: var(--vp-c-white);
+  --vp-button-brand-active-bg: var(--vp-c-brand-1);
+}
+
+/**
+ * Component: Home
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-name-background: -webkit-linear-gradient(
+    120deg,
+    #bd34fe 30%,
+    #41d1ff
+  );
+
+  --vp-home-hero-image-background-image: linear-gradient(
+    -45deg,
+    #bd34fe 50%,
+    #47caff 50%
+  );
+  --vp-home-hero-image-filter: blur(44px);
+}
+
+@media (min-width: 640px) {
+  :root {
+    --vp-home-hero-image-filter: blur(56px);
+  }
+}
+
+@media (min-width: 960px) {
+  :root {
+    --vp-home-hero-image-filter: blur(68px);
+  }
+}
+
+/**
+ * Component: Custom Block
+ * -------------------------------------------------------------------------- */
+
+:root {
+  --vp-custom-block-tip-border: transparent;
+  --vp-custom-block-tip-text: var(--vp-c-text-1);
+  --vp-custom-block-tip-bg: var(--vp-c-brand-soft);
+  --vp-custom-block-tip-code-bg: var(--vp-c-brand-soft);
+}
+
+/**
+ * Component: Algolia
+ * -------------------------------------------------------------------------- */
+
+.DocSearch {
+  --docsearch-primary-color: var(--vp-c-brand-1) !important;
+}
+
+/**
+ * Component: Home
+ * -------------------------------------------------------------------------- */
+
+.VPHome .VPHero {
+  position: relative;
+}
+
+.VPHome .VPHero::after {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 492px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: url(https://js-ad.a.yximgs.com/kos/nlav12243/chrome-plugin-upload/2023-02-01/home-bg.png)
+    center no-repeat;
+  background-size: auto 492px;
+  z-index: -1;
+}
+
+.dark .VPHome .VPHero::after {
+  opacity: 0.05;
+}
+
+:root {
+  --vp-home-hero-name-color: transparent;
+  --vp-home-hero-image-background-image: linear-gradient(
+    -45deg,
+    #31ebff 50%,
+    #3766fd
+  );
+  --vp-home-hero-image-filter: blur(200px);
+}
+
+.VPHome .VPImage.image-src {
+  max-width: 450px;
+}
+
+.VPHome .VPFeature {
+  border: 1px solid var(--vp-c-bg-soft);
+  border-radius: 12px;
+  background-color: #fff;
+  box-shadow: 0 2px 16px rgb(0 0 0 / 8%);
+  background-image: url(https://js-ad.a.yximgs.com/kos/nlav12243/docs/home_feature_bg.png);
+  background-repeat: no-repeat;
+  background-position: 100% 100%;
+  transition:
+    box-shadow 0.45s cubic-bezier(0.645, 0.045, 0.355, 1),
+    transform 0.45s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.dark .VPHome .VPFeature {
+  background-color: var(--vp-c-bg-soft);
+}
+
+.kcfe-icon {
+  position: relative;
+  width: 35px;
+  height: 16px;
+  display: inline-block;
+  padding-left: 10px;
+  padding-right: 5px;
+}
+.kcfe-icon::after {
+  content: '';
+  position: absolute;
+  left: 5px;
+  right: 5px;
+  bottom: 0;
+  padding-right: 5px;
+  background-image: url(https://ali2.a.kwimgs.com/udata/pkg/ad_creative/kcfe-logo-sm.9249bf15556a16d8.png);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  width: 35px;
+  height: 16px;
+}
+
+.VPFooter .copyright {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.VPDoc.has-aside .content-container {
+  max-width: max-content !important;
+  min-width: 640px;
+}
+
+.dark .dark-img {
+  border-color: var(--vp-custom-block-tip-border);
+  color: var(--vp-custom-block-tip-text);
+  background-color: var(--vp-custom-block-tip-bg);
+  border-radius: 8px;
+  padding: 8px;
+  filter: invert(1) hue-rotate(180deg);
+}
+
+.dark .dark-img .medium-zoom-image.medium-zoom-image--hidden {
+  border-color: var(--vp-custom-block-tip-border);
+  color: var(--vp-custom-block-tip-text);
+  background-color: var(--vp-custom-block-tip-bg);
+  border-radius: 12px;
+  padding: 16px;
+  filter: invert(0.9) hue-rotate(180deg) brightness(0.9);
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.VPDoc .aside-container {
+  width: 300px !important;
+}
