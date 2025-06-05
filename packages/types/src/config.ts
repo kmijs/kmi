@@ -84,10 +84,6 @@ export interface IBaseConfig
      * 启用懒编译
      */
     lazyCompilation?: Record<string, any> | boolean
-    /**
-     * 关闭不存在的导出或存在冲突的重导出时报错校验 默认是 false
-     */
-    javascriptExportsPresence?: boolean
     __babelLoaderOptions?: (
       ctx: BabelLoaderOptions,
       args: BabelConfigUtils,
