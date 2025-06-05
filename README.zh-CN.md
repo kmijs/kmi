@@ -27,7 +27,7 @@ Kmi 为 [UmiJS](https://umijs.org/) 提供 [Rspack](https://www.rspack.dev/) 支
 #### 通过命令行创建项目
 
 ```sh [npm]
-npm init kmi@latest hello-kmi
+npm init @kmijs/kmi@latest hello-kmi
 ```
 
 * `hello-kmi` is your project name, please specify according to your actual needs

@@ -47,19 +47,19 @@ $ npm install -g pnpm
 ::: code-group
 
 ```sh [pnpm]
-pnpm dlx create-kmi@latest hello-kmi
+pnpm dlx @kmijs/create-kmi@latest hello-kmi
 ```
 
 ```sh [yarn]
-yarn create kmi hello-kmi
+yarn create @kmijs/kmi@latest hello-kmi
 ```
 
 ```sh [npm]
-npm init kmi@latest hello-kmi
+npm init @kmijs/kmi@latest hello-kmi hello-kmi
 ```
 
 ```sh [bun]
-bun create kmi@latest hello-kmi
+bun create @kmijs/kmi@latest hello-kmi
 ```
 :::
 

@@ -29,7 +29,7 @@ Kmi provides [Rspack](https://www.rspack.dev/) support and modern web developmen
 #### Create a project via command line
 
 ```sh [npm]
-npm init kmi@latest hello-kmi
+npm init @kmijs/kmi@latest hello-kmi
 ```
 
 * `hello-kmi` is your project name, please specify according to your actual needs
