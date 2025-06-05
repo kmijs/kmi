@@ -1,5 +1,5 @@
 # Kmi
-> Based on Umi to provide Rspack support and other best practices
+> 基于 Umi 提供 Rspack 支持和其他最佳实践
 
 <p>
   <a href="https://www.npmjs.com/package/@kmijs/preset-bundler?activeTab=readme"><img src="https://img.shields.io/npm/v/@kmijs/preset-bundler?style=flat-square&colorA=564341&colorB=EDED91" alt="npm version" /></a>
@@ -8,48 +8,46 @@
   <a href="https://github.com/kmijs/kmi/blob/main/LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square&colorA=564341&colorB=EDED91" alt="license" /></a>
 </p>
 
-English | [简体中文](./README.zh-CN.md)
+## 介绍
 
-## Introduction
+Kmi 为 [UmiJS](https://umijs.org/) 提供 [Rspack](https://www.rspack.dev/) 支持和现代化 Web 开发最佳实践。它旨在通过更好的构建性能提供更快、更高效的开发体验。
 
-Kmi provides [Rspack](https://www.rspack.dev/) support and modern web development best practices for [UmiJS](https://umijs.org/). It aims to provide faster and more efficient development experience with better build performance.
+## 特性
+- **Rspack 集成**：使用 Rspack 作为构建工具，相比 Webpack 提供数倍更快的构建速度
+- **平滑降级**：提供对传统工具链如 terser 和 postcss 的支持以确保项目稳定性。新项目可以无缝使用下一代工具链如 lightningcss 和 swc 来提升性能
+- **低成本接入**：通过配置开关轻松在 Rspack/Webpack 构建模式之间切换，出现问题时可快速降级
+- **统一接口**：提供统一的配置接口，抽象了底层构建工具的差异，降低学习成本
 
-## Features
-- **Rspack Integration**: Uses Rspack as the build tool, providing several times faster build speed compared to Webpack
-- **Smooth Fallback**: Provides support for traditional toolchains like terser and postcss to ensure project stability. New projects can seamlessly use next-generation toolchains like lightningcss and swc for performance improvements
-- **Easy to Use**: Easily switch between Rspack/Webpack build modes through configuration toggles, with quick fallback when issues arise
-- **Unified Interface**: Provides unified configuration interface that abstracts away differences in underlying build tools, reducing learning costs
-
-## Quick Start
+## 快速开始
 
 ```
-Kmi requires the latest Umi support. If your current Umi version is lower than `4.4.11`, please upgrade `umi` or `@umijs/max` before proceeding.
+Kmi 依赖最新的 Umi 支持 如果你当前的 Umi 版本低于 `4.4.11`，可升级 `umi` 或者 `@umijs/max` 后在进行操作。
 ```
 
-### Installation
+### 安装
 
 ```bash
-# Create a new Umi project
+# 创建一个新的 Umi 项目
 npx create-umi@latest my-rspack-app
 cd my-rspack-app
 
-# Install dependencies
+# 安装依赖
 pnpm install
 ```
 
-### Configuration
+### 配置
 
-Create or modify the `.umirc.ts` file in the project root directory:
+在项目根目录创建或修改 `.umirc.ts` 文件：
 
 ```typescript
 import { defineConfig } from 'umi';
 
 export default defineConfig({
-  // Configure Kmi preset
+  // 配置 Kmi 预设
   presets: ['@kmijs/preset-bundler'],
-  // Enable Rspack
+  // 启用 Rspack
   rspack: {},
-  // Other Umi configurations...
+  // 其他 Umi 配置...
   routes: [
     { path: '/', component: 'index' },
     { path: '/users', component: 'users' },
@@ -57,39 +55,39 @@ export default defineConfig({
 });
 ```
 
-### Custom Build Configuration
+### 自定义构建配置
 
-- Modify Webpack(Rspack) configuration object via bundler option
+- 通过 bundler 选项修改 Webpack(Rspack) 配置对象
 
 ```typescript
 import { defineConfig } from 'umi';
 
 export default defineConfig({
-  // Configure Kmi preset
+  // 配置 Kmi 预设
   presets: ['@kmijs/preset-bundler'],
-  // Enable Rspack
+  // 启用 Rspack
   rspack: {},
-  // Modify Webpack(Rspack) configuration object via bundler option
+  // 通过 bundler 选项修改 Webpack(Rspack) 配置对象
   bundler: {
     resolve: {
-      // Merged with built-in resolve.extensions
+      // 与内置的 resolve.extensions 合并
       extensions: ['.web.tsx'],
     }
   }
 });
 ```
-- Modify Webpack(Rspack) configuration in function form
+- 以函数形式修改 Webpack(Rspack) 配置
 ```typescript
 import { defineConfig } from 'umi';
 
 export default defineConfig({
-  // Configure Kmi preset
+  // 配置 Kmi 预设
   presets: ['@kmijs/preset-bundler'],
-  // Enable Rspack
+  // 启用 Rspack
   rspack: {},
-  // Modify Webpack(Rspack) configuration in function form
+  // 以函数形式修改 Webpack(Rspack) 配置
   async bundler (config, { isProd }) {
-    // This is just an example
+    // 这只是一个示例
     if (isProd) {
       chain.devtool('source-map');
     }
@@ -100,19 +98,19 @@ export default defineConfig({
 });
 ```
 
-- Modify Webpack(Rspack) configuration using chain programming
+- 使用链式编程修改 Webpack(Rspack) 配置
 
 ```typescript
 import { defineConfig } from 'umi';
 
 export default defineConfig({
-  // Configure Kmi preset
+  // 配置 Kmi 预设
   presets: ['@kmijs/preset-bundler'],
-  // Enable Rspack
+  // 启用 Rspack
   rspack: {},
-  // Through bundler you can get plugins that are compatible with both Webpack and Rspack
+  // 通过 bundler 你可以获取与 Webpack 和 Rspack 兼容的插件
   bundlerChain (config, { bundler }) {
-    // This is just an example
+    // 这只是一个示例
     config.plugin('custom-define').use(bundler.DefinePlugin, [
       {
         'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
@@ -123,20 +121,20 @@ export default defineConfig({
 });
 ```
 
-### Development
+### 开发
 
 ```bash
-# Start the development server
+# 启动开发服务器
 pnpm dev
 ```
 
-### Production Build
+### 生产构建
 
 ```bash
-# Build the application
+# 构建应用
 pnpm build
 ```
 
-## License
+## 许可证
 
 [MIT](./LICENSE)
