@@ -20,8 +20,39 @@ Kmi 为 [UmiJS](https://umijs.org/) 提供 [Rspack](https://www.rspack.dev/) 支
 
 ## 快速开始
 
+> Kmi 依赖最新的 Umi 支持 如果你当前的 Umi 版本低于 `4.4.11`，可升级 `umi` 或者 `@umijs/max` 后在进行操作。
+
+### 创建 Kmi 项目
+
+#### 通过命令行创建项目
+
+::: code-group
+
+```sh [pnpm]
+pnpm dlx create-kmi@latest hello-kmi
 ```
-Kmi 依赖最新的 Umi 支持 如果你当前的 Umi 版本低于 `4.4.11`，可升级 `umi` 或者 `@umijs/max` 后在进行操作。
+
+```sh [yarn]
+yarn create kmi hello-kmi
+```
+
+```sh [npm]
+npm init kmi@latest hello-kmi
+```
+
+```sh [bun]
+bun create kmi@latest hello-kmi
+```
+:::
+
+* `hello-kmi` is your project name, please specify according to your actual needs
+
+#### 启动项目
+
+执行 `pnpm dev` 命令启动
+
+```sh
+pnpm dev
 ```
 
 ### 安装

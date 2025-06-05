@@ -112,7 +112,7 @@ interface IGeneratorOpts {
 }
 
 export default async ({ cwd, args, defaultData }: IGeneratorOpts) => {
-  let [name] = args._
+  let [name] = args._ as string[]
   let npmClient = ENpmClient.pnpm
   let registry = ERegistry.npm
 
@@ -127,7 +127,7 @@ export default async ({ cwd, args, defaultData }: IGeneratorOpts) => {
   // plugin params
   const pluginName = `umi-plugin-${name || 'demo'}`
 
-  let target = name ? join(cwd, name) : cwd
+  let target = name ? join(cwd, name as string) : cwd
 
   const { isCancel, text, select, intro, outro } = clackPrompts
   const exitPrompt = () => {
@@ -137,7 +137,7 @@ export default async ({ cwd, args, defaultData }: IGeneratorOpts) => {
   const setName = async () => {
     name = (await text({
       message: "What's the target folder name?",
-      initialValue: name || 'my-app',
+      initialValue: (name as string) || 'my-app',
       validate: (value: string) => {
         if (!value.length) {
           return 'Please input project name'

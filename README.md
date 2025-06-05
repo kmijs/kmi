@@ -22,12 +22,42 @@ Kmi provides [Rspack](https://www.rspack.dev/) support and modern web developmen
 
 ## Quick Start
 
+> Kmi requires the latest Umi support. If your current Umi version is lower than `4.4.11`, please upgrade `umi` or `@umijs/max` before proceeding.
+
+### Create Kmi Project
+
+#### Create a project via command line
+
+::: code-group
+
+```sh [pnpm]
+pnpm dlx create-kmi@latest hello-kmi
 ```
-Kmi requires the latest Umi support. If your current Umi version is lower than `4.4.11`, please upgrade `umi` or `@umijs/max` before proceeding.
+
+```sh [yarn]
+yarn create kmi hello-kmi
+```
+
+```sh [npm]
+npm init kmi@latest hello-kmi
+```
+
+```sh [bun]
+bun create kmi@latest hello-kmi
+```
+:::
+
+* `hello-kmi` is your project name, please specify according to your actual needs
+
+#### Start the Project
+
+Run the pnpm dev command
+
+```sh
+pnpm dev
 ```
 
 ### Installation
-
 ```bash
 # Create a new Umi project
 npx create-umi@latest my-rspack-app
