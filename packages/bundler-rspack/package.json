@@ -26,7 +26,7 @@
     "prepublishOnly": "pnpm build"
   },
   "dependencies": {
-    "@babel/runtime": "7.23.6",
+    "@babel/runtime": "7.26.10",
     "@kmijs/bundler-compiled": "workspace:*",
     "@kmijs/bundler-shared": "workspace:*",
     "@kmijs/bundler-shared-config": "workspace:*",
