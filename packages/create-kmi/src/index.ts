@@ -58,6 +58,7 @@ enum ENpmClient {
 enum ETemplate {
   app = 'app',
   max = 'max',
+  antProExample = 'ant-pro-example', // New template type
 }
 
 export interface IDefaultData extends ITemplateParams {
@@ -154,9 +155,14 @@ export default async ({ cwd, args, defaultData }: IGeneratorOpts) => {
       options: [
         { label: 'Simple App', value: ETemplate.app },
         {
-          label: 'Ant Design Pro',
+          label: 'Ant Design Pro (from templates/max)',
           value: ETemplate.max,
           hint: 'more plugins and ready to use features',
+        },
+        {
+          label: 'Ant Design Pro (from examples/ant-pro)',
+          value: ETemplate.antProExample,
+          hint: 'local example, direct copy',
         },
       ],
       initialValue: ETemplate.app,
@@ -225,28 +231,84 @@ export default async ({ cwd, args, defaultData }: IGeneratorOpts) => {
   // --template
   const useExternalTemplate = !!args.template
 
-  switch (true) {
-    case useExternalTemplate:
-      await selectNpmClient()
-      if (isCancel(npmClient)) {
-        exitPrompt()
-      }
-      await selectRegistry()
-      if (isCancel(registry)) {
-        exitPrompt()
-      }
-      await unpackTemplate({
-        template: args.template!,
-        dest: target,
-        registry,
+  // Determine primary operation: external template, ant-pro-example, or other internal template
+  if (useExternalTemplate) {
+    if (!name) {
+      // Name might not be set if --template is used directly without positional arg
+      // Need to ensure 'target' is defined before unpackTemplate
+      // However, unpackTemplate itself might handle 'dest' creation or require it
+      // For now, assume 'target' needs to be resolved.
+      // This part might need more robust handling for 'name' and 'target' if using only --template
+      const tempName = await text({
+        message: "What's the target folder name for the external template?",
+        initialValue: 'my-external-app',
+        validate: (value: string) => {
+          if (!value.length) return 'Please input project name'
+          if (value !== '.' && fsExtra.existsSync(join(cwd, value))) return `Folder ${value} already exists`
+          return true
+        }
       })
-      break
-    // TODO: init template from git
-    // case: useGitTemplate
-    default:
-      if (!useDefaultData) {
-        await internalTemplatePrompts()
+      if (isCancel(tempName)) exitPrompt();
+      name = tempName as string;
+      target = join(cwd, name);
+    }
+    // Ensure npmClient and registry are prompted if not using default flow that includes internalTemplatePrompts
+    if (useDefaultData) { // If --default is also passed with --template
+        npmClient = defaultData.npmClient;
+        registry = defaultData.registry;
+    } else {
+        await selectNpmClient(); if (isCancel(npmClient)) exitPrompt();
+        await selectRegistry(); if (isCancel(registry)) exitPrompt();
+    }
+    await unpackTemplate({
+      template: args.template!,
+      dest: target,
+      registry,
+    });
+  } else {
+    // Not using an external template, so it's either an internal one or our ant-pro-example
+    if (!useDefaultData) {
+      await internalTemplatePrompts(); // This sets name, target, appTemplate, npmClient, registry
+    } else {
+      // Using default data, ensure 'name' and 'target' are set
+      // appTemplate, npmClient, registry are from defaultData
+      if (!name) name = defaultData.pluginName?.replace(/^umi-plugin-/, '') || 'my-app';
+      target = join(cwd, name);
+      // Check for existing directory if name was derived or default
+      if (name !== '.' && fsExtra.existsSync(target)) {
+         const { go } = await clackPrompts.group({
+            go: () => clackPrompts.confirm({ message: `Target directory ${target} exists. Continue?` })
+         }, { onCancel: exitPrompt });
+         if (!go) exitPrompt();
       }
+    }
+
+    // Now, appTemplate, target, etc., are set from either prompts or defaults
+    if (appTemplate === ETemplate.antProExample) {
+      logger.info(`Copying Ant Design Pro (from examples/ant-pro) template to ${target}...`);
+      const srcPath = join(__dirname, '..', '..', 'examples', 'ant-pro');
+      try {
+        fsExtra.ensureDirSync(target); // Ensure target directory exists
+        fsExtra.copySync(srcPath, target, { overwrite: true }); // Overwrite true can be risky, but often needed
+        // Handle .tpl files, assuming this logic is still desired for copied examples
+        const files = fsExtra.readdirSync(target);
+        for (const file of files) {
+          if (file.endsWith('.tpl')) {
+            fsExtra.renameSync(
+              join(target, file),
+              join(target, file.replace(/\.tpl$/, '')),
+            );
+          }
+        }
+        logger.ready(`Successfully initialized Ant Design Pro (from examples/ant-pro) at ${target}`);
+      } catch (e: any) {
+        logger.error(`Error copying template: ${e.message}`);
+        exitPrompt();
+      }
+    } else {
+      // This is for ETemplate.app or ETemplate.max (original internal templates)
+      // injectInternalTemplateFiles will be called later for these
+    }
   }
 
   const version = pkg.version
@@ -278,10 +340,16 @@ export default async ({ cwd, args, defaultData }: IGeneratorOpts) => {
   }
 
   const injectInternalTemplateFiles = async () => {
+    // This function is now only for ETemplate.app and ETemplate.max
+    if (appTemplate === ETemplate.antProExample) {
+      // Already handled, do nothing here.
+      return;
+    }
     const latestUmiVersion = await getLatestUmiVersion(registry as string)
 
     const generator = new BaseGenerator({
-      path: join(__dirname, '..', 'templates', appTemplate),
+      // appTemplate here will be 'app' or 'max'
+      path: join(__dirname, '..', 'templates', appTemplate as string),
       target,
       slient: true,
       data: useDefaultData
@@ -300,7 +368,9 @@ export default async ({ cwd, args, defaultData }: IGeneratorOpts) => {
     })
     await generator.run()
   }
-  if (!useExternalTemplate) {
+
+  // Call injectInternalTemplateFiles only if not external and not antProExample
+  if (!useExternalTemplate && appTemplate !== ETemplate.antProExample) {
     await injectInternalTemplateFiles()
   }
 
@@ -332,8 +402,23 @@ export default async ({ cwd, args, defaultData }: IGeneratorOpts) => {
   // https://pnpm.io/npmrc#resolution-mode
   const pnpmHighestResolutionMinVersion = '8.7.0'
   const isPnpmHighestResolution =
-    isPnpm8 && semver.gte(pnpmVersion!, pnpmHighestResolutionMinVersion)
-  if (!useDefaultData && args.install !== false) {
+    isPnpm8 && pnpmVersion && semver.gte(pnpmVersion!, pnpmHighestResolutionMinVersion)
+
+  // Determine if installation should be skipped
+  let skipInstall = args.install === false;
+  if (useDefaultData && args.install === undefined) { // If --default is used, and --install is not specified, skip install by default.
+    // However, specific templates might want to override this. For now, let's assume --default implies no install unless --install is true.
+    // This behavior might need further clarification based on desired DX for --default.
+    // For this change, we'll stick to: if args.install is not false, and (not useDefaultData OR args.install is true), then install.
+    skipInstall = true; // Default to skip for --default unless --install is explicitly true
+    if (args.install === true) { // if --default and --install
+        skipInstall = false;
+    }
+  }
+
+
+  if (!skipInstall) {
+    logger.info(`Installing dependencies with ${npmClient}...`);
     if (isPnpm8 && !isPnpmHighestResolution) {
       await installAndUpdateWithPnpm(target)
     } else {
@@ -341,7 +426,7 @@ export default async ({ cwd, args, defaultData }: IGeneratorOpts) => {
     }
   } else {
     logger.info('Skip install deps')
-    if (isPnpm8) {
+    if (isPnpm8 && !skipInstall) { // only show pnpm v8 warning if we were going to install
       logger.warn(
         chalk.yellow(
           'You current using pnpm v8, it will install minimal version of dependencies',
