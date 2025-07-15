@@ -129,19 +129,22 @@ export class EsbuildMinifyFix {
 
           // merge source map
           const originMapAsString = JSON.stringify(map)
-          const mergedMap = remapping(JSON.stringify(bundleMap), (file) => {
-            if (name.endsWith(file)) {
-              return originMapAsString
-            }
-            return null
-          })
+          const mergedMapResult = remapping(
+            JSON.stringify(bundleMap),
+            (file) => {
+              if (name.endsWith(file)) {
+                return originMapAsString
+              }
+              return null
+            },
+          )
 
           output.source = new SourceMapSource(
             newCode,
             name,
-            mergedMap,
+            JSON.stringify(mergedMapResult || bundleMap),
             originCode,
-            map,
+            (typeof map === 'string' ? map : JSON.stringify(map)) as any,
             true,
           )
         } else {
