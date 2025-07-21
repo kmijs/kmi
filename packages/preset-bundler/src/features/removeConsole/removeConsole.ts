@@ -16,10 +16,10 @@ export default (api: IApi) => {
 
   api.onCheckConfig(({ userConfig }) => {
     if (userConfig.jsMinifier === 'uglifyJs') {
-      throw new Error('removeConsole 不支持 uglifyJs')
+      throw new Error('removeConsole does not support uglifyJs')
     }
     if (api.appData.bundler === 'webpack' && userConfig.jsMinifier === 'swc') {
-      throw new Error('removeConsole 在 webpack 模式下不支持使用 swc 压缩')
+      throw new Error('removeConsole does not support using swc compression in webpack mode')
     }
   })
 
