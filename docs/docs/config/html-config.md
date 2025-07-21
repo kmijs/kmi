@@ -110,8 +110,6 @@ links: [{ href: '/foo.css', rel: 'preload' }]
 ```
 
 ```ts [config/config.ts]
-import { defineConfig } from '@kmi/kmijs'
-
 export default defineConfig({
   links: [{ href: '/foo.css', rel: 'preload' }]  // [!code ++]
 })
@@ -175,8 +173,6 @@ type MetaOptions = {
 
 比如设置 description：
 ```ts [config/config.ts]
-import { defineConfig } from '@kmi/kmijs'
-
 export default defineConfig({
   metas: {
     description: 'a description of the page', // [!code ++]
@@ -203,8 +199,6 @@ type MetaOptions = {
 比如配置配置 X-UA-Compatible
 
 ```ts [config/config.ts]
-import { defineConfig } from '@kmi/kmijs'
-
 export default defineConfig({
   metas: {
     'X-UA-Compatible': { // [!code ++]
@@ -233,8 +227,6 @@ type Metas = Array<HTMLMetaElement>
 示例：
 
 ```ts [config/config.ts]
-import { defineConfig } from '@kmi/kmijs'
-
 export default defineConfig({
   metas: [
     { name: 'keywords', content: 'kmi, kmijs' }, // [!code ++]
