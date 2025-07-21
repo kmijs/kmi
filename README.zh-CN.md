@@ -151,6 +151,8 @@ pnpm dev
 pnpm build
 ```
 
+如果您觉得这个项目有帮助，欢迎给我们点个 star ⭐️⭐️⭐️
+
 ## 许可证
 
 [MIT](./LICENSE)
