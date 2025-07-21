@@ -26,7 +26,7 @@ export default (api: IApi) => {
   api.modifyConfig((memo) => {
     const { removeConsole } = memo
     const isRspack = api.appData.bundler === 'rspack'
-    // 默认是 esbuild
+    // Default is esbuild
     const jsMinifier =
       api.appData.bundler === 'rspack'
         ? api.userConfig.jsMinifier || 'swc'
