@@ -296,7 +296,7 @@ export default defineConfig({
 比如将 node_modules 下的 `@m-ui/react` 库拆分到 `m-ui.js` 中：
 
 ```ts [config/config.ts]
-import { createDependenciesRegExp } from '@kmi/kmijs/plugin-utils'
+import { createDependenciesRegExp } from 'umi/plugin-utils'
 
 export default defineConfig({
   codeSplitting: {
@@ -318,7 +318,7 @@ export default defineConfig({
 可以通过 `codeSplitting.override` 配置项来自定义 Rspack(Webpack) 拆包配置, 此配置会和 Rspack(Webpack) 的 splitChunks 配置进行合并（cacheGroups 配置也会合并）。比如:
 
 ```ts [config/config.ts]
-import { createDependenciesRegExp } from '@kmi/kmijs/plugin-utils'
+import { createDependenciesRegExp } from 'umi/plugin-utils'
 
 export default defineConfig({
   codeSplitting: {

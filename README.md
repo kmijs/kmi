@@ -152,6 +152,8 @@ pnpm dev
 pnpm build
 ```
 
+If you find this helpful, welcome to give us a star ⭐️⭐️⭐️
+
 ## License
 
 [MIT](./LICENSE)

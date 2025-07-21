@@ -14,8 +14,6 @@
 从 Umi 的 `4.4.11` 版本起，在一个已有的 Umi 项目中，你仅需在 `config/config.ts` 中添加以下配置，即可启用 Rspack 构建：
 
 ```ts [config/config.ts]
-import { defineConfig } from '@kmi/kmijs';
-
 export default defineConfig({
   // Configure Kmi preset
   presets: ['@kmijs/preset-bundler'],
