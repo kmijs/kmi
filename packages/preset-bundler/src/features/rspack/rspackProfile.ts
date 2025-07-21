@@ -58,7 +58,11 @@ export default (api: IApi) => {
     fsExtra.mkdirpSync(profileDir)
 
     if (enableProfileTrace) {
-      rspack.experiments.globalTrace.register('trace', 'chrome', traceFilePath)
+      rspack.experiments.globalTrace.register(
+        'trace',
+        'perfetto',
+        traceFilePath,
+      )
     }
 
     if (enableCPUProfile) {

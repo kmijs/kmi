@@ -139,6 +139,7 @@ export class EsbuildMinifyFix {
           output.source = new SourceMapSource(
             newCode,
             name,
+            // @ts-expect-error
             mergedMap,
             originCode,
             map,
