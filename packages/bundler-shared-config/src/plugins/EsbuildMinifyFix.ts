@@ -139,6 +139,8 @@ export class EsbuildMinifyFix {
           output.source = new SourceMapSource(
             newCode,
             name,
+            // @ts-expect-error: The `mergedMap` type is incompatible with the expected type for `SourceMapSource`. 
+            // This is due to a known issue with the `remapping` library or rspack's type definitions.
             mergedMap,
             originCode,
             map,
