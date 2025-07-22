@@ -498,7 +498,7 @@ export default defineConfig({
   // external react
   externals: { react: 'React' }, // [!code ++]
   // 引入 cdn
-  headScripts: ['https://unpkg.corp.kuaishou.com/react@18.3.1/umd/react.development.js'], // [!code ++]
+  headScripts: ['https://som.com/react@18.3.1/umd/react.development.js'], // [!code ++]
 })
 ```
 
