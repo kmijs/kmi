@@ -1,5 +1,25 @@
 # @kmijs/preset-bundler
 
+## 0.0.5
+
+### Patch Changes
+
+- [`9551889`](https://github.com/kmijs/kmi/commit/955188907d2e6d037c4b319a943bdb8baadbd67d) Thanks [@xierenyuan](https://github.com/xierenyuan)! - &nbsp;
+
+  ### ✨ 新功能
+
+  - add clean option to clear output path before bundling ([#30](https://github.com/kmijs/kmi/issues/30)) ([5b78029](https://github.com/kmijs/kmi/commit/5b78029afb6ae7f0a87583e546ca5faa3e3fed7a))
+  - enable native watcher for rspack bundler
+
+- Updated dependencies [[`9551889`](https://github.com/kmijs/kmi/commit/955188907d2e6d037c4b319a943bdb8baadbd67d)]:
+  - @kmijs/babel-preset-react@0.0.5
+  - @kmijs/bundler-rspack@0.0.5
+  - @kmijs/bundler-shared@0.0.5
+  - @kmijs/bundler-webpack@0.0.5
+  - @kmijs/plugin-svgr@0.0.5
+  - @kmijs/shared@0.0.5
+  - @kmijs/types@0.0.5
+
 ## 0.0.4
 
 ### Patch Changes
