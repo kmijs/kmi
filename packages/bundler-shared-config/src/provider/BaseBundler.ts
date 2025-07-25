@@ -5,7 +5,7 @@ import type {
   Stats,
 } from '@kmijs/bundler-shared/rspack'
 import type { Configuration } from '@kmijs/bundler-shared/rspack'
-import { logger } from '@kmijs/shared'
+import { logger, rimraf } from '@kmijs/shared'
 import { Env, type IUserConfig } from '../types'
 import { esbuildCompressErrorHelper } from '../utils/esbuildCompressErrorHelper'
 import type {
@@ -72,6 +72,23 @@ export abstract class BaseBundler<
     let isFirstCompile = true
 
     return new Promise((resolve, reject) => {
+      if (opts.clean) {
+        bundlerConfigs.forEach((config) => {
+          if (config.output?.path) {
+            try {
+              logger.verbose(
+                `[BaseBundler] Cleaning output directory: ${config.output.path}`,
+              )
+              rimraf.sync(config.output.path)
+            } catch (error) {
+              logger.verbose(
+                `[BaseBundler] Cleaning output directory: ${config.output.path} failed`,
+              )
+            }
+          }
+        })
+      }
+
       const compiler = this.createCompiler({
         ...buildOptions,
         bundlerConfigs,
