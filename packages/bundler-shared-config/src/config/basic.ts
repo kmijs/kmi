@@ -4,7 +4,7 @@ import type { SharedConfigOptions } from '../types'
 import { Env } from '../types'
 
 export function applyBasic(opts: SharedConfigOptions) {
-  const { name, config, userConfig, bundler } = opts
+  const { name, config, userConfig, bundler, bundlerType } = opts
 
   const isDev = opts.env === Env.development
 
@@ -75,6 +75,7 @@ export function applyBasic(opts: SharedConfigOptions) {
   config.experiments({
     topLevelAwait: true,
     outputModule: !!userConfig.esm,
+    ...(bundlerType === 'rspack' ? { nativeWatcher: true } : {}),
   })
 
   config.infrastructureLogging({
