@@ -75,7 +75,16 @@ export abstract class BaseBundler<
       if (opts.clean) {
         bundlerConfigs.forEach((config) => {
           if (config.output?.path) {
-            rimraf.sync(config.output.path)
+            try {
+              logger.verbose(
+                `[BaseBundler] Cleaning output directory: ${config.output.path}`,
+              )
+              rimraf.sync(config.output.path)
+            } catch (error) {
+              logger.verbose(
+                `[BaseBundler] Cleaning output directory: ${config.output.path} failed`,
+              )
+            }
           }
         })
       }
