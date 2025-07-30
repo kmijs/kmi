@@ -63,7 +63,7 @@ export default (api: IApi) => {
             }),
           )
           .describe(
-            '转换 import 的路径，可以用于模块化引用三方包的子路径，能力类似于 babel-plugin-impor',
+            '转换 import 的路径，可以用于模块化引用三方包的子路径，能力类似于 babel-plugin-import',
           )
       },
     },
