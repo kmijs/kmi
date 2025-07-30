@@ -68,3 +68,4 @@ examples/*/.vscode
 
 .umi
 .umi-*
+.takumi/todos

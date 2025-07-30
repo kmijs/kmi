@@ -157,5 +157,12 @@ export default defineConfig({
   },
   esbuildMinifyIIFE: true,
   requestRecord: {},
-  rspack: {}
+  rspack: {},
+  transformImport: [
+    {
+      libraryName: 'antd',
+      libraryDirectory: 'es',
+      style: false,
+    },
+  ],
 });
