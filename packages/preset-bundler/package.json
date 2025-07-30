@@ -1,6 +1,6 @@
 {
   "name": "@kmijs/preset-bundler",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "umi preset supports rspack and webpack",
   "keywords": [
     "umi",

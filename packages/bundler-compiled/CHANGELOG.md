@@ -1,5 +1,19 @@
 # @kmijs/bundler-compiled
 
+## 0.0.6
+
+### Patch Changes
+
+- [`7d14b5c`](https://github.com/kmijs/kmi/commit/7d14b5c21b97af1b7d86cceedca3192bd56660b5) Thanks [@xierenyuan](https://github.com/xierenyuan)! - &nbsp;
+
+  ### ✨ 新功能
+
+  - add transformImport feature for module path conversion ([#32](https://github.com/kmijs/kmi/issues/32)) ([9bfda63](https://github.com/kmijs/kmi/commit/9bfda6305bde42e69088aba20f12baeabf1e7bce))
+
+- Updated dependencies [[`7d14b5c`](https://github.com/kmijs/kmi/commit/7d14b5c21b97af1b7d86cceedca3192bd56660b5)]:
+  - @kmijs/bundler-shared@0.0.6
+  - @kmijs/shared@0.0.6
+
 ## 0.0.5
 
 ### Patch Changes
