@@ -986,6 +986,9 @@ importers:
       '@kmijs/babel-preset-react':
         specifier: workspace:*
         version: link:../babel-preset-react
+      '@kmijs/bundler-compiled':
+        specifier: workspace:*
+        version: link:../bundler-compiled
       '@kmijs/bundler-rspack':
         specifier: workspace:*
         version: link:../bundler-rspack
@@ -1014,6 +1017,9 @@ importers:
         specifier: 0.14.0
         version: 0.14.0
     devDependencies:
+      babel-plugin-import:
+        specifier: 1.13.8
+        version: 1.13.8
       umi:
         specifier: ^4.4.11
         version: 4.4.11(@types/node@20.8.9)(@types/react@18.0.26)(prettier@3.0.3)(typescript@5.2.2)
@@ -6603,15 +6609,6 @@ packages:
       '@napi-rs/nice-win32-x64-msvc': 1.0.1
     optional: true
 
-  /@napi-rs/wasm-runtime@0.2.10:
-    resolution: {integrity: sha512-bCsCyeZEwVErsGmyPNSzwfwFn4OdxBj0mmv6hOFucB/k81Ojdu68RbZdxYsRQUPc9l6SU5F/cG+bXgWs3oUgsQ==}
-    requiresBuild: true
-    dependencies:
-      '@emnapi/core': 1.4.3
-      '@emnapi/runtime': 1.4.3
-      '@tybys/wasm-util': 0.9.0
-    optional: true
-
   /@napi-rs/wasm-runtime@0.2.12:
     resolution: {integrity: sha512-ZVWUcfwY4E/yPitQJl481FjFo3K22D6qF0DuFH6Y/nbnE11GY5uguDxZMGXPQ8WQ0128MXQD7TnfHyK4oWoIJQ==}
     requiresBuild: true
@@ -6619,7 +6616,6 @@ packages:
       '@emnapi/core': 1.4.3
       '@emnapi/runtime': 1.4.3
       '@tybys/wasm-util': 0.10.0
-    dev: false
     optional: true
 
   /@nicolo-ribaudo/eslint-scope-5-internals@5.1.1-v1:
@@ -6724,7 +6720,7 @@ packages:
     cpu: [wasm32]
     requiresBuild: true
     dependencies:
-      '@napi-rs/wasm-runtime': 0.2.10
+      '@napi-rs/wasm-runtime': 0.2.12
     dev: false
     optional: true
 
@@ -7472,7 +7468,7 @@ packages:
     cpu: [wasm32]
     requiresBuild: true
     dependencies:
-      '@napi-rs/wasm-runtime': 0.2.10
+      '@napi-rs/wasm-runtime': 0.2.12
     dev: true
     optional: true
 
@@ -8534,14 +8530,6 @@ packages:
 
   /@tybys/wasm-util@0.10.0:
     resolution: {integrity: sha512-VyyPYFlOMNylG45GoAe0xDoLwWuowvf92F9kySqzYh8vmYm7D2u4iUJKa1tOUpS70Ku13ASrOkS4ScXFsTaCNQ==}
-    requiresBuild: true
-    dependencies:
-      tslib: 2.8.1
-    dev: false
-    optional: true
-
-  /@tybys/wasm-util@0.9.0:
-    resolution: {integrity: sha512-6+7nlbMVX/PVDCwaIQ8nTOPveOcFLSt8GcXdx8hD0bt39uWxYT88uXzqTd4fTvqta7oeUJqudepapKNt2DYJFw==}
     requiresBuild: true
     dependencies:
       tslib: 2.8.1
