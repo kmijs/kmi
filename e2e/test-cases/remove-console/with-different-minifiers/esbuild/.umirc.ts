@@ -1,5 +1,5 @@
 export default {
-  presets: [require.resolve('@kmijs/preset-bundler')],
+  presets: [require.resolve('../../../../../packages/preset-bundler')],
   rspack: {},
   jsMinifier: 'esbuild',
   removeConsole: true,
