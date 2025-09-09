@@ -1,5 +1,15 @@
 # @kmijs/plugin-rsdoctor
 
+## 0.0.7
+
+### Patch Changes
+
+- [`4e10762`](https://github.com/kmijs/kmi/commit/4e107623eb0e549e1f721629d11ad909f56205ad) Thanks [@xierenyuan](https://github.com/xierenyuan)! - &nbsp;
+
+  ### ✨ 新功能
+
+  - add caseSensitivePaths config option to control path sensitivity ([73f24a2](https://github.com/kmijs/kmi/commit/73f24a268b6eb90aa5e4ddd3b42a4dbbb72dfc39))
+
 ## 0.0.6
 
 ### Patch Changes
