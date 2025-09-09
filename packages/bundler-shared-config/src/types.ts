@@ -167,6 +167,12 @@ export interface IUserConfig {
     host?: string
     port?: number
   }
+
+  /**
+   * 是否启用文件路径大小写敏感检查
+   * @default true
+   */
+  caseSensitivePaths?: boolean
 }
 
 export interface SharedConfigOptions {
