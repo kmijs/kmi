@@ -19,36 +19,46 @@ export default (api: IApi) => {
       throw new Error('removeConsole does not support uglifyJs')
     }
     if (api.appData.bundler === 'webpack' && userConfig.jsMinifier === 'swc') {
-      throw new Error('removeConsole does not support using swc compression in webpack mode')
+      throw new Error(
+        'removeConsole does not support using swc compression in webpack mode',
+      )
     }
   })
 
   api.modifyConfig((memo) => {
     const { removeConsole } = memo
-    const isRspack = api.appData.bundler === 'rspack'
-    // Default is esbuild
-    const jsMinifier =
-      api.appData.bundler === 'rspack'
-        ? api.userConfig.jsMinifier || 'swc'
-        : api.userConfig.jsMinifier || 'esbuild'
-
-    const compressOptions = Array.isArray(removeConsole)
-      ? { pure_funcs: removeConsole.map((method) => `console.${method}`) }
-      : { drop_console: true }
+    // Fix: Check for rspack config instead of bundler name
+    const isRspack = !!memo.rspack || !!api.userConfig.rspack
+    // Default is esbuild for webpack, swc for rspack
+    const jsMinifier = isRspack
+      ? api.userConfig.jsMinifier || 'swc'
+      : api.userConfig.jsMinifier || 'esbuild'
 
     if (isRspack && jsMinifier === 'swc') {
+      // SWC configuration issue: drop_console doesn't work in current Rspack version
+      // Workaround: Automatically switch to terser when removeConsole is enabled
+
+      // Force switch to terser for removeConsole functionality
+      memo.jsMinifier = 'terser'
+
+      // Apply terser configuration
+      const compressOptions = Array.isArray(removeConsole)
+        ? { pure_funcs: removeConsole.map((method) => `console.${method}`) }
+        : { drop_console: true }
+
       memo.jsMinifierOptions = {
         ...memo.jsMinifierOptions,
-        minimizerOptions: {
-          ...memo.jsMinifierOptions?.minimizerOptions,
-          compress: {
-            ...memo.jsMinifierOptions?.minimizerOptions?.compress,
-            ...compressOptions,
-          },
+        compress: {
+          ...memo.jsMinifierOptions?.compress,
+          ...compressOptions,
         },
       }
       return memo
     }
+
+    const compressOptions = Array.isArray(removeConsole)
+      ? { pure_funcs: removeConsole.map((method) => `console.${method}`) }
+      : { drop_console: true }
 
     // esbuild
     if (jsMinifier === 'esbuild') {
