@@ -1,5 +1,19 @@
 # @kmijs/bundler-compiled
 
+## 0.0.8
+
+### Patch Changes
+
+- [`8b2328e`](https://github.com/kmijs/kmi/commit/8b2328eb97843fceaf976a58230287fdbe5248c4) Thanks [@xierenyuan](https://github.com/xierenyuan)! - &nbsp;
+
+  ### 🐛 问题修复
+
+  - remove console config ([#39](https://github.com/kmijs/kmi/issues/39)) ([6f2b2cc](https://github.com/kmijs/kmi/commit/6f2b2cce489a0174fd358dc3213f34e377414661))
+
+- Updated dependencies [[`8b2328e`](https://github.com/kmijs/kmi/commit/8b2328eb97843fceaf976a58230287fdbe5248c4)]:
+  - @kmijs/bundler-shared@0.0.8
+  - @kmijs/shared@0.0.8
+
 ## 0.0.7
 
 ### Patch Changes
