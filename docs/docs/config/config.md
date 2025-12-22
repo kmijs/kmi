@@ -1379,7 +1379,7 @@ jsc: {
   experimental: {
     cacheRoot: opts.cacheRoot,
     plugins: [
-      [require.resolve('@ksuni/swc-plugin-auto-css-modules'), {}],
+      [require.resolve('swc-plugin-auto-css-modules'), {}],
       ...opts.extraSwcPlugins,
       ...(opts.userConfig.extraSwcPlugins || []).filter(Boolean),
     ],

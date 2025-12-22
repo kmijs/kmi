@@ -88,6 +88,10 @@
     "node": ">=20.0.0",
     "pnpm": ">=8.0.0"
   },
+  "publishConfig": {
+    "access": "public",
+    "registry": "http://10.139.41.106:8081/repository/npm-hosted/"
+  },
   "pnpm": {
     "peerDependencyRules": {
       "ignoreMissing": [
