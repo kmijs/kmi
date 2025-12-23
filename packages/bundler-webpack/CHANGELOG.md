@@ -1,5 +1,24 @@
 # @kmijs/bundler-webpack
 
+## 0.1.0
+
+### Minor Changes
+
+- [`3689f74`](https://github.com/kmijs/kmi/commit/3689f74348052a8179c47432b638307ed460167a) Thanks [@xierenyuan](https://github.com/xierenyuan)! - &nbsp;
+
+  ### 🎫 其他更新
+
+  - update dependency versions for swc plugin and rspack core ([#50](https://github.com/kmijs/kmi/issues/50)) ([51c2966](https://github.com/kmijs/kmi/commit/51c2966db30e5d2cbf285fe96e8033c0f720afb6))
+
+### Patch Changes
+
+- Updated dependencies [[`3689f74`](https://github.com/kmijs/kmi/commit/3689f74348052a8179c47432b638307ed460167a)]:
+  - @kmijs/bundler-compiled@0.1.0
+  - @kmijs/bundler-rspack@0.1.0
+  - @kmijs/bundler-shared@0.1.0
+  - @kmijs/bundler-shared-config@0.1.0
+  - @kmijs/shared@0.1.0
+
 ## 0.0.8
 
 ### Patch Changes
