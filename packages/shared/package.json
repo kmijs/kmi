@@ -1,6 +1,6 @@
 {
   "name": "@kmijs/shared",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "kmi shared module dependencies and utility functions",
   "keywords": [],
   "repository": {
@@ -100,7 +100,8 @@
     "node": "^14.18.0 || >=16.10.0"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "http://10.139.43.221:8081/repository/npm-hosted/"
   },
   "authors": [
     "renhong.xrh@gmail.com"

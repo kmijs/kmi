@@ -1,6 +1,6 @@
 {
   "name": "@kmijs/create-kmi",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "create-kmi",
   "keywords": [],
   "repository": {
@@ -41,7 +41,7 @@
   },
   "publishConfig": {
     "access": "public",
-    "registry": "https://registry.npmjs.org/"
+    "registry": "http://10.139.43.221:8081/repository/npm-hosted/"
   },
   "authors": [
     "xierenyuan@qq.com"

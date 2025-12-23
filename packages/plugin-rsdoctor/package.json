@@ -1,6 +1,6 @@
 {
   "name": "@kmijs/plugin-rsdoctor",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "",
   "keywords": [],
   "repository": {
@@ -37,7 +37,8 @@
     "node": ">=16.10.0"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "http://10.139.43.221:8081/repository/npm-hosted/"
   },
   "authors": [
     "xierenyuan@qq.com"

@@ -90,7 +90,7 @@
   },
   "publishConfig": {
     "access": "public",
-    "registry": "http://10.139.41.106:8081/repository/npm-hosted/"
+    "registry": "http://10.139.43.221:8081/repository/npm-hosted/"
   },
   "pnpm": {
     "peerDependencyRules": {

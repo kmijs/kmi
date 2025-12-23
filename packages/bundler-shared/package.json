@@ -1,6 +1,6 @@
 {
   "name": "@kmijs/bundler-shared",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Build tool shared dependencies and utility functions",
   "keywords": [],
   "repository": {
@@ -130,7 +130,7 @@
   },
   "dependencies": {
     "@kmijs/shared": "workspace:*",
-    "@rspack/core": "1.6.8",
+    "@rspack/core": "1.7.0-beta.0",
     "@swc/helpers": "0.5.15",
     "es5-imcompatible-versions": "^0.1.78",
     "esbuild": "0.17.19",
@@ -157,7 +157,8 @@
     "node": "^14.18.0 || >=16.10.0"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "http://10.139.43.221:8081/repository/npm-hosted/"
   },
   "authors": [
     "renhong.xrh@gmail.com"
