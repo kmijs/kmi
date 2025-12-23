@@ -130,7 +130,7 @@
   },
   "dependencies": {
     "@kmijs/shared": "workspace:*",
-    "@rspack/core": "1.4.8",
+    "@rspack/core": "1.6.8",
     "@swc/helpers": "0.5.15",
     "es5-imcompatible-versions": "^0.1.78",
     "esbuild": "0.17.19",
