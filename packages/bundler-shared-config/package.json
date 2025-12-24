@@ -1,6 +1,6 @@
 {
   "name": "@kmijs/bundler-shared-config",
-  "version": "0.0.9",
+  "version": "1.0.1",
   "description": "@kmijs/bundler-shared-config",
   "keywords": [],
   "repository": {
@@ -17,6 +17,11 @@
     "./package.json": "./package.json"
   },
   "main": "./dist/index.js",
+  "browser": {
+    "./dist/config/css/less/parallelLessLoader.js": false,
+    "node-polyfill-webpack-plugin": false,
+    "enhanced-resolve": false
+  },
   "types": "./dist/index.d.ts",
   "files": [
     "compiled",

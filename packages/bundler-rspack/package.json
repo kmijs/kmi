@@ -1,6 +1,6 @@
 {
   "name": "@kmijs/bundler-rspack",
-  "version": "0.0.9",
+  "version": "1.0.1",
   "description": "Kmi supports rspack bundling",
   "keywords": [],
   "repository": {
@@ -31,7 +31,7 @@
     "@kmijs/bundler-shared": "workspace:*",
     "@kmijs/bundler-shared-config": "workspace:*",
     "@kmijs/shared": "workspace:*",
-    "@kmijs/swc-plugin-auto-css-modules": "0.0.2",
+    "@kmijs/swc-plugin-auto-css-modules": "1.0.1",
     "@swc/helpers": "0.5.15",
     "postcss": "8.4.21",
     "react-error-overlay": "6.0.9"
