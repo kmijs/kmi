@@ -1,6 +1,6 @@
 {
   "name": "@kmijs/bundler-rspack",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Kmi supports rspack bundling",
   "keywords": [],
   "repository": {
