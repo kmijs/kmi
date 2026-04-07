@@ -26,14 +26,13 @@ function getDefaultSwcConfig(opts: {
       preserveAllComments: true,
       experimental: {
         cacheRoot: opts.cacheRoot,
-        // @ts-expect-error
         plugins: [
           ...(opts.userConfig.autoCSSModules
-            ? [[require.resolve('@kmijs/swc-plugin-auto-css-modules'), {}]]
+            ? [[require.resolve('swc-plugin-auto-css-modules'), {}]]
             : []),
           ...opts.extraSwcPlugins,
           ...(opts.userConfig.extraSwcPlugins || []).filter(Boolean),
-        ],
+        ] as any,
       },
       transform: {
         legacyDecorator: true,
