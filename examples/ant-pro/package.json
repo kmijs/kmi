@@ -56,7 +56,7 @@
     "@types/react-helmet": "^6.1.11",
     "@umijs/fabric": "^2.14.1",
     "@umijs/lint": "^4.1.0",
-    "@umijs/max": "^4.6.28",
+    "@umijs/max": "^4.6.47",
     "cross-env": "^7.0.3",
     "express": "^4.18.2",
     "mockjs": "^1.1.0",

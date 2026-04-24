@@ -4,7 +4,7 @@ import type {
   Configuration,
   IBundlerConfig,
 } from '@kmijs/bundler-rspack'
-import type Config from '@kmijs/bundler-shared/rspack-chain'
+import type { RspackChain } from '@kmijs/bundler-shared/rspack-chain'
 import type { BundlerConfig, ModifyChainUtils } from './bundler'
 
 export type SplitChunks = Configuration extends {
@@ -103,9 +103,9 @@ export interface IBaseConfig
    * 通过 rspack-chain 自定义 bundler (Webpack/Rspack) 配置项
    */
   bundlerChain: (
-    memo: Config,
+    memo: RspackChain,
     args: ModifyChainUtils,
-  ) => void | Config | Promise<void | Config>
+  ) => void | RspackChain | Promise<void | RspackChain>
 }
 
 type WithFalse<T> = {

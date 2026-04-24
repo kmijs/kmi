@@ -1,7 +1,7 @@
 import { dirname, isAbsolute } from 'node:path'
 import { CHAIN_ID, depMatch } from '@kmijs/bundler-shared'
 import { Env } from '@kmijs/bundler-shared-config'
-import type Config from '@kmijs/bundler-shared/rspack-chain'
+import type { RspackChain } from '@kmijs/bundler-shared/rspack-chain'
 import { lodash, picocolors, resolve } from '@kmijs/shared'
 import { Transpiler } from '../types'
 import type { IApplyOpts } from './config'
@@ -79,7 +79,7 @@ export async function addJavaScriptRules(opts: IApplyOpts) {
         },
       ])
       .end(),
-  ] as Config.Rule<Config.Module>[]
+  ] as RspackChain.Rule<RspackChain.Module>[]
   if (userConfig.mdx) {
     srcRules.push(config.module.rule('markdown').test(/\.mdx?$/))
   }

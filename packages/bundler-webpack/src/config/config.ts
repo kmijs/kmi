@@ -27,7 +27,9 @@ export interface IOpts extends IBaseBundlerConfigOpts<IConfig> {
   cache?: {
     absNodeModulesPath?: string
     buildDependencies?: string[]
-    cacheDirectory?: string
+    storage?: {
+      directory?: string
+    }
   }
 }
 export interface IApplyOpts extends IBaseBundlerApplyOpts<IConfig> {}
@@ -78,20 +80,21 @@ export class WebpackConfig extends BaseBundlerConfig<
     // cache
     if (opts.cache) {
       config.cache({
-        type: 'filesystem',
+        type: 'persistent',
         version: require('../../package.json').version,
-        buildDependencies: {
-          config: opts.cache.buildDependencies || [],
+        buildDependencies: opts.cache.buildDependencies,
+        storage: {
+          type: 'filesystem',
+          directory:
+            opts.cache.storage?.directory ||
+            // 使用 rootDir 是在有 APP_ROOT 时，把 cache 目录放在根目录下
+            join(
+              opts.rootDir || opts.cwd,
+              'node_modules',
+              '.cache',
+              'bundler-webpack',
+            ),
         },
-        cacheDirectory:
-          opts.cache.cacheDirectory ||
-          // 使用 rootDir 是在有 APP_ROOT 时，把 cache 目录放在根目录下
-          join(
-            opts.rootDir || opts.cwd,
-            'node_modules',
-            '.cache',
-            'bundler-webpack',
-          ),
       })
 
       config.infrastructureLogging({

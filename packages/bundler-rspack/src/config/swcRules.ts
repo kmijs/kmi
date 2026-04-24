@@ -1,7 +1,7 @@
 import path, { dirname, isAbsolute } from 'node:path'
 import { CHAIN_ID, depMatch } from '@kmijs/bundler-shared'
 import type { SwcLoaderOptions } from '@kmijs/bundler-shared/rspack'
-import type Config from '@kmijs/bundler-shared/rspack-chain'
+import type { RspackChain } from '@kmijs/bundler-shared/rspack-chain'
 import { chalk, deepmerge, lodash, logger, resolve } from '@kmijs/shared'
 import type { IConfig } from '../types'
 import { applyUserBabelConfig, getDefaultBabelOptions } from '../utils/babel'
@@ -72,7 +72,10 @@ export async function addSwcRules(opts: IApplyOpts) {
   }
 
   // 用户配置
-  const mergedSwcConfig = deepmerge(swcConfig, userConfig.swc || {})
+  const mergedSwcConfig = deepmerge<SwcLoaderOptions>(
+    swcConfig,
+    (userConfig.swc || {}) as Partial<SwcLoaderOptions>,
+  )
 
   if (mergedSwcConfig.jsc?.externalHelpers) {
     config.resolve.alias.set(
@@ -152,7 +155,7 @@ export async function addSwcRules(opts: IApplyOpts) {
         },
       ])
       .end(),
-  ] as Config.Rule<Config.Module>[]
+  ] as RspackChain.Rule<RspackChain.Module>[]
 
   srcRules.forEach((rule) => rule.resolve.set('fullySpecified', false))
 

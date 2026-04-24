@@ -1,8 +1,8 @@
-import type Config from '@kmijs/bundler-shared/rspack-chain'
+import type { RspackChain } from '@kmijs/bundler-shared/rspack-chain'
 import type { Env, IConfig } from '../types'
 
 interface IOpts {
-  config: Config
+  config: RspackChain
   userConfig: IConfig
   cwd: string
   env: Env

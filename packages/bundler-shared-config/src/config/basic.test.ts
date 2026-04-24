@@ -1,11 +1,11 @@
-import Config from '@kmijs/bundler-shared/rspack-chain'
+import { RspackChain } from '@kmijs/bundler-shared/rspack-chain'
 import { stringifyConfig } from '@kmijs/shared'
 import { describe, expect, test } from 'vitest'
 import { Env, type SharedConfigOptions } from '../types'
 import { applyBasic } from './basic'
 
 const createConfig = (opts: Partial<SharedConfigOptions>) => {
-  const config = new Config()
+  const config = new RspackChain()
   applyBasic({
     cwd: __dirname,
     env: Env.production,

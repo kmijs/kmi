@@ -4,7 +4,7 @@ import type {
   SwcLoaderOptions,
 } from '@kmijs/bundler-rspack'
 import type { KmiTarget } from '@kmijs/bundler-shared'
-import type RspackChain from '@kmijs/bundler-shared/rspack-chain'
+import type { RspackChain } from '@kmijs/bundler-shared/rspack-chain'
 import type { IAdd, IEvent, IModify } from '@umijs/core'
 import type { IApi as IUmiApi } from 'umi'
 import type { Env } from './bundler'

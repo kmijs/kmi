@@ -1,7 +1,7 @@
 import type { BabelPlugin } from '@kmijs/bundler-compiled'
 import type { KmiTarget } from '@kmijs/bundler-shared'
 import type { Configuration } from '@kmijs/bundler-shared/rspack'
-import Config from '@kmijs/bundler-shared/rspack-chain'
+import { RspackChain } from '@kmijs/bundler-shared/rspack-chain'
 import { DEFAULT_BROWSER_TARGETS } from '@kmijs/shared'
 import { addSharedConfig } from '../config'
 import type { Bundler, Env, IUserConfig } from '../types'
@@ -10,7 +10,7 @@ import type { BundlerType, IBaseBundlerConfigOpts } from './types'
 
 export interface IBaseBundlerApplyOpts<U extends IUserConfig> {
   name: string
-  config: Config
+  config: RspackChain
   cwd: string
   env: Env
   babelPreset?: BabelPlugin[]
@@ -31,7 +31,7 @@ export abstract class BaseBundlerConfig<
   A extends IBaseBundlerApplyOpts<U> = IBaseBundlerApplyOpts<U>,
   O extends IBaseBundlerConfigOpts<U> = IBaseBundlerConfigOpts<U>,
 > {
-  protected config: Config
+  protected config: RspackChain
   protected userConfig: U
   protected useHash: boolean
   protected bundlerType: BundlerType
@@ -53,7 +53,7 @@ export abstract class BaseBundlerConfig<
     bundlerType: BundlerType,
     bundler: any,
   ) {
-    this.config = new Config()
+    this.config = new RspackChain()
     this.userConfig = opts.userConfig as U
     this.bundlerType = bundlerType
     this.bundler = bundler
@@ -138,6 +138,81 @@ export abstract class BaseBundlerConfig<
       isWebWorker: this.opts.target === 'web-worker',
       target: this.opts.target,
       ...(this.bundlerType === 'rspack' ? { rspack: this.bundler } : {}),
+    }
+
+    // Compatibility layer for ecosystem plugins that still assume webpack-chain APIs.
+    // In kmi v2+ we use rspack-chain as the config carrier for both webpack/rspack flows.
+    // Some plugins (e.g. qiankun slave) call output.libraryTarget(), which was migrated to
+    // output.library.type in webpack5/rspack.
+    if (this.bundlerType === 'rspack') {
+      const output: any = (this.config as any)?.output
+      if (output) {
+        const normalizeLibrary = (value: any) => {
+          if (!value) return {}
+          // webpack-chain historically allows `output.library(name: string)`
+          // webpack5/rspack prefer object form: { name, type, export, ... }
+          if (typeof value === 'string') return { name: value }
+          if (typeof value === 'object') return value
+          return {}
+        }
+        const getLibrary = () => {
+          if (typeof output.get === 'function')
+            return normalizeLibrary(output.get('library'))
+          return {}
+        }
+        const setLibrary = (patch: Record<string, any>) => {
+          const current = getLibrary()
+          const next = { ...(current || {}), ...(patch || {}) }
+          if (typeof output.library === 'function') {
+            output.library(next)
+          } else if (typeof output.set === 'function') {
+            output.set('library', next)
+          }
+        }
+
+        // Make `output.library('name')` order-independent with `libraryTarget()`.
+        // Some plugins call libraryTarget() first, then library(name), and the later
+        // string form would overwrite the object form. We normalize string -> { name }.
+        if (
+          typeof output.library === 'function' &&
+          !output.__kmiPatchedLibrary
+        ) {
+          const originalLibrary = output.library.bind(output)
+          output.library = (value: any) => {
+            if (typeof value === 'string') {
+              setLibrary({ name: value })
+              return output
+            }
+            return originalLibrary(value)
+          }
+          output.__kmiPatchedLibrary = true
+        }
+
+        if (typeof output.libraryTarget !== 'function') {
+          output.libraryTarget = (type: string) => {
+            setLibrary({ type })
+            return output
+          }
+        }
+        if (typeof output.libraryExport !== 'function') {
+          output.libraryExport = (exportName: any) => {
+            setLibrary({ export: exportName })
+            return output
+          }
+        }
+        if (typeof output.umdNamedDefine !== 'function') {
+          output.umdNamedDefine = (umdNamedDefine: boolean) => {
+            setLibrary({ umdNamedDefine })
+            return output
+          }
+        }
+        if (typeof output.auxiliaryComment !== 'function') {
+          output.auxiliaryComment = (auxiliaryComment: any) => {
+            setLibrary({ auxiliaryComment })
+            return output
+          }
+        }
+      }
     }
 
     if (this.opts.chainWebpack) {

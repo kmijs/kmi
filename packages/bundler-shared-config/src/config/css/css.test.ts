@@ -1,4 +1,4 @@
-import Config from '@kmijs/bundler-shared/rspack-chain'
+import { RspackChain } from '@kmijs/bundler-shared/rspack-chain'
 import { stringifyConfig } from '@kmijs/shared'
 import { describe, expect, test } from 'vitest'
 import { Env, type SharedConfigOptions } from '../../types'
@@ -12,7 +12,7 @@ const mockBundler = {
 }
 
 const createConfig = (opts: Partial<SharedConfigOptions>) => {
-  const config = new Config()
+  const config = new RspackChain()
   applyCss({
     cwd: __dirname,
     env: Env.development,

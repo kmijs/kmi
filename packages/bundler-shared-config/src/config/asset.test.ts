@@ -1,10 +1,10 @@
-import Config from '@kmijs/bundler-shared/rspack-chain'
+import { RspackChain } from '@kmijs/bundler-shared/rspack-chain'
 import { describe, expect, test } from 'vitest'
 import { Env, type SharedConfigOptions } from '../types'
 import { applyAsset } from './asset'
 
 const createConfig = (opts: Partial<SharedConfigOptions>) => {
-  const config = new Config()
+  const config = new RspackChain()
   applyAsset({
     cwd: __dirname,
     env: Env.development,

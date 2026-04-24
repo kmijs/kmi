@@ -122,9 +122,8 @@ export default (api: IApi) => {
   api.modifySwcLoaderOptions((memo) => {
     const { transformImport } = api.config
     if (transformImport) {
-      memo.rspackExperiments ??= {}
-      memo.rspackExperiments.import ??= []
-      memo.rspackExperiments.import.push(...transformImport)
+      memo.transformImport ??= []
+      memo.transformImport.push(...transformImport)
     }
     return memo
   })

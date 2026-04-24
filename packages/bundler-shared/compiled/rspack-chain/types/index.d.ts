@@ -1,12 +1,4 @@
-import {
-  Configuration,
-  Compiler,
-  RuleSetRule,
-  ResolveOptions,
-} from '@rspack/core';
-import * as https from 'https';
-
-export = Config;
+import { Configuration, RuleSetRule } from '@rspack/core';
 
 // The compiler type of Rspack / webpack are mismatch,
 // so we use a loose type here to allow using webpack plugins.
@@ -14,6 +6,7 @@ interface PluginInstance {
   apply: (compiler: any) => void;
   [index: string]: any;
 }
+
 
 declare namespace __Config {
   class Chained<Parent> {
@@ -32,7 +25,7 @@ declare namespace __Config {
     set<T extends keyof OptionsType>(key: T, value: OptionsType[T]): this;
     merge(obj: Partial<OptionsType>): this;
     entries(): OptionsType;
-    values<T extends keyof OptionsType>(): [OptionsType[T]][];
+    values<T extends keyof OptionsType>(): OptionsType[T][];
     when(
       condition: boolean,
       trueBrancher: (obj: this) => void,
@@ -60,24 +53,24 @@ declare namespace __Config {
 }
 
 type RspackConfig = Required<Configuration>;
-declare class Config extends __Config.ChainedMap<void> {
-  entryPoints: Config.TypedChainedMap<
-    Config,
-    { [key: string]: Config.EntryPoint }
+export declare class RspackChain extends __Config.ChainedMap<void> {
+  entryPoints: RspackChain.TypedChainedMap<
+    RspackChain,
+    { [key: string]: RspackChain.EntryPoint }
   >;
-  output: Config.Output;
-  module: Config.Module;
-  node: Config.ChainedMap<this> & ((value: boolean) => this);
-  optimization: Config.Optimization;
-  performance: Config.Performance & ((value: boolean) => this);
-  plugins: Config.Plugins<this, PluginInstance>;
-  resolve: Config.Resolve;
-  resolveLoader: Config.ResolveLoader;
-  devServer: Config.DevServer;
+  output: RspackChain.Output;
+  module: RspackChain.Module;
+  node: RspackChain.ChainedMap<this> & ((value: boolean) => this);
+  optimization: RspackChain.Optimization;
+  performance: RspackChain.Performance & ((value: boolean) => this);
+  plugins: RspackChain.Plugins<this, PluginInstance>;
+  resolve: RspackChain.Resolve;
+  resolveLoader: RspackChain.ResolveLoader;
+  devServer: RspackChain.DevServer;
 
   context(value: RspackConfig['context']): this;
   mode(value: RspackConfig['mode']): this;
-  devtool(value: Config.DevTool): this;
+  devtool(value: RspackChain.DevTool): this;
   target(value: RspackConfig['target']): this;
   watch(value: RspackConfig['watch']): this;
   watchOptions(value: RspackConfig['watchOptions']): this;
@@ -88,28 +81,33 @@ declare class Config extends __Config.ChainedMap<void> {
   experiments(value: RspackConfig['experiments']): this;
   amd(value: RspackConfig['amd']): this;
   bail(value: RspackConfig['bail']): this;
-  // TODO: Rspack does not support cache yet
-  cache(value: any): this;
-  // cache(value: RspackConfig['cache']): this;
+  cache(value: RspackConfig['cache']): this;
   dependencies(value: RspackConfig['dependencies']): this;
   ignoreWarnings(value: RspackConfig['ignoreWarnings']): this;
   loader(value: RspackConfig['loader']): this;
-  parallelism(value: RspackConfig['parallelism']): this;
-  profile(value: RspackConfig['profile']): this;
-  recordsPath(value: RspackConfig['recordsPath']): this;
-  recordsInputPath(value: RspackConfig['recordsInputPath']): this;
-  recordsOutputPath(value: RspackConfig['recordsOutputPath']): this;
   name(value: RspackConfig['name']): this;
   infrastructureLogging(value: RspackConfig['infrastructureLogging']): this;
   snapshot(value: RspackConfig['snapshot']): this;
+  lazyCompilation(value: RspackConfig['lazyCompilation']): this;
 
-  entry(name: string): Config.EntryPoint;
-  plugin(name: string): Config.Plugin<this, PluginInstance>;
+  entry(name: string): RspackChain.EntryPoint;
+  plugin(name: string): RspackChain.Plugin<this, PluginInstance>;
 
   toConfig(): Configuration;
+
+  static toString(
+    config: any,
+    {
+      verbose,
+      configPrefix,
+    }?: {
+      verbose?: boolean | undefined;
+      configPrefix?: string | undefined;
+    },
+  ): string;
 }
 
-declare namespace Config {
+export declare namespace RspackChain {
   class Chained<Parent> extends __Config.Chained<Parent> {}
   class TypedChainedMap<Parent, OptionsType> extends __Config.TypedChainedMap<
     Parent,
@@ -130,7 +128,7 @@ declare namespace Config {
     { [key: string]: Plugin<Parent, PluginType> }
   > {}
 
-  class Plugin<Parent, PluginType extends PluginInstance | ResolvePlugin>
+  class Plugin<Parent, PluginType extends PluginInstance>
     extends ChainedMap<Parent>
     implements Orderable
   {
@@ -159,44 +157,33 @@ declare namespace Config {
 
   type RspackEntry = NonNullable<Configuration['entry']>;
 
-  type WepackEntryObject = Exclude<
+  type RspackEntryObject = Exclude<
     RspackEntry,
     string | string[] | Function
   >[string];
 
-  class EntryPoint extends TypedChainedSet<Config, WepackEntryObject> {}
+  class EntryPoint extends TypedChainedSet<RspackChain, RspackEntryObject> {}
 
   type RspackModule = Required<NonNullable<Configuration['module']>>;
 
-  class Module extends ChainedMap<Config> {
+  class Module extends ChainedMap<RspackChain> {
     rules: TypedChainedMap<this, { [key: string]: Rule }>;
     generator: ChainedMap<this>;
     parser: ChainedMap<this>;
     rule(name: string): Rule;
     noParse(value: RspackModule['noParse']): this;
-    unsafeCache(value: RspackModule['unsafeCache']): this;
-    wrappedContextCritical(value: RspackModule['wrappedContextCritical']): this;
-    exprContextRegExp(value: RspackModule['exprContextRegExp']): this;
-    wrappedContextRecursive(
-      value: RspackModule['wrappedContextRecursive'],
-    ): this;
-    strictExportPresence(value: RspackModule['strictExportPresence']): this;
-    wrappedContextRegExp(value: RspackModule['wrappedContextRegExp']): this;
   }
 
   type RspackOutput = Required<NonNullable<Configuration['output']>>;
 
-  class Output extends ChainedMap<Config> {
-    auxiliaryComment(value: RspackOutput['auxiliaryComment']): this;
-    charset(value: RspackOutput['charset']): this;
+  class Output extends ChainedMap<RspackChain> {
+    assetModuleFilename(value: RspackOutput['assetModuleFilename']): this;
+    bundlerInfo(value: RspackOutput['bundlerInfo']): this;
     chunkFilename(value: RspackOutput['chunkFilename']): this;
     chunkLoadTimeout(value: RspackOutput['chunkLoadTimeout']): this;
     chunkLoadingGlobal(value: RspackOutput['chunkLoadingGlobal']): this;
     chunkLoading(value: RspackOutput['chunkLoading']): this;
     chunkFormat(value: RspackOutput['chunkFormat']): this;
-    enabledChunkLoadingTypes(
-      value: RspackOutput['enabledChunkLoadingTypes'],
-    ): this;
     crossOriginLoading(value: RspackOutput['crossOriginLoading']): this;
     devtoolFallbackModuleFilenameTemplate(
       value: RspackOutput['devtoolFallbackModuleFilenameTemplate'],
@@ -205,8 +192,10 @@ declare namespace Config {
       value: RspackOutput['devtoolModuleFilenameTemplate'],
     ): this;
     devtoolNamespace(value: RspackOutput['devtoolNamespace']): this;
+    enabledChunkLoadingTypes(
+      value: RspackOutput['enabledChunkLoadingTypes'],
+    ): this;
     filename(value: RspackOutput['filename']): this;
-    assetModuleFilename(value: RspackOutput['assetModuleFilename']): this;
     globalObject(value: RspackOutput['globalObject']): this;
     uniqueName(value: RspackOutput['uniqueName']): this;
     hashDigest(value: RspackOutput['hashDigest']): this;
@@ -217,27 +206,26 @@ declare namespace Config {
     hotUpdateGlobal(value: RspackOutput['hotUpdateGlobal']): this;
     hotUpdateMainFilename(value: RspackOutput['hotUpdateMainFilename']): this;
     library(value: RspackOutput['library']): this;
-    libraryExport(value: RspackOutput['libraryExport']): this;
-    libraryTarget(value: RspackOutput['libraryTarget']): this;
     importFunctionName(value: RspackOutput['importFunctionName']): this;
     path(value: RspackOutput['path']): this;
     pathinfo(value: RspackOutput['pathinfo']): this;
     publicPath(value: RspackOutput['publicPath']): this;
     scriptType(value: RspackOutput['scriptType']): this;
     sourceMapFilename(value: RspackOutput['sourceMapFilename']): this;
-    sourcePrefix(value: RspackOutput['sourcePrefix']): this;
     strictModuleErrorHandling(
       value: RspackOutput['strictModuleErrorHandling'],
     ): this;
     strictModuleExceptionHandling(
       value: RspackOutput['strictModuleExceptionHandling'],
     ): this;
-    umdNamedDefine(value: RspackOutput['umdNamedDefine']): this;
     workerChunkLoading(value: RspackOutput['workerChunkLoading']): this;
     enabledLibraryTypes(value: RspackOutput['enabledLibraryTypes']): this;
     environment(value: RspackOutput['environment']): this;
     compareBeforeEmit(value: RspackOutput['compareBeforeEmit']): this;
     wasmLoading(value: RspackOutput['wasmLoading']): this;
+    webassemblyModuleFilename(
+      value: RspackOutput['webassemblyModuleFilename'],
+    ): this;
     enabledWasmLoadingTypes(
       value: RspackOutput['enabledWasmLoadingTypes'],
     ): this;
@@ -246,92 +234,23 @@ declare namespace Config {
     clean(value: RspackOutput['clean']): this;
   }
 
-  // await for @types/webpack-dev-server update do v4 to remove all any
-  class DevServer extends ChainedMap<Config> {
-    allowedHosts: TypedChainedSet<this, string>;
-    after(value: (app: any, server: any, compiler: Compiler) => void): this;
-    before(value: (app: any, server: any, compiler: Compiler) => void): this;
-    bonjour(value: boolean): this;
-    clientLogLevel(
-      value:
-        | 'silent'
-        | 'trace'
-        | 'debug'
-        | 'info'
-        | 'warn'
-        | 'error'
-        | 'none'
-        | 'warning',
-    ): this;
-    compress(value: boolean): this;
-    contentBase(value: boolean | string | string[]): this;
-    contentBasePublicPath(value: string): this;
-    disableHostCheck(value: boolean): this;
-    filename(value: string): this;
-    headers(value: { [header: string]: string }): this;
-    historyApiFallback(value: boolean | any): this;
-    host(value: string): this;
-    hot(value: boolean): this;
-    hotOnly(value: boolean): this;
-    http2(value: boolean): this;
-    https(value: boolean | https.ServerOptions): this;
-    index(value: string): this;
-    injectClient(value: boolean | ((compiler: Compiler) => boolean)): this;
-    injectHot(value: boolean | ((compiler: Compiler) => boolean)): this;
-    inline(value: boolean): this;
-    lazy(value: boolean): this;
-    liveReload(value: boolean): this;
-    mimeTypes(value: Object): this;
-    noInfo(value: boolean): this;
-    onListening(value: (server: any) => void): this;
-    open(value: boolean): this;
-    openPage(value: string | string[]): this;
-    overlay(value: boolean | { warnings?: boolean; errors?: boolean }): this;
-    pfx(value: string): this;
-    pfxPassphrase(value: string): this;
-    port(value: number): this;
-    progress(value: boolean): this;
-    proxy(value: any): this;
-    public(value: string): this;
-    publicPath(publicPath: string): this;
-    quiet(value: boolean): this;
-    serveIndex(value: boolean): this;
-    setup(value: (expressApp: any) => void): this;
-    socket(value: string): this;
-    sockHost(value: string): this;
-    sockPath(value: string): this;
-    sockPort(value: number): this;
-    staticOptions(value: any): this;
-    stats(value: Configuration['stats']): this;
-    stdin(value: boolean): this;
-    transportMode(
-      value:
-        | 'sockjs'
-        | 'ws'
-        | {
-            server: 'ws';
-            client: object;
-          }
-        | {
-            client: 'sockjs';
-            server: object;
-          }
-        | {
-            client: object;
-            server: object;
-          },
-    ): this;
-    useLocalIp(value: boolean): this;
-    watchContentBase(value: boolean): this;
-    watchOptions(value: Configuration['watchOptions']): this;
-    writeToDisk(value: boolean): this;
-  }
+  type RspackDevServer = Required<
+    Exclude<Configuration['devServer'], false | null | undefined>
+  >;
+
+  type DevServerShorthandMethods<T> = {
+    [K in keyof RspackDevServer]-?: (value: RspackDevServer[K]) => T;
+  };
+
+  class DevServer extends TypedChainedMap<RspackChain, RspackDevServer> {}
+
+  interface DevServer extends DevServerShorthandMethods<DevServer> {}
 
   type RspackPerformance = Exclude<
     Required<NonNullable<Configuration['performance']>>,
     false
   >;
-  class Performance extends ChainedMap<Config> {
+  class Performance extends ChainedMap<RspackChain> {
     hints(value: RspackPerformance['hints']): this;
     maxEntrypointSize(value: RspackPerformance['maxEntrypointSize']): this;
     maxAssetSize(value: RspackPerformance['maxAssetSize']): this;
@@ -339,12 +258,7 @@ declare namespace Config {
   }
 
   type RspackResolve = Required<NonNullable<Configuration['resolve']>>;
-  type ResolvePlugin = Exclude<
-    NonNullable<ResolveOptions['plugins']>[number],
-    '...'
-  >;
-
-  class Resolve<T = Config> extends ChainedMap<T> {
+  class Resolve<T = RspackChain> extends ChainedMap<T> {
     alias: TypedChainedMap<this, { [key: string]: string | false | string[] }>;
     aliasFields: TypedChainedSet<this, RspackResolve['aliasFields'][number]>;
     conditionNames: TypedChainedSet<
@@ -356,6 +270,7 @@ declare namespace Config {
       RspackResolve['descriptionFiles'][number]
     >;
     extensions: TypedChainedSet<this, RspackResolve['extensions'][number]>;
+    extensionAlias: TypedChainedMap<this, RspackResolve['extensionAlias']>;
     mainFields: TypedChainedSet<this, RspackResolve['mainFields'][number]>;
     mainFiles: TypedChainedSet<this, RspackResolve['mainFiles'][number]>;
     exportsFields: TypedChainedSet<
@@ -369,28 +284,20 @@ declare namespace Config {
     restrictions: TypedChainedSet<this, RspackResolve['restrictions'][number]>;
     roots: TypedChainedSet<this, RspackResolve['roots'][number]>;
     modules: TypedChainedSet<this, RspackResolve['modules'][number]>;
-    plugins: TypedChainedMap<
-      this,
-      { [key: string]: Plugin<Resolve, ResolvePlugin> }
-    >;
     fallback: TypedChainedMap<
       this,
       { [key: string]: string | false | string[] }
     >;
     byDependency: TypedChainedMap<this, RspackResolve['byDependency']>;
-
-    cachePredicate(value: RspackResolve['cachePredicate']): this;
-    cacheWithContext(value: RspackResolve['cacheWithContext']): this;
     enforceExtension(value: RspackResolve['enforceExtension']): this;
     symlinks(value: RspackResolve['symlinks']): this;
-    unsafeCache(value: RspackResolve['unsafeCache']): this;
     preferRelative(value: RspackResolve['preferRelative']): this;
     preferAbsolute(value: RspackResolve['preferAbsolute']): this;
 
-    plugin(name: string): Plugin<this, ResolvePlugin>;
+    tsConfig(value: RspackResolve['tsConfig']): this;
   }
 
-  class RuleResolve<T = Config> extends Resolve<T> {
+  class RuleResolve<T = RspackChain> extends Resolve<T> {
     fullySpecified(value: boolean): this;
   }
 
@@ -410,6 +317,7 @@ declare namespace Config {
     oneOfs: TypedChainedMap<this, { [key: string]: Rule<Rule> }>;
     resolve: RuleResolve<Rule<T>>;
 
+    dependency(value: RspackRuleSet['dependency']): this;
     enforce(value: RspackRuleSet['enforce']): this;
     issuer(value: RspackRuleSet['issuer']): this;
     issuerLayer(value: RspackRuleSet['issuerLayer']): this;
@@ -418,8 +326,10 @@ declare namespace Config {
     parser(value: RspackRuleSet['parser']): this;
     generator(value: RspackRuleSet['generator']): this;
     resource(value: RspackRuleSet['resource']): this;
+    resourceFragment(value: RspackRuleSet['resourceFragment']): this;
     resourceQuery(value: RspackRuleSet['resourceQuery']): this;
     sideEffects(value: RspackRuleSet['sideEffects']): this;
+    with(value: RspackRuleSet['with']): this;
     test(value: RspackRuleSet['test']): this;
     type(value: RspackRuleSet['type']): this;
 
@@ -436,9 +346,9 @@ declare namespace Config {
     NonNullable<Configuration['optimization']>
   >;
   type SplitChunksObject = Exclude<RspackOptimization['splitChunks'], false>;
-  class Optimization extends ChainedMap<Config> {
-    minimizer(name: string): Config.Plugin<this, PluginInstance>;
-    minimizers: TypedChainedMap<this, Config.Plugin<this, PluginInstance>>;
+  class Optimization extends ChainedMap<RspackChain> {
+    minimizer(name: string): RspackChain.Plugin<this, PluginInstance>;
+    minimizers: TypedChainedMap<this, RspackChain.Plugin<this, PluginInstance>>;
     splitChunks: TypedChainedMap<this, SplitChunksObject> &
       ((value: SplitChunksObject | false) => this);
 
@@ -448,23 +358,19 @@ declare namespace Config {
     moduleIds(value: RspackOptimization['moduleIds']): this;
     chunkIds(value: RspackOptimization['chunkIds']): this;
     nodeEnv(value: RspackOptimization['nodeEnv']): this;
-    mangleWasmImports(value: RspackOptimization['mangleWasmImports']): this;
-    removeAvailableModules(
-      value: RspackOptimization['removeAvailableModules'],
-    ): this;
     removeEmptyChunks(value: RspackOptimization['removeEmptyChunks']): this;
     mergeDuplicateChunks(
       value: RspackOptimization['mergeDuplicateChunks'],
     ): this;
-    flagIncludedChunks(value: RspackOptimization['flagIncludedChunks']): this;
     providedExports(value: RspackOptimization['providedExports']): this;
     usedExports(value: RspackOptimization['usedExports']): this;
     concatenateModules(value: RspackOptimization['concatenateModules']): this;
     sideEffects(value: RspackOptimization['sideEffects']): this;
-    portableRecords(value: RspackOptimization['portableRecords']): this;
     mangleExports(value: RspackOptimization['mangleExports']): this;
     innerGraph(value: RspackOptimization['innerGraph']): this;
     realContentHash(value: RspackOptimization['realContentHash']): this;
+    avoidEntryIife(value: RspackOptimization['avoidEntryIife']): this;
+    inlineExports(value: RspackOptimization['inlineExports']): this;
   }
 
   interface RuntimeChunk {
@@ -484,6 +390,7 @@ declare namespace Config {
   class Use<Parent = Rule> extends ChainedMap<Parent> implements Orderable {
     loader(value: string): this;
     options(value: LoaderOptions): this;
+    parallel(value: boolean): this;
 
     tap(f: (options: LoaderOptions) => LoaderOptions): this;
 
@@ -492,110 +399,10 @@ declare namespace Config {
     after(name: string): this;
   }
 
-  type DevTool =
-    | 'eval'
-    | 'eval-cheap-source-map'
-    | 'eval-cheap-module-source-map'
-    | 'eval-source-map'
-    | 'cheap-source-map'
-    | 'cheap-module-source-map'
-    | 'source-map'
-    | 'inline-cheap-source-map'
-    | 'inline-cheap-module-source-map'
-    | 'inline-source-map'
-    | 'eval-nosources-cheap-source-map'
-    | 'eval-nosources-cheap-module-source-map'
-    | 'eval-nosources-source-map'
-    | 'inline-nosources-cheap-source-map'
-    | 'inline-nosources-cheap-module-source-map'
-    | 'inline-nosources-source-map'
-    | 'nosources-cheap-source-map'
-    | 'nosources-cheap-module-source-map'
-    | 'nosources-source-map'
-    | 'hidden-nosources-cheap-source-map'
-    | 'hidden-nosources-cheap-module-source-map'
-    | 'hidden-nosources-source-map'
-    | 'hidden-cheap-source-map'
-    | 'hidden-cheap-module-source-map'
-    | 'hidden-source-map'
-    | '@eval'
-    | '@eval-cheap-source-map'
-    | '@eval-cheap-module-source-map'
-    | '@eval-source-map'
-    | '@cheap-source-map'
-    | '@cheap-module-source-map'
-    | '@source-map'
-    | '@inline-cheap-source-map'
-    | '@inline-cheap-module-source-map'
-    | '@inline-source-map'
-    | '@eval-nosources-cheap-source-map'
-    | '@eval-nosources-cheap-module-source-map'
-    | '@eval-nosources-source-map'
-    | '@inline-nosources-cheap-source-map'
-    | '@inline-nosources-cheap-module-source-map'
-    | '@inline-nosources-source-map'
-    | '@nosources-cheap-source-map'
-    | '@nosources-cheap-module-source-map'
-    | '@nosources-source-map'
-    | '@hidden-nosources-cheap-source-map'
-    | '@hidden-nosources-cheap-module-source-map'
-    | '@hidden-nosources-source-map'
-    | '@hidden-cheap-source-map'
-    | '@hidden-cheap-module-source-map'
-    | '@hidden-source-map'
-    | '#eval'
-    | '#eval-cheap-source-map'
-    | '#eval-cheap-module-source-map'
-    | '#eval-source-map'
-    | '#cheap-source-map'
-    | '#cheap-module-source-map'
-    | '#source-map'
-    | '#inline-cheap-source-map'
-    | '#inline-cheap-module-source-map'
-    | '#inline-source-map'
-    | '#eval-nosources-cheap-source-map'
-    | '#eval-nosources-cheap-module-source-map'
-    | '#eval-nosources-source-map'
-    | '#inline-nosources-cheap-source-map'
-    | '#inline-nosources-cheap-module-source-map'
-    | '#inline-nosources-source-map'
-    | '#nosources-cheap-source-map'
-    | '#nosources-cheap-module-source-map'
-    | '#nosources-source-map'
-    | '#hidden-nosources-cheap-source-map'
-    | '#hidden-nosources-cheap-module-source-map'
-    | '#hidden-nosources-source-map'
-    | '#hidden-cheap-source-map'
-    | '#hidden-cheap-module-source-map'
-    | '#hidden-source-map'
-    | '#@eval'
-    | '#@eval-cheap-source-map'
-    | '#@eval-cheap-module-source-map'
-    | '#@eval-source-map'
-    | '#@cheap-source-map'
-    | '#@cheap-module-source-map'
-    | '#@source-map'
-    | '#@inline-cheap-source-map'
-    | '#@inline-cheap-module-source-map'
-    | '#@inline-source-map'
-    | '#@eval-nosources-cheap-source-map'
-    | '#@eval-nosources-cheap-module-source-map'
-    | '#@eval-nosources-source-map'
-    | '#@inline-nosources-cheap-source-map'
-    | '#@inline-nosources-cheap-module-source-map'
-    | '#@inline-nosources-source-map'
-    | '#@nosources-cheap-source-map'
-    | '#@nosources-cheap-module-source-map'
-    | '#@nosources-source-map'
-    | '#@hidden-nosources-cheap-source-map'
-    | '#@hidden-nosources-cheap-module-source-map'
-    | '#@hidden-nosources-source-map'
-    | '#@hidden-cheap-source-map'
-    | '#@hidden-cheap-module-source-map'
-    | '#@hidden-source-map'
-    | boolean;
+  // [inline-|hidden-|eval-][nosources-][cheap-[module-]]source-map[-debugids].
+  export type DevTool = RspackConfig['devtool'];
 
-  interface PluginClass<PluginType extends PluginInstance | ResolvePlugin> {
+  interface PluginClass<PluginType extends PluginInstance> {
     new (...opts: any[]): PluginType;
   }
 

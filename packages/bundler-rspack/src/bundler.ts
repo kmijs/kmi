@@ -96,14 +96,17 @@ export class RspackBundler extends BaseBundler<IConfig, IOpts> {
         const progress = {
           percent: 0,
           status: 'waiting',
-          details: [],
+          details: [] as string[],
         }
         progresses.push(progress)
         config.plugins!.push(
-          new rspack.ProgressPlugin((percent, msg, ...details) => {
+          new rspack.ProgressPlugin((percent, msg, info) => {
             progress.percent = percent
             progress.status = msg
-            ;(progress.details as string[]) = details
+            progress.details = [
+              info.builtModules?.toString() || '0',
+              info.moduleIdentifier || '',
+            ].filter(Boolean)
             opts.onProgress!({ progresses })
           }),
         )

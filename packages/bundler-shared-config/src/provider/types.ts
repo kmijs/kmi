@@ -9,7 +9,7 @@ import type {
   Configuration,
   MultiCompiler,
 } from '@kmijs/bundler-shared/rspack'
-import type Config from '@kmijs/bundler-shared/rspack-chain'
+import type { RspackChain } from '@kmijs/bundler-shared/rspack-chain'
 import type { Env, IUserConfig } from '../types'
 
 export interface IBaseConfigOpts<U extends IUserConfig = IUserConfig> {
@@ -94,7 +94,7 @@ export interface IBaseBundlerConfigOpts<U extends IUserConfig = IUserConfig> {
   extraBabelPlugins?: BabelPlugin[]
   extraBabelIncludes?: Array<string | RegExp>
   babelPreset?: BabelPlugin[]
-  chainWebpack?: (config: Config, opts: any) => void
+  chainWebpack?: (config: RspackChain, opts: any) => void
   modifyWebpackConfig?: (config: Configuration, opts: any) => Configuration
   hash?: boolean
   hmr?: boolean

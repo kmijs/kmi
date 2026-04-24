@@ -1,6 +1,6 @@
 {
   "name": "@kmijs/bundler-shared",
-  "version": "1.0.5",
+  "version": "2.0.0",
   "description": "Build tool shared dependencies and utility functions",
   "keywords": [],
   "repository": {
@@ -33,7 +33,7 @@
     },
     "./rspack-chain": {
       "types": "./compiled/rspack-chain/types/index.d.ts",
-      "default": "./compiled/rspack-chain/index.js"
+      "default": "./compiled/rspack-chain/src/index.js"
     },
     "./compiled/less": {
       "types": "./compiled/less/index.d.ts",
@@ -125,6 +125,7 @@
   "scripts": {
     "build": "father build",
     "build:deps": "kmi-scripts bundleDeps",
+    "build:rspack-chain": "node ./scripts/bundle-rspack-chain.mjs",
     "dev": "father dev --no-clean",
     "prepublishOnly": "pnpm build"
   },
@@ -132,8 +133,10 @@
     "@kmijs/shared": "workspace:*",
     "@rspack/core": "2.0.0",
     "@swc/helpers": "0.5.21",
+    "deepmerge": "^4.3.1",
     "es5-imcompatible-versions": "^0.1.78",
     "esbuild": "0.17.19",
+    "javascript-stringify": "^2.1.0",
     "oxc-resolver": "1.12.0",
     "piscina": "4.7.0",
     "rs-module-lexer": "2.5.0"

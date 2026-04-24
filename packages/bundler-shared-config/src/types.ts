@@ -17,7 +17,7 @@ import type {
   RuleSetCondition,
   rspack,
 } from '@kmijs/bundler-shared/rspack'
-import type Config from '@kmijs/bundler-shared/rspack-chain'
+import type { RspackChain } from '@kmijs/bundler-shared/rspack-chain'
 
 export interface BundlerPluginInstance {
   [index: string]: any
@@ -55,7 +55,10 @@ type ModifyWebpackOpts = {
   rspack?: typeof rspack
 }
 
-export type IChainWebpack = (config: Config, opts: ModifyWebpackOpts) => void
+export type IChainWebpack = (
+  config: RspackChain,
+  opts: ModifyWebpackOpts,
+) => void
 export type IModifyWebpackConfig = (
   config: Configuration,
   opts: ModifyWebpackOpts,
@@ -76,7 +79,7 @@ export interface IUserConfig {
   writeToDisk?: boolean
   esbuildMinifyIIFE?: boolean
   base?: string
-  devtool?: Config.DevTool
+  devtool?: RspackChain.DevTool
   alias?: Record<string, string>
   externals?: WebpackConfig['externals']
   javascriptExportsPresence?: boolean
@@ -180,7 +183,7 @@ export interface SharedConfigOptions {
   bundler: Bundler
   cwd: string
   env: Env
-  config: Config
+  config: RspackChain
   /**
    * 用户配置
    */

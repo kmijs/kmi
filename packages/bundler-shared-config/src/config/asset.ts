@@ -1,6 +1,6 @@
 import { CHAIN_ID } from '@kmijs/bundler-shared'
 import type { GeneratorOptionsByModuleType } from '@kmijs/bundler-shared/rspack'
-import type Config from '@kmijs/bundler-shared/rspack-chain'
+import type { RspackChain } from '@kmijs/bundler-shared/rspack-chain'
 import { pathe } from '@kmijs/shared'
 import {
   AUDIO_EXTENSIONS,
@@ -21,7 +21,7 @@ const chainStaticAssetRule = ({
   assetType,
 }: {
   emit: boolean
-  rule: Config.Rule
+  rule: RspackChain.Rule
   maxSize: number
   filename: string
   assetType: string

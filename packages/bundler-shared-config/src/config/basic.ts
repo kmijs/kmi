@@ -71,10 +71,12 @@ export function applyBasic(opts: SharedConfigOptions) {
   // externals
   config.externals(userConfig.externals || [])
 
+  if (userConfig.esm) {
+    config.output.module(true)
+  }
+
   // experiments
   config.experiments({
-    topLevelAwait: true,
-    outputModule: !!userConfig.esm,
     ...(bundlerType === 'rspack' ? { nativeWatcher: true } : {}),
   })
 

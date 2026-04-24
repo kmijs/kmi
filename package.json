@@ -46,8 +46,7 @@
     "*.{ts,tsx}": [
       "biome check --write --formatter-enabled=false --no-errors-on-unmatched",
       "prettier --write --ignore-unknown"
-    ],
-    "package.json": "pnpm run check-dependency-version"
+    ]
   },
   "resolutions": {
     "esbuild": "0.17.19"

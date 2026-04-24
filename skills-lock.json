@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "skills": {
+    "rspack-v2-upgrade": {
+      "source": "rstackjs/agent-skills",
+      "sourceType": "github",
+      "computedHash": "117b7c12d7d9cdcd24dd2739af036fac1b0fd8a90a424620ad2bb0a1f6b85bd7"
+    }
+  }
+}
