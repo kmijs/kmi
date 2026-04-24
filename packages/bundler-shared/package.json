@@ -130,8 +130,8 @@
   },
   "dependencies": {
     "@kmijs/shared": "workspace:*",
-    "@rspack/core": "1.7.11",
-    "@swc/helpers": "0.5.15",
+    "@rspack/core": "2.0.0",
+    "@swc/helpers": "0.5.21",
     "es5-imcompatible-versions": "^0.1.78",
     "esbuild": "0.17.19",
     "oxc-resolver": "1.12.0",
