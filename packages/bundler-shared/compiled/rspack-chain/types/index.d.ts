@@ -95,7 +95,7 @@ declare class Config extends __Config.ChainedMap<void> {
   ignoreWarnings(value: RspackConfig['ignoreWarnings']): this;
   loader(value: RspackConfig['loader']): this;
   parallelism(value: RspackConfig['parallelism']): this;
-  profile(value: RspackConfig['profile']): this;
+  // profile removed in Rspack v2
   recordsPath(value: RspackConfig['recordsPath']): this;
   recordsInputPath(value: RspackConfig['recordsInputPath']): this;
   recordsOutputPath(value: RspackConfig['recordsOutputPath']): this;
@@ -449,9 +449,7 @@ declare namespace Config {
     chunkIds(value: RspackOptimization['chunkIds']): this;
     nodeEnv(value: RspackOptimization['nodeEnv']): this;
     mangleWasmImports(value: RspackOptimization['mangleWasmImports']): this;
-    removeAvailableModules(
-      value: RspackOptimization['removeAvailableModules'],
-    ): this;
+    // removeAvailableModules removed in Rspack v2
     removeEmptyChunks(value: RspackOptimization['removeEmptyChunks']): this;
     mergeDuplicateChunks(
       value: RspackOptimization['mergeDuplicateChunks'],

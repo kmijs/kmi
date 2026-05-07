@@ -130,7 +130,7 @@
   },
   "dependencies": {
     "@kmijs/shared": "workspace:*",
-    "@rspack/core": "1.6.8",
+    "@rspack/core": "^2.0.0",
     "@swc/helpers": "0.5.15",
     "es5-imcompatible-versions": "^0.1.78",
     "esbuild": "0.17.19",
@@ -140,7 +140,7 @@
   },
   "devDependencies": {
     "@polka/compression": "1.0.0-next.25",
-    "@rspack/lite-tapable": "1.0.1",
+    "@rspack/lite-tapable": "1.1.0",
     "@types/express": "4.17.17",
     "@types/less": "3.0.3",
     "compression": "1.7.4",
@@ -154,7 +154,7 @@
     "tapable": "2.2.1"
   },
   "engines": {
-    "node": "^14.18.0 || >=16.10.0"
+    "node": ">=20.19.0"
   },
   "publishConfig": {
     "access": "public"

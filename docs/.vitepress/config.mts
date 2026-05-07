@@ -40,6 +40,7 @@ export default defineConfig({
           { text: '配置 PostCSS', link: '/guide/config-postcss' },
           { text: '环境变量', link: '/guide/env-variables' },
           { text: '使用 HTTPS 进行本地开发', link: '/guide/https' },
+          { text: '升级到 Rspack v2', link: '/guide/upgrade-v2' },
         ]
       }],
       '/config/': [
