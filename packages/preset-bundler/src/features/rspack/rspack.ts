@@ -83,9 +83,9 @@ export default (api: IApi) => {
   })
 
   api.onBuildComplete(({ err, stats }) => {
-    const hasErrors = stats.hasErrors()
+    const hasErrors = stats?.hasErrors() || false
     if (!err && !hasErrors) {
-      const statsJson = stats.toJson({
+      const statsJson = stats!.toJson({
         children: true,
         moduleTrace: true,
         timings: true,
