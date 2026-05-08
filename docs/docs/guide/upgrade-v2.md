@@ -104,6 +104,28 @@ module.identifier()
 
 - 第三个参数从 `items: string[]` 变为结构化的 `info` 对象（`{ builtModules, moduleIdentifier }`）
 
+### output.library\* 系列 API 迁移
+
+Rspack v2 将多个 `output.*` 选项合并到了 `output.library` 子对象中：
+
+| v1 配置 | v2 配置 |
+|---------|---------|
+| `output.libraryTarget` | `output.library.type` |
+| `output.libraryExport` | `output.library.export` |
+| `output.umdNamedDefine` | `output.library.umdNamedDefine` |
+| `output.auxiliaryComment` | `output.library.auxiliaryComment` |
+
+KMI 内置了兼容层，会自动将旧 API 转换为新 API（如 qiankun 插件使用的 `libraryTarget`）。但如果你在自定义 `chainWebpack` 中直接使用了这些旧选项，建议迁移：
+
+```ts
+// v1 写法（兼容层会自动转换，但建议迁移）
+config.output.libraryTarget('umd')
+config.output.libraryExport('MyLib')
+
+// v2 写法
+config.output.library({ type: 'umd', export: 'MyLib' })
+```
+
 ### `optimization.removeAvailableModules` 移除
 
 此配置在 Rspack 中无实际效果，v2 已直接移除。如果你的代码中显式设置了它，可以安全删除。
