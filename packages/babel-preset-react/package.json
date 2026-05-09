@@ -21,7 +21,7 @@
     "prepublishOnly": "pnpm build"
   },
   "dependencies": {
-    "@babel/runtime": "7.23.6",
+    "@babel/runtime": "7.26.10",
     "@bloomberg/record-tuple-polyfill": "0.0.4",
     "@kmijs/bundler-compiled": "workspace:*",
     "@kmijs/shared": "workspace:*",
