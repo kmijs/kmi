@@ -51,7 +51,7 @@ export default (api: IApi) => {
       const isDev = api.env === 'development'
       const useFastRefresh = isDev && api.config.fastRefresh !== false
       if (useFastRefresh) {
-        const { default: ReactRefreshRspackPlugin } = await import(
+        const { ReactRefreshRspackPlugin } = await import(
           '@rspack/plugin-react-refresh'
         )
         const SCRIPT_REGEX = /\.(?:js|jsx|mjs|cjs|ts|tsx|mts|cts)$/

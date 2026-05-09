@@ -4,10 +4,6 @@ exports[`output > normal 1`] = `
 "{
   mode: 'production',
   stats: 'none',
-  experiments: {
-    topLevelAwait: true,
-    outputModule: false
-  },
   infrastructureLogging: {
     level: 'warn'
   },
@@ -44,10 +40,6 @@ exports[`output > 自定义 extensions 1`] = `
 "{
   mode: 'production',
   stats: 'none',
-  experiments: {
-    topLevelAwait: true,
-    outputModule: false
-  },
   infrastructureLogging: {
     level: 'warn'
   },

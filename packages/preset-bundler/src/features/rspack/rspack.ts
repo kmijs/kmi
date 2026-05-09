@@ -83,9 +83,9 @@ export default (api: IApi) => {
   })
 
   api.onBuildComplete(({ err, stats }) => {
-    const hasErrors = stats.hasErrors()
+    const hasErrors = stats?.hasErrors() || false
     if (!err && !hasErrors) {
-      const statsJson = stats.toJson({
+      const statsJson = stats!.toJson({
         children: true,
         moduleTrace: true,
         timings: true,
@@ -111,6 +111,82 @@ export default (api: IApi) => {
     if (process.env.LOCK_CORE_JS !== 'none') {
       memo.resolve.alias.set('core-js', CORE_JS_DIR)
     }
+
+    // 修复 Rspack v2 已移除的 output 选项兼容性问题
+    // 这些选项在 Rspack v2 中已移动或移除，需要自动转换以避免构建失败
+    const libraryTarget = memo.output.get('libraryTarget') as string | undefined
+    if (libraryTarget) {
+      const library = memo.output.get('library') as
+        | string
+        | { name?: string; type?: string }
+        | undefined
+      memo.output.delete('libraryTarget')
+
+      if (typeof library === 'string') {
+        memo.output.library({
+          name: library,
+          type: libraryTarget,
+        })
+      } else if (library && typeof library === 'object' && !library.type) {
+        memo.output.library({
+          ...library,
+          type: libraryTarget,
+        })
+      }
+    }
+
+    const libraryExport = memo.output.get('libraryExport') as
+      | string
+      | string[]
+      | undefined
+    if (libraryExport) {
+      const library = memo.output.get('library') as any
+      memo.output.delete('libraryExport')
+      if (typeof library === 'object' && library) {
+        memo.output.library({
+          ...library,
+          export: libraryExport,
+        })
+      }
+    }
+
+    const umdNamedDefine = memo.output.get('umdNamedDefine') as
+      | boolean
+      | undefined
+    if (umdNamedDefine !== undefined) {
+      const library = memo.output.get('library') as any
+      memo.output.delete('umdNamedDefine')
+      if (typeof library === 'object' && library) {
+        memo.output.library({
+          ...library,
+          umdNamedDefine,
+        })
+      }
+    }
+
+    const auxiliaryComment = memo.output.get('auxiliaryComment') as
+      | string
+      | { before?: string; after?: string }
+      | undefined
+    if (auxiliaryComment) {
+      const library = memo.output.get('library') as any
+      memo.output.delete('auxiliaryComment')
+      if (typeof library === 'object' && library) {
+        memo.output.library({
+          ...library,
+          auxiliaryComment,
+        })
+      }
+    }
+
+    if (memo.output.has('charset')) {
+      memo.output.delete('charset')
+    }
+
+    if (memo.optimization.has('removeAvailableModules')) {
+      memo.optimization.delete('removeAvailableModules')
+    }
+
     return memo
   })
 

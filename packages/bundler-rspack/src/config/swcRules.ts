@@ -73,7 +73,10 @@ export async function addSwcRules(opts: IApplyOpts) {
   }
 
   // 用户配置
-  const mergedSwcConfig = deepmerge(swcConfig, userConfig.swc || {})
+  const mergedSwcConfig = deepmerge<any, any>(
+    swcConfig,
+    userConfig.swc || {},
+  ) as SwcLoaderOptions
 
   if (mergedSwcConfig.jsc?.externalHelpers) {
     config.resolve.alias.set(

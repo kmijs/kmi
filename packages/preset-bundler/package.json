@@ -41,7 +41,7 @@
     "@kmijs/plugin-svgr": "workspace:*",
     "@kmijs/shared": "workspace:*",
     "@kmijs/types": "workspace:*",
-    "@rspack/plugin-react-refresh": "^1.0.1",
+    "@rspack/plugin-react-refresh": "^2.0.0",
     "core-js": "3.28.0",
     "react-refresh": "0.14.0"
   },
@@ -50,7 +50,7 @@
     "umi": "^4.4.11"
   },
   "engines": {
-    "node": ">=16.10.0"
+    "node": ">=20.19.0"
   },
   "publishConfig": {
     "access": "public"

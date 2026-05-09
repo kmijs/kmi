@@ -1,13 +1,19 @@
 # 使用 Rspack
 
 :::tip Rspack 介绍
-[Rspack](https://rspack.dev/zh/index) 是一个基于 Rust 编写的高性能 JavaScript 打包工具， 它提供对 webpack 生态良好的兼容性，能够无缝替换 webpack， 并提供闪电般的构建速度。
+[Rspack](https://rspack.rs/zh/) 是一个基于 Rust 编写的高性能 JavaScript 打包工具， 它提供对 webpack 生态良好的兼容性，能够无缝替换 webpack， 并提供闪电般的构建速度。
 
 相较于 webpack，Rspack 的构建性能有明显提升，除了 Rust 带来的语言优势，这也来自于它的并行架构和增量编译等特性。经过 benchmark 验证，Rspack 可以带来 5 ～ 10 倍编译性能的提升。
 :::
 
+:::warning Node.js 版本要求
+KMI 当前版本基于 Rspack 2.0，要求 Node.js **>= 20.19.0** 或 **>= 22.12.0**。如果你使用的 Node.js 版本低于要求，请先升级 Node.js。
+:::
+
 **Kmi 提供开箱即用的 Rspack 支持**，你可以在成熟的 Webpack 和更快的 Rspack 之间进行切换。
 这篇文档会向你介绍如何在 Kmi 中开启 Rspack 构建模式。
+
+如果你正在从旧版本升级，请参考 [升级到 Rspack v2](/guide/upgrade-v2)。
 
 ## 开启 Rspack 构建
 
@@ -30,7 +36,7 @@ export default defineConfig({
 
 在使用 Rspack 前，你需要了解以下事项：
 
-- Rspack 能够兼容大部分 webpack 插件和几乎所有的 loaders，但仍有少数 webpack 插件暂时无法使用，详见 [Plugin 兼容](https://rspack.dev/zh/guide/compatibility/plugin)。
+- Rspack 能够兼容大部分 webpack 插件和几乎所有的 loaders，但仍有少数 webpack 插件暂时无法使用，详见 [Plugin 兼容](https://rspack.rs/zh/guide/compatibility/plugin)。
 - Rspack 默认基于 SWC 进行代码编译和压缩， 如项目使用了 额外的 babel 插件, 请检查是否有替代的 swc 插件 或者通过 `useBabel` 启用 babel 支持。
 
 ## 配置迁移
@@ -135,7 +141,7 @@ export default defineConfig({
 ```
 
 同时，你需要尽快联系第三方依赖的开发者来修复相应的问题。
-你可以查看 Rspack 的文档来了解 [module.parser.javascript.exportsPresence](https://rspack.dev/zh/config/module#moduleparserjavascriptexportspresence) 的更多细节。
+你可以查看 Rspack 的文档来了解 [module.parser.javascript.exportsPresence](https://rspack.rs/zh/config/module#moduleparserjavascriptexportspresence) 的更多细节。
 
 ### Less 配置不支持
 less-loader 配置、不支持函数配置。在新版本的 rspack 支持中 less 编译我们使用了 `piscina` 的 workers 并行编译 less 文件, 这可以加速编译过程。但是受限于 workers less 不在支持直接传函数、如需需要可通过一下配置切换到默认 less 支持

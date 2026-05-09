@@ -26,7 +26,7 @@ export default defineWorkspace([
       setupFiles: ['./scripts/vitest.setup.ts'],
     },
     esbuild: {
-      target: 'node18',
+      target: 'node20',
     },
   },
 ])

@@ -9,7 +9,7 @@ export class RuntimePublicPathPlugin {
       compilation.hooks.runtimeModule.tap(PLUGIN_NAME, (module) => {
         // The hook to get the public path ('__webpack_require__.p')
         // https://github.com/webpack/webpack/blob/master/lib/runtime/PublicPathRuntimeModule.js
-        if (module.constructorName === 'PublicPathRuntimeModule') {
+        if (module.constructor.name === 'PublicPathRuntimeModule') {
           if (module.source) {
             // If current public path is handled by mini-css-extract-plugin, skip it
             const originSource = module.source?.source.toString('utf-8')
