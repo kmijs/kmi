@@ -1,7 +1,8 @@
 import React from 'react';
 import { useLocation } from 'umi';
+import styles from './index.less';
 
 export default () => {
   const location = useLocation();
-  return <div>About {location.pathname}</div>;
+  return <div className={styles.hi}>About {location.pathname}</div>;
 };
