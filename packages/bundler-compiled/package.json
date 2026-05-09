@@ -1,6 +1,6 @@
 {
   "name": "@kmijs/bundler-compiled",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "@kmijs/bundler-compiled 预打包 babel 等三方依赖",
   "keywords": [],
   "repository": {

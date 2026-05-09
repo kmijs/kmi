@@ -1,5 +1,19 @@
 # @kmijs/babel-preset-react
 
+## 0.2.0
+
+### Minor Changes
+
+- [`c98eabc`](https://github.com/kmijs/kmi/commit/c98eabc3698ffc12727320d79d92f03bd19f471b) Thanks [@xierenyuan](https://github.com/xierenyuan)! - &nbsp;
+
+  - rspack 升级到 v2
+
+### Patch Changes
+
+- Updated dependencies [[`c98eabc`](https://github.com/kmijs/kmi/commit/c98eabc3698ffc12727320d79d92f03bd19f471b)]:
+  - @kmijs/bundler-compiled@0.2.0
+  - @kmijs/shared@0.2.0
+
 ## 0.1.0
 
 ### Minor Changes
